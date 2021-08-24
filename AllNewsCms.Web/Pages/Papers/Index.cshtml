@@ -1,0 +1,175 @@
+﻿@page
+@model AllNewsCms.Web.Pages.Papers.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="tab-header d-flex align-items-center alert-info p-2">
+    <strong>Paper List </strong>
+    <a asp-area="" asp-page="Create" class="btn btn-outline-info ml-auto">Create Paper</a>
+    
+
+</div>
+<hr />
+<div class="row">
+    <div class="col-12 col-md-6">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+    </div>
+    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+        <a asp-page-handler="/" class="btn btn-outline-secondary m-2"><span class="fas fa-grip-horizontal"></span></a>
+
+        @foreach (var filterbtn in Model.CategoryPapers)
+        {
+            <a asp-page-handler="/" asp-route-id="@filterbtn.Id" class="btn btn-outline-secondary m-2" name="filterNewsCategory" value="@filterbtn.Id">@filterbtn.CategoryName</a>
+        }
+    </div>
+
+</div>
+<div class="paginait-count d-flex align-items-center justify-content-start">
+    <strong class="mr-1">Page</strong><strong>@(Model.CurrentPage)</strong>
+</div>
+<div class="row">
+    <div class="col">
+        
+
+        <table id="myTable">
+            <tr class="header">
+                <th scope="col">#</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Papers[0].Title)</th>
+                <th scope="col" class=" d-none d-md-table-cell">@Html.DisplayNameFor(x => x.Papers[0].Category.CategoryName)</th>
+                <th scope="col" class="d-none d-lg-table-cell">@Html.DisplayNameFor(x => x.Papers[0].CreatedDate)</th>
+                <th scope="col">View</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            @if (Model.Papers != null)
+            {
+                var i = 0;
+                @foreach (var papers in Model.Papers)
+                {
+                    ++i;
+                    <tr>
+                        <td scope="row">@i</td>
+                        <td class="font-revo">@papers.Title</td>
+                        <td class="font-revo d-none d-md-table-cell">@papers?.Category?.CategoryName</td>
+                        <td class="d-none d-lg-table-cell">@papers.CreatedDate</td>
+                        <td><a data-toggle="modal" data-target="#exampleModalCenter_@i" class="more-btn btn btn-light fas fa-eye"></a></td>
+                        <td><a asp-area="" asp-page="./Create" asp-route-id="@papers.Id" class="more-btn btn btn-light fas fa-pen-alt"></a></td>
+                        <td><a asp-area="" asp-page="./Delete" asp-route-id="@papers.Id" class="more-btn btn btn-light fas fa-trash-alt"></a></td>
+
+                        <td>
+                            <div class="modal fade" id="exampleModalCenter_@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered rtl" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="text-align:center">
+
+                                            <div class="form-view p-1">
+                                                <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].Title)</h6>
+                                                <span>@papers.Title</span>
+
+                                            </div>
+                                            @if (papers.Image != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].Image)</h6>
+                                                    <img src="@papers.Image" alt="Alternate Text" />
+
+                                                </div>
+                                            }
+                                            @if (papers.ImageCoverPath != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].Image)</h6>
+                                                    <img src="/Upload/Papers/Images/@papers.ImageCoverPath" alt="Alternate Text" />
+
+                                                </div>
+                                            }
+                                        
+                                            @if (papers.Description != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].Description)</h6>
+
+                                                    <div class="modal-desc">
+                                                        <pre>@papers.Description</pre>
+                                                    </div>
+                                                </div>
+                                            }
+                                            @if (papers.Download != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].Download)</h6>
+                                                    <a class="btn btn-dark" href="~/Upload/Papers/Downloads/@papers.Download">Download</a>
+
+                                                </div>
+                                            }
+
+                                            <div class="form-view p-1 d-flex">
+                                                <div class="form-view p-1 w-50">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].CreatedDate)</h6>
+                                                    <span>@papers.CreatedDate</span>
+
+                                                </div>
+                                                <div class="form-view p-1 w-50">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].CreatedUser)</h6>
+                                                    <span>@papers.CreatedUser?.UserName</span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-view p-1 d-flex">
+                                                <div class="form-view p-1 w-50">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].UpdatedDate)</h6>
+                                                    <span>@papers.UpdatedDate</span>
+
+                                                </div>
+                                                <div class="form-view p-1 w-50">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.Papers[0].UpdatedUser)</h6>
+                                                    <span>@papers.UpdatedUser?.UserName</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+                }
+            }
+
+
+        </table>
+
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col">
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item @(Model.CurrentPage==1?"disabled":"")">
+                    <a class="page-link" href="/Papers/Index?currentpage=@(Model.CurrentPage-1)">Previous</a>
+                </li>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i==Model.CurrentPage?"active":"")">
+                        <a class="page-link" href="/Papers/Index?currentpage=@i">@i</a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.CurrentPage==Model.TotalPages?"disabled":"")">
+                    <a class="page-link" href="/Papers/Index?currentpage=@(Model.CurrentPage+1)">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>

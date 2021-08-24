@@ -1,0 +1,14 @@
+E:\AllNews\Allnews\AllNews.App\bin\Debug\netcoreapp3.1\AllNews.App.deps.json
+E:\AllNews\Allnews\AllNews.App\bin\Debug\netcoreapp3.1\AllNews.App.dll
+E:\AllNews\Allnews\AllNews.App\bin\Debug\netcoreapp3.1\AllNews.App.pdb
+E:\AllNews\Allnews\AllNews.App\bin\Debug\netcoreapp3.1\AllNews.Data.dll
+E:\AllNews\Allnews\AllNews.App\bin\Debug\netcoreapp3.1\AllNews.Domain.dll
+E:\AllNews\Allnews\AllNews.App\bin\Debug\netcoreapp3.1\AllNews.Data.pdb
+E:\AllNews\Allnews\AllNews.App\bin\Debug\netcoreapp3.1\AllNews.Domain.pdb
+E:\AllNews\Allnews\AllNews.App\obj\Debug\netcoreapp3.1\AllNews.App.csprojAssemblyReference.cache
+E:\AllNews\Allnews\AllNews.App\obj\Debug\netcoreapp3.1\AllNews.App.AssemblyInfoInputs.cache
+E:\AllNews\Allnews\AllNews.App\obj\Debug\netcoreapp3.1\AllNews.App.AssemblyInfo.cs
+E:\AllNews\Allnews\AllNews.App\obj\Debug\netcoreapp3.1\AllNews.App.csproj.CoreCompileInputs.cache
+E:\AllNews\Allnews\AllNews.App\obj\Debug\netcoreapp3.1\AllNews.App.csproj.CopyComplete
+E:\AllNews\Allnews\AllNews.App\obj\Debug\netcoreapp3.1\AllNews.App.dll
+E:\AllNews\Allnews\AllNews.App\obj\Debug\netcoreapp3.1\AllNews.App.pdb

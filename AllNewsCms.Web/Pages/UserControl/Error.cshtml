@@ -1,0 +1,27 @@
+﻿@page
+@model AllNewsCms.Web.Pages.UserControl.ErrorModel
+@{
+    ViewData["Title"] = "Error";
+}
+
+<br />
+<br />
+<div class="row">
+    <div class="col-md-6 m-auto">
+        <div class="alert alert-danger d-flex align-items-center justify-content-center p-4">
+
+            <h3 class="fas fa-times-circle mr-2"></h3>
+            <h3>Only Inactive Users Can Be Deleted</h3>
+
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col-md-6 m-auto">
+        <div class="d-flex align-items-center justify-content-center">
+            <a asp-page="./Index" class="btn btn-outline-info">Back To Page</a>
+        </div>
+    </div>
+</div>
+

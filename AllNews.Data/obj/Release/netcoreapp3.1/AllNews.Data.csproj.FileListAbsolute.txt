@@ -1,0 +1,15 @@
+E:\AllNews\Allnews\AllNews.Data\bin\Release\netcoreapp3.1\AllNews.Data.deps.json
+E:\AllNews\Allnews\AllNews.Data\bin\Release\netcoreapp3.1\AllNews.Data.runtimeconfig.json
+E:\AllNews\Allnews\AllNews.Data\bin\Release\netcoreapp3.1\AllNews.Data.runtimeconfig.dev.json
+E:\AllNews\Allnews\AllNews.Data\bin\Release\netcoreapp3.1\AllNews.Data.dll
+E:\AllNews\Allnews\AllNews.Data\bin\Release\netcoreapp3.1\AllNews.Data.pdb
+E:\AllNews\Allnews\AllNews.Data\bin\Release\netcoreapp3.1\AllNews.Domain.dll
+E:\AllNews\Allnews\AllNews.Data\bin\Release\netcoreapp3.1\AllNews.Domain.pdb
+E:\AllNews\Allnews\AllNews.Data\obj\Release\netcoreapp3.1\AllNews.Data.csprojAssemblyReference.cache
+E:\AllNews\Allnews\AllNews.Data\obj\Release\netcoreapp3.1\AllNews.Data.AssemblyInfoInputs.cache
+E:\AllNews\Allnews\AllNews.Data\obj\Release\netcoreapp3.1\AllNews.Data.AssemblyInfo.cs
+E:\AllNews\Allnews\AllNews.Data\obj\Release\netcoreapp3.1\AllNews.Data.csproj.CoreCompileInputs.cache
+E:\AllNews\Allnews\AllNews.Data\obj\Release\netcoreapp3.1\AllNews.Data.csproj.CopyComplete
+E:\AllNews\Allnews\AllNews.Data\obj\Release\netcoreapp3.1\AllNews.Data.dll
+E:\AllNews\Allnews\AllNews.Data\obj\Release\netcoreapp3.1\AllNews.Data.pdb
+E:\AllNews\Allnews\AllNews.Data\obj\Release\netcoreapp3.1\AllNews.Data.genruntimeconfig.cache

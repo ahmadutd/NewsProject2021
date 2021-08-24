@@ -1,0 +1,49 @@
+﻿@page
+@model AllNewsCms.Web.Pages.ManagePermission.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+<div class="alert alert-info d-flex align-items-baseline">
+    <h5 class="fas fa-user-check mr-2"></h5>
+    <h5>Access Level Of Pages For </h5>
+    <h5 class="m-2 text-warning">@Model.UserName</h5>
+</div>
+<hr />    
+
+<div class="row">
+    <div class="col">
+        <form method="post">
+            <div class="d-flex flex-wrap">
+                @foreach (var securePage in Model.SecurePagesList)
+                {
+
+
+                    <div class="permission-box d-flex align-items-baseline">
+                        <input type="hidden" asp-for="@Model.PermissionItemsModel.UserId" value="@Model.UserId" />
+                        @if (Model.UserClaims.Any(x => x == securePage.Permission))
+                        {
+                            <input type="checkbox" id="PermissionItems_@securePage.Permission" name="PermissionItemsModel.PermissionName[]" value="@securePage.Permission" checked />
+                        }
+                        else
+                        {
+                            <input type="checkbox" id="PermissionItems_@securePage.Permission" name="PermissionItemsModel.PermissionName[]" value="@securePage.Permission" />
+                        }
+
+                        <label class="ml-1" for="PermissionItems_@securePage.Permission">@securePage.Description</label>
+                    </div>
+
+
+
+                }
+            </div>
+            <hr />
+            <button class="btn btn-info" type="submit">Save Changes</button>
+
+
+
+        </form>
+        
+    </div>
+</div>

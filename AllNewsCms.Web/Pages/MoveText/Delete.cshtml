@@ -1,0 +1,65 @@
+﻿@page
+@model AllNewsCms.Web.Pages.MoveText.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="tab-header-delete alert-danger d-flex align-items-center">
+            <img src="~/img/Delete/Delete.png" alt="Alternate Text" />
+            <strong>Are you sure you want to delete this section?</strong>
+            <form class="ml-auto p-1" method="post">
+                <input type="hidden" asp-for="MoveText.Id" />
+
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row">
+
+    <div class="col col-md-10">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.MoveText.Title)</h6>
+            <span>@Model.MoveText.Title</span>
+
+        </div>
+    </div>
+    <div class="col col-md-10">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.MoveText.Text)</h6>
+            <span>@Model.MoveText.Text</span>
+
+        </div>
+    </div>
+    <div class="col-12 col-md-5">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.MoveText.CreatedDate)</h6>
+            <span>@Model.MoveText.CreatedDate</span>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-5">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.MoveText.CreatedBy)</h6>
+            <span>@Model.MoveText.CreatedUser</span>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-5">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.MoveText.UpdatedDate)</h6>
+            <span>@Model.MoveText.UpdatedDate</span>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-5">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.MoveText.UpdatedBy)</h6>
+            <span>@Model.MoveText.UpdatedUser</span>
+        </div>
+
+    </div>
+</div>

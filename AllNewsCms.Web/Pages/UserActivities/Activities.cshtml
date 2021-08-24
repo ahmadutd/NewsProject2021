@@ -1,0 +1,115 @@
+﻿@page
+@model AllNewsCms.Web.Pages.UserActivities.ActivitiesModel
+@{
+    ViewData["Title"] = "Activities";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="alert alert-info d-flex align-items-center">
+            <h4 class="fas fa-th-list mr-2"></h4>
+            <h4>User Activities</h4>
+        </div>
+    </div>
+</div>
+<hr />
+
+    
+
+<table class="table table-bordered">
+    <tr class="bg-secondary text-white" style="text-align:center">
+        <th>News</th>
+        <th>Papers</th>
+        <th>Studies</th>
+        <th>Statements</th>
+        <th>Organisations</th>
+        <th>Photos</th>
+        <th>Videos</th>
+        <th>Audios</th>
+    </tr>
+
+    <tr style="text-align:center">
+        <td>
+            @if (Model.NewsCounts.Count() > 0)
+            {
+                @Model.NewsCounts.Count()
+            }
+            else
+            {
+                <span>0</span>
+            }
+        </td>
+        <td>
+            @if (Model.PaperCounts.Count() > 0)
+            {
+                @Model.PaperCounts.Count()
+            }
+            else
+            {
+                <span>0</span>
+            }
+        </td>
+        <td>
+            @if (Model.StudieCounts.Count() > 0)
+            {
+                @Model.StudieCounts.Count()
+            }
+            else
+            {
+                <span>0</span>
+            }
+        </td>
+        <td>
+            @if (Model.StatementCounts.Count() > 0)
+            {
+                @Model.StatementCounts.Count()
+            }
+            else
+            {
+                <span>0</span>
+            }
+        </td>
+        <td>
+            @if (Model.CompanyCounts.Count() > 0)
+            {
+                @Model.CompanyCounts.Count()
+            }
+            else
+            {
+                <span>0</span>
+            }
+        </td>
+        <td>
+            @if (Model.PhotoCounts.Count() > 0)
+            {
+                @Model.PhotoCounts.Count()
+            }
+            else
+            {
+                <span>0</span>
+            }
+        </td>
+        <td>
+            @if (Model.VideoCounts.Count() > 0)
+            {
+                @Model.VideoCounts.Count()
+            }
+            else
+            {
+                <span>0</span>
+            }
+        </td>
+        <td>
+            @if (Model.AudioCounts.Count() > 0)
+            {
+                @Model.AudioCounts.Count()
+            }
+            else
+            {
+                <span>0</span>
+            }
+        </td>
+    </tr>
+
+
+</table>

@@ -1,0 +1,66 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@using AllNews.Domain;
+@inject IViewLocalizer Localizer
+@model AllNews.ViewModel.PageinationViewModel<Video>
+<div class="row">
+    <div class="col">
+        <div class="top-title-line mt-1">
+            <h5 class="d-none d-md-block">@Localizer["Videos"]</h5>
+            <span class="d-md-none">@Localizer["Videos"]</span>
+        </div>
+        <div class="top-box-hot-line"></div>
+    </div>
+</div>
+<br />
+<div class="row">
+    @foreach (var item in Model.PaginatedList)
+    {
+
+        <div class="col-6 col-md-3 p-1 mb-2">
+            <a class="video-box" asp-action="VideoPart" asp-controller="Videos" asp-route-id="@item.Id">
+
+                <div class="videocard-body">
+                    @if (item.VideoPlay != null || item.VideoCoverPath != null)
+                    {
+                        @if (item.VideoPlay != null)
+                        {
+                            <img src="https://img.youtube.com/vi/@item.VideoPlay/mqdefault.jpg" alt="Alternate Text" />
+                        }
+                        @if (item.VideoCoverPath != null)
+                        {
+                            <img src="@ViewBag.AdminURL/Upload/Videos/Img/@item.VideoImage" alt="Alternate Text" />
+                        }
+                    }
+                    <div class="play-avatar"></div>
+                </div>
+                <div class="video-name d-flex align-items-center justify-content-center">
+
+                    <span class="mr-1 ml-1">@item.Title</span>
+                </div>
+            </a>
+        </div>
+
+
+
+
+    }
+</div>
+<hr />
+<div class="d-flex align-items-center justify-content-center">
+    <div class="pagination pagination-sm">
+
+        <a href="/Videos?page=1" class="@(Model.CurrentPage <= 1?"disabled":"")">@Localizer["First"]</a>
+
+        @for (int i = 1; i <= Model.TotalPage; i++)
+        {
+
+            <a href="/Videos?page=@i" class="@(i==Model.CurrentPage?"active":"")">@i</a>
+
+        }
+
+        <a href="/Videos?page=@(Model.TotalPage)" class="@(Model.CurrentPage >= Model.TotalPage?"disabled":"")">@Localizer["Last"]</a>
+
+
+    </div>
+</div>

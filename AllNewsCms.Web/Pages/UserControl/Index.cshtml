@@ -1,0 +1,53 @@
+﻿@page
+@model AllNewsCms.Web.Pages.UserControl.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="alert alert-info d-flex align-items-center">
+            <h4 class="fas fa-users-cog mr-2"></h4>
+            <h4>Users Managament</h4>
+        </div>
+    </div>
+</div>
+<hr />
+<table class="table table-bordered">
+    <tr class="activites-style">
+        <th>Id</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th>Edit</th>
+        <th>ResetPassword</th>
+        <th>Delete</th>
+
+    </tr>
+    @foreach (var user in Model.UserList)
+    {
+
+        <tr class="user-control-td">
+            <td class="users-bg">@user?.Id</td>
+            <td class="users-bg">@user?.UserName</td>
+            <td class="users-bg">@user?.Email</td>
+            
+            <td class="edite-bg">
+                <a class="text-white" asp-area="" asp-page="./Edit" asp-route-id="@user.Id">Edit</a>
+
+            </td>
+            <td class="resetpswrd-bg">
+                <a class="text-white" asp-area="" asp-page="./PasswordConfrime" asp-route-id="@user.Id">RessetPassword</a>
+
+            </td>
+            <td class="delet-bg">
+                <form asp-page-handler="Delete" method="post">
+                    <input type="hidden" asp-for="@Model.DeleteUser" value="@user.Id" />
+                    <button class="text-white" type="submit">Delete</button>
+                </form>
+
+
+            </td>
+
+        </tr>
+    }
+</table>

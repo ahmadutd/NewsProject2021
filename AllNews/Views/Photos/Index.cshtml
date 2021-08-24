@@ -1,0 +1,67 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@using AllNews.Domain;
+@inject IViewLocalizer Localizer
+@model AllNews.ViewModel.PageinationViewModel<Photo>
+<div class="row">
+    <div class="col">
+        <div class="top-title-line mt-1">
+            <h5 class="d-none d-md-block">@Localizer["Photos"]</h5>
+            <span class="d-md-none">@Localizer["Photos"]</span>
+        </div>
+        <div class="top-box-hot-line"></div>
+    </div>
+</div>
+<br />
+
+<div class="row">
+
+    @foreach (var item in Model.PaginatedList)
+    {
+
+
+        <div class="col-6 col-md-2 p-1">
+            <a asp-action="PhotoView" asp-controller="Photos" asp-route-id="@item.Id">
+                <div class="image-space">
+                    @if (item.Image != null || item.ImageCoverPath != null)
+                    {
+                        @if (item.Image != null)
+                        {
+                            <img src="@item.Image" alt="Avatar" class="image" style="height:120px">
+                        }
+                        @if (item.ImageCoverPath != null)
+                        {
+                            <img src="@ViewBag.AdminURL/Upload/Photos/@item.ImageCoverPath" alt="Avatar" class="image" style="height:120px">
+                        }
+                    }
+                    <div class="overlay-image">
+                        <h4 class="title-image fas fa-image"></h4>
+
+                    </div>
+                </div>
+            </a>
+
+        </div>
+
+    }
+
+</div>
+
+<hr />
+<div class="d-flex align-items-center justify-content-center">
+    <div class="pagination pagination-sm">
+
+        <a href="/Photos?page=1" class="@(Model.CurrentPage <= 1?"disabled":"")">@Localizer["First"]</a>
+
+        @for (int i = 1; i <= Model.TotalPage; i++)
+        {
+
+            <a href="/Photos?page=@i" class="@(i==Model.CurrentPage?"active":"")">@i</a>
+
+        }
+
+        <a href="/Photos?page=@(Model.TotalPage)" class="@(Model.CurrentPage >= Model.TotalPage?"disabled":"")">@Localizer["Last"]</a>
+
+
+    </div>
+</div>

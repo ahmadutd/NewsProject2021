@@ -1,0 +1,118 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@ViewData["Title"] - AllNews.Com</title>
+    <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="~/css/fontawesome/all.css" />
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.css">
+    <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
+    <link rel="preconnect" href="https://fonts.gstatic.com">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&display=swap">
+    <link rel="stylesheet" href="~/css/site.css" />
+</head>
+<body>
+
+    <div class="container">
+
+        <div class="row">
+            <div class="col-2"><a class="navbar-brand" asp-area="" asp-page="/Index"><img src="/img/Cms.png" alt="Alternate Text" /></a></div>
+            <div class="col-10">
+
+                <partial name="_LoginPartial" />
+
+            </div>
+        </div>
+
+
+
+        <div class="line-head"></div>
+
+    </div>
+
+
+
+
+    <div class="container">
+        <main role="main" class="pb-3">
+            @RenderBody()
+        </main>
+    </div>
+
+    <footer class="border-top footer text-muted">
+        <div class="container">
+            &copy; 2021 - AllNewsCms.Web
+        </div>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/lib/vanilla-toast/vanilla-toast.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/gh/bbbootstrap/libraries@main/choices.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+   
+    <script>
+
+
+
+        $.get('/?handler=LanguageData', (res) => {
+            $('#Lang-class').empty();
+            $('#Lang-class').append(res);
+        })
+
+        $.get('/?handler=LanguageDataForLayout', (res) => {
+            $('#Lang-class-Layout').empty();
+            $('#Lang-class-Layout').append(res);
+        })
+
+
+
+
+
+        $(document).ready(function () {
+            $('.js-example-basic-multiple').select2({
+                dropdownAutoWidth: true,
+                selectionCssClass: 'selecto',
+
+            });
+
+        });
+
+
+        function myFunction() {
+
+
+            var input, filter, table, tr, td, i, txtValue;
+            input = document.getElementById("myInput");
+            filter = input.value.toUpperCase();
+            table = document.getElementById("myTable");
+            tr = table.getElementsByTagName("tr");
+
+
+            for (i = 1; i < tr.length; i++) {
+                td = tr[i].getElementsByTagName("td")[1];
+                if (td) {
+                    txtValue = td.textContent || td.innerText;
+                    if (txtValue.toUpperCase().indexOf(filter) > -1) {
+                        tr[i].style.display = "";
+                    } else {
+                        tr[i].style.display = "none";
+                    }
+                }
+            }
+            
+        }
+       
+    </script>
+
+</body>
+</html>

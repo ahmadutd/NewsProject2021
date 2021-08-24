@@ -1,0 +1,45 @@
+﻿@page
+@model AllNewsCms.Web.Pages.UserActivities.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="alert alert-info d-flex align-items-center">
+            <h4 class="fas fa-user-tag mr-2"></h4>
+            <h4>Users Activities</h4>
+        </div>
+    </div>
+</div>
+<hr />
+<table class="table table-bordered">
+    <tr>
+        <th>#</th>
+        <th>UserName</th>
+        <th>Email</th>
+        <th style="text-align:center">Activites</th>
+
+    </tr>
+    @if(Model.UserList != null)
+    {
+        var i = 0;
+        @foreach (var user in Model.UserList)
+        {
+            ++i;
+
+            <tr>
+                <td>@i</td>
+                <td>@user.UserName</td>
+                <td>@user.Email</td>
+                <td style="text-align:center">
+                    <a class="fas fa-th-list text-secondary" asp-area="" asp-page="./Activities" asp-route-id="@user.Id"></a>
+
+                </td>
+            
+
+            </tr>
+         }
+    }
+
+</table>

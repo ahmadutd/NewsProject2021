@@ -1,0 +1,108 @@
+﻿@page
+@model AllNewsCms.Web.Pages.MoveText.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+<div class="row">
+    <div class="col">
+        <div class="tab-header-delete alert-secondary d-flex align-items-baseline p-2">
+            <h4 class="fas fa-info-circle mr-2 ml-2"></h4>
+            <strong>Attention ! Must be 8 post items</strong>
+            
+        </div>
+    </div>
+</div>
+<hr />
+<div class="tab-header d-flex align-items-center alert-info p-2">
+    <strong>MoveText List </strong>
+    <a asp-area="" asp-page="Create" class="btn btn-outline-info ml-auto">Create MoveText</a>
+
+
+</div>
+<hr />
+
+<div class="row">
+    <div class="col">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+
+        <table id="myTable">
+            <tr class="header">
+                <th scope="col">#</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.MoveTexts[0].Title)</th>
+                <th scope="col" class="d-none d-md-table-cell">@Html.DisplayNameFor(x => x.MoveTexts[0].CreatedDate)</th>
+                <th scope="col">View</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            @if (Model.MoveTexts != null)
+            {
+                var i = 0;
+                @foreach (var movetext in Model.MoveTexts)
+                {
+                    ++i;
+                    <tr>
+                        <td scope="row">@i</td>
+                        <td class="font-revo">@movetext?.Title</td>
+                        <td class="d-none d-md-table-cell">@movetext.CreatedDate</td>
+                        <td><a data-toggle="modal" data-target="#exampleModalCenter_@i" class="more-btn btn btn-light fas fa-eye"></a></td>
+                        <td><a asp-area="" asp-page="./Create" asp-route-id="@movetext.Id" class="more-btn btn btn-light fas fa-pen-alt"></a></td>
+                        <td><a asp-area="" asp-page="./Delete" asp-route-id="@movetext.Id" class="more-btn btn btn-light fas fa-trash-alt"></a></td>
+
+                        <td>
+                            <div class="modal fade" id="exampleModalCenter_@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered rtl" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body">
+
+                                            <div class="form-view p-1">
+                                                <h6 class="alert-primary">@Html.DisplayNameFor(x => x.MoveTexts[0].Text)</h6>
+                                                <span>@movetext.Text</span>
+
+                                            </div>
+
+                                            <div class="form-view p-1">
+                                                <h6 class="alert-primary">@Html.DisplayNameFor(x => x.MoveTexts[0].CreatedDate)</h6>
+                                                <span>@movetext.CreatedDate</span>
+
+                                            </div>
+                                            <div class="form-view p-1">
+                                                <h6 class="alert-primary">@Html.DisplayNameFor(x => x.MoveTexts[0].CreatedUser)</h6>
+                                                <span>@movetext.CreatedUser</span>
+
+                                            </div>
+                                            <div class="form-view p-1">
+                                                <h6 class="alert-primary">@Html.DisplayNameFor(x => x.MoveTexts[0].UpdatedDate)</h6>
+                                                <span>@movetext.UpdatedDate</span>
+
+                                            </div>
+                                            <div class="form-view p-1">
+                                                <h6 class="alert-primary">@Html.DisplayNameFor(x => x.MoveTexts[0].UpdatedUser)</h6>
+                                                <span>@movetext.UpdatedUser</span>
+
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+
+
+                }
+            }
+
+
+        </table>
+
+    </div>
+</div>
+

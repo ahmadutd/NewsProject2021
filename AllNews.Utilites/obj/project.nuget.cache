@@ -1,0 +1,10 @@
+{
+  "version": 2,
+  "dgSpecHash": "wxvJzffy9MC4pDf6zCkx8E19eWnBp3hIsptJr941lFb3FaYOaDdYoBKkGkh19EYR+AsTMDZ6uP7sI4YCuNdNew==",
+  "success": true,
+  "projectFilePath": "E:\\AllNewsBackUp\\AllNews\\Allnews\\AllNews.Utilites\\AllNews.Utilites.csproj",
+  "expectedPackageFiles": [
+    "C:\\Users\\micro\\.nuget\\packages\\microsoft.aspnetcore.app.ref\\3.1.2\\microsoft.aspnetcore.app.ref.3.1.2.nupkg.sha512"
+  ],
+  "logs": []
+}

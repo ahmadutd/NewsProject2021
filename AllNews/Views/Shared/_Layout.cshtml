@@ -1,0 +1,791 @@
+﻿@using AllNews.ViewModel
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>@Localizer["All News World Arabic"]</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@1,600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&display=swap" rel="stylesheet">
+
+
+
+
+
+    @if (CultureInfo.CurrentCulture.Name == "fa-IR" || CultureInfo.CurrentCulture.Name == "ar-SA")
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap-rtl.css" />
+
+    }
+    else
+    {
+        <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
+
+    }
+    <link rel="stylesheet" href="~/css/fontawesome/all.css" />
+    <link rel="stylesheet" href="~/css/owl.carousel.min.css" />
+    <link rel="stylesheet" href="~/css/site.css" />
+
+
+
+</head>
+
+<body>
+    
+
+
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col p-0">
+                <div class="responsiv-menu-top d-md-none">
+                    @if (CultureInfo.CurrentCulture.Name == "fa-IR" || CultureInfo.CurrentCulture.Name == "ar-SA")
+                    {
+                        <div class="d-flex align-items-center">
+                            <a class="top-menu-logo-mini" asp-action="Index" asp-controller="Home">
+                                <img src="/img/mainlogo.png" alt="Alternate Text" />
+                            </a>
+                            <h6 class="title-web-mini">@Localizer["All News World Arabic"]</h6>
+
+
+                            <div class="Time-head-mini mr-auto ml-2">
+                                <div class="celender-header d-flex align-items-baseline">
+                                  
+                                    <div style="width:auto;" class="date-time mr-1 ml-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+                    else
+                    {
+
+                        <div class="d-flex align-items-center">
+                            <a asp-action="Index" asp-controller="Home" class="top-menu-logo-mini">
+                                <img src="/img/mainlogo.png" alt="Alternate Text" />
+                            </a>
+                            <h6 class="title-web-mini">@Localizer["All News World Arabic"]</h6>
+
+
+                            <div class="Time-head-mini ml-auto ml-2">
+                                <div class="celender-header d-flex align-items-baseline">
+                                    
+                                    <div style="width:auto;" class="date-time mr-1 ml-1"></div>
+                                </div>
+                            </div>
+                        </div>
+                    }
+
+                </div>
+            </div>
+
+        </div>
+
+        <div class="row">
+            <div class="col p-0">
+
+                @if (CultureInfo.CurrentCulture.Name == "fa-IR" || CultureInfo.CurrentCulture.Name == "ar-SA")
+                {
+
+                    <div class="responsiv-colap-head d-block d-md-none">
+                        <div class="d-flex align-items-center">
+                            <div class="navbar-header mr-2 ml-2">
+
+                                <div type="button" class="navbar-toggle img-bars" data-toggle="collapse" data-target=".navbar-collapse"><img src="/img/bars2.png" alt="Alternate Text" /></div>
+
+                            </div>
+
+                            <div id="social" class="social-menu-header-responsiv mr-auto ml-2 mr-2"></div>
+
+                        </div>
+                    </div>
+
+                }
+                else
+                {
+
+                    <div class="d-block d-md-none">
+                        <div class="responsiv-colap-head d-flex align-items-center p-0">
+                            <div class="navbar-header mr-2 ml-2">
+
+                                <div type="button" class="navbar-toggle img-bars" data-toggle="collapse" data-target=".navbar-collapse"><img src="/img/bars2.png" alt="Alternate Text" /></div>
+
+                            </div>
+                            <div id="social" class="social-menu-header-responsiv ml-auto ml-2 mr-2"></div>
+
+                        </div>
+                    </div>
+                }
+
+
+            </div>
+
+        </div>
+
+        @* colapse mode for repository *@
+
+        <div class="row">
+            <div class="col p-0">
+                <div class="list-nav navbar-collapse collapse d-md-none">
+                    <div class="list-menu-nav-res nav bar-nav  navbar-nav" id="menubar">
+                        <ul>
+
+                            <li class="m-link" id="line-v"><span class="fas fa-home m-2"></span><a id="jjs" asp-area="" asp-controller="Home" asp-action="Index">@Localizer["Home"]</a></li>
+                            <li class="m-link" data-toggle="collapse" href="#item" role="button" aria-expanded="false" aria-controls="#item"><span class="fas fa-globe-americas m-2"></span><a>@Localizer["Language"]</a><span class="fas fa-angle-down m-2"></span></li>
+                            <li class="collapse" id="item">
+                                <ul id="lang-section-responsiv" class="card card-body m-link-mini">
+                                </ul>
+                            </li>
+                            <li class="m-link"><span class="fas fa-phone m-2"></span><a asp-area="" asp-controller="Home" asp-action="ContactUs">@Localizer["Contact Us"]</a></li>
+                            <li class="break">
+                                <hr>
+                            </li>
+                            <li class="m-link" data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="#item1">
+                                <a asp-area="" asp-action="Index" asp-controller="Company">
+                                    <span class="fas fa-flag mr-1 ml-1 p-1"></span>
+                                    @Localizer["Organisations"]
+
+                                </a>
+                            </li>
+
+                            <li class="m-link">
+                                <a asp-area="" asp-action="Index" asp-controller="Statement">
+                                    <span class="fas fa-newspaper mr-1 ml-1 p-1"></span>
+                                    @Localizer["Statements"]
+                                </a>
+                            </li>
+
+                            <li class="m-link" data-toggle="collapse" href="#item2" role="button" aria-expanded="false" aria-controls="#item2">
+                                <span class="fas fa-globe mr-1 ml-1 p-1"></span>
+                                <a>
+                                    @Localizer["News"]
+                                </a>
+                                <span class="fas fa-angle-down m-2"></span>
+                            </li>
+                            <li class="collapse" id="item2">
+                                <ul class="card card-body m-link-mini">
+                                    <li class="m-link"><a asp-action="Index" asp-controller="LastNews"><span class="fas fa-bullhorn mr-1 ml-1 p-1"></span>@Localizer["LatestNews"]</a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="WorldNews"> <span class="fas fa-bullhorn mr-1 ml-1 p-1"></span>@Localizer["WorldNews"]</a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="AlArabia"><span class="fas fa-bullhorn mr-1 ml-1 p-1"></span> @Localizer["ArabNews"]</a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="SportsNews"><span class="fas fa-bullhorn mr-1 ml-1 p-1"></span>@Localizer["SportsNews"] </a></li>
+
+                                </ul>
+                            </li>
+
+                            <li class="m-link" data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="#item1">
+                                <a asp-area="" asp-action="Index" asp-controller="Library">
+                                    <span class="fas fa-book-open mr-1 ml-1 p-1"></span>
+                                    @Localizer["Studies"]
+
+                                </a>
+                            </li>
+
+                            <li class="m-link" data-toggle="collapse" href="#item4" role="button" aria-expanded="false" aria-controls="#item4"><a><span class="fas fa-scroll mr-1 ml-1 p-1"></span>@Localizer["Paper"]</a><span class="fas fa-angle-down m-2"></span></li>
+                            <li class="collapse" id="item4">
+                                <ul class="card card-body m-link-mini">
+                                    <li class="m-link"><a asp-action="All" asp-controller="Paper"><span class="fas fa-scroll mr-1 ml-1 p-1"></span>@Localizer["All Papers"]</a></li>
+                                    <li class="m-link"><a asp-action="Arabic" asp-controller="Paper"><span class="fas fa-scroll mr-1 ml-1 p-1"></span>@Localizer["Arabic Papers"]</a></li>
+
+                                </ul>
+                            </li>
+                            <li class="m-link" data-toggle="collapse" href="#item3" role="button" aria-expanded="false" aria-controls="#item3"><a><span class="fas fa-ellipsis-h mr-1 ml-1 p-1"></span>@Localizer["Gallery"]</a><span class="fas fa-angle-down m-2"></span></li>
+                            <li class="collapse" id="item3">
+                                <ul class="card card-body m-link-mini">
+                                    <li class="m-link"><a asp-action="Index" asp-controller="Photos"><span class="fas fa-image mr-1 ml-1 p-1"></span>@Localizer["Photos"]</a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="Videos"><span class="fas fa-play mr-1 ml-1 p-1"></span>@Localizer["Videos"]</a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="Audios"><span class="fas fa-microphone mr-1 ml-1 p-1"></span>@Localizer["Audios"]</a></li>
+
+
+                                </ul>
+                            </li>
+
+                        </ul>
+
+                    </div>
+
+                </div>
+            </div>
+        </div>
+
+
+        @* mariquee Responsive *@
+        <div class="row">
+            <div class="col d-md-none p-0">
+                <div id="marquee-block">
+                    <div class="movetext" id="marquee-text"></div>
+                </div>
+
+            </div>
+        </div>
+        @* mariquee Responsive *@
+
+
+
+
+        <div class="row">
+            <div class="col d-none d-md-block p-0">
+
+
+                @if (CultureInfo.CurrentCulture.Name == "fa-IR" || CultureInfo.CurrentCulture.Name == "ar-SA")
+                {
+                    <div class="top-menu">
+                        <div class="d-flex align-items-end">
+                            <div class="top-menu-logo mr-5"><img src="/img/mainlogo.png" alt="Alternate Text" /></div>
+                            <h4 class="title-web">@Localizer["All News World Arabic"]</h4>
+
+                            <div id="lang-section" class="Language d-none d-md-block mr-auto ml-3 "></div>
+
+                            <div id="socialmd" class="social-box p-1 ml-5 d-none d-lg-block"></div>
+                        </div>
+                        <div class="Time-head">
+                            <div class="celender-header">
+                                <div style="width:auto;" class="date-time mr-1 ml-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+                else
+                {
+                    <div class="top-menu">
+                        <div class="d-flex align-items-end">
+                            <div class="top-menu-logo ml-5"><img src="/img/mainlogo.png" alt="Alternate Text" /></div>
+                            <strong class="title-web">@Localizer["All News World Arabic"]</strong>
+
+                            <div id="lang-section" class="Language d-none d-md-block ml-auto mr-3"></div>
+
+                            <div id="socialmd" class="social-box p-1 mr-5 d-none d-lg-block"></div>
+                        </div>
+                        <div class="Time-head-ltr">
+                            <div class="celender-header">
+                                <div style="width:auto;" class="date-time mr-1 ml-1"></div>
+                            </div>
+                        </div>
+                    </div>
+                }
+
+            </div>
+        </div>
+
+
+
+        <div class="row">
+            <div class="col p-0">
+                <div class="blue-tab"></div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col tab-menu d-none d-md-block p-0">
+
+                <ul class="tab-menu-list">
+
+                    <li class="m-link d-none d-lg-block">
+                        <a class="a-link" asp-action="Index" asp-controller="Home">
+                            <span class="fas fa-home mr-1 ml-1 p-1"></span>
+                            @Localizer["Home"]
+                        </a>
+
+                    </li>
+                    <li class="m-link">
+                        <a class="a-link" asp-action="Index" asp-controller="Company">
+                            <span class="fas fa-flag mr-1 ml-1 p-1"></span>
+                            @Localizer["Organisations"]
+
+                        </a>
+
+
+                    </li>
+                    <li class="m-link">
+                        <a class="a-link" asp-action="Index" asp-controller="Statement">
+                            <span class="fas fa-newspaper mr-1 ml-1 p-1"></span>
+                            @Localizer["Statements"]
+                        </a>
+
+                    </li>
+                    <li class="m-link">
+                        <a class="a-link" href="#">
+                            <span class="fas fa-globe mr-1 ml-1 p-1"></span>
+                            @Localizer["News"]
+                            <span class="chevron fas fa-sort-up text-white"></span>
+
+                        </a>
+                        <ul class="hidd-list" style="list-style:none">
+
+                            <li><a asp-action="Index" asp-controller="LastNews"><span class="fas fa-bullhorn mr-1 ml-1 p-1"></span>@Localizer["LatestNews"]</a></li>
+                            <li><a asp-action="Index" asp-controller="WorldNews"><span class="fas fa-bullhorn mr-1 ml-1 p-1"></span>@Localizer["WorldNews"]</a></li>
+                            <li><a asp-action="Index" asp-controller="AlArabia"><span class="fas fa-bullhorn mr-1 ml-1 p-1"></span>@Localizer["ArabNews"]</a></li>
+                            <li><a asp-action="Index" asp-controller="SportsNews"><span class="fas fa-bullhorn mr-1 ml-1 p-1"></span>@Localizer["SportsNews"]</a></li>
+
+                        </ul>
+
+                    </li>
+                    <li class="m-link">
+                        <a class="a-link" asp-action="Index" asp-controller="Library">
+                            <span class="fas fa-book-open mr-1 ml-1 p-1"></span>
+                            @Localizer["Studies"]
+                        </a>
+
+                    </li>
+                    <li class="m-link">
+                        <a class="a-link">
+                            <span class="fas fa-scroll mr-1 ml-1 p-1"></span>
+                            @Localizer["Paper"]
+                            <span class="chevron fas fa-sort-up text-white"></span>
+
+                        </a>
+                        <ul class="hidd-list" style="list-style:none">
+                            <li><a asp-action="All" asp-controller="Paper"><span class="fas fa-scroll mr-1 ml-1 p-1"></span>@Localizer["All Papers"]</a></li>
+                            <li><a asp-action="Arabic" asp-controller="Paper"><span class="fas fa-scroll mr-1 ml-1 p-1"></span>@Localizer["Arabic Papers"]</a></li>
+
+                        </ul>
+
+                    </li>
+                    <li class="m-link">
+                        <a class="a-link" href="#">
+                            <span class="fas fa-ellipsis-v mr-1 ml-1 p-1"></span>
+
+                            @Localizer["Gallery"]
+                            <span class="chevron fas fa-sort-up text-white"></span>
+
+                        </a>
+                        <ul class="hidd-list" style="list-style:none">
+                            <li><a asp-action="Index" asp-controller="Photos"><span class="fas fa-image mr-1 ml-1 p-1"></span>@Localizer["Photos"]</a></li>
+                            <li><a asp-action="Index" asp-controller="Videos"><span class="fas fa-play  mr-1 ml-1 p-1"></span>@Localizer["Videos"]</a></li>
+                            <li><a asp-action="Index" asp-controller="Audios"><span class="fas fa-microphone  mr-1 ml-1 p-1"></span>@Localizer["Audios"]</a></li>
+
+
+                        </ul>
+
+                    </li>
+                    <li class="m-link d-none d-lg-block">
+                        <a class="a-link" asp-action="Index" asp-controller="ContactUs">
+                            <span class="fas fa-phone mr-1 ml-1 p-1"></span>
+                            @Localizer["Contact Us"]
+                        </a>
+
+                    </li>
+
+                </ul>
+
+
+            </div>
+
+        </div>
+
+        <div class="row mt-1">
+            <div class="col p-0">
+                <div class="d-none d-md-block">
+                    <div class="colaps-filter-btn d-flex justify-content-center" data-toggle="collapse" href="#filter" role="button" aria-expanded="false" aria-controls="filter">
+                        <span class="fas fa-search text-white"></span>
+                        <a class="text-white">@Localizer["Search"]</a>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+        <div class="row mt-1">
+            <div class="col p-0">
+                <div class="smart-search-box d-none d-md-block">
+                    <div class="collapse" id="filter">
+                        <form enctype="multipart/form-data" asp-controller="Home" asp-action="Search" method="post" class="smart-search-tab d-flex align-items-center justify-content-center">
+
+
+                            <input class="input-date" type="date" id="MadeDate" name="MadeDate" value="@ViewBag.SearchDate">
+
+
+                            <div class="box-select">
+
+                                <select id="category-section" name="categoryids"></select>
+
+                            </div>
+
+
+                            <div class="form-check m-2">
+                                <input id="pic" type="checkbox" name="cheak[]" class="form-check-input" value="photos">
+                                <label for="pic" class="form-check-label">@Localizer["Photos"]</label>
+
+                            </div>
+
+                            <div class="form-check m-2">
+                                <input id="video" type="checkbox" name="cheak[]" class="form-check-input" value="videos">
+                                <label for="video" class="form-check-label"> @Localizer["Videos"] </label>
+
+                            </div>
+                            <div class="form-check m-2">
+                                <input id="audio" type="checkbox" name="cheak[]" class="form-check-input" value="audios">
+                                <label for="audio" class="form-check-label"> @Localizer["Audios"] </label>
+
+                            </div>
+
+
+                            <div class="d-flex align-items-center justify-content-end ml-4 mr-4">
+                                <input class="smart-input" type="text" name="search" value="@ViewBag.SearchContent" />
+
+                            </div>
+
+                            <button type="submit" class="btn-smrt fas fa-search mr-1 ml-1"></button>
+                            <a asp-controller="Home" asp-action="Index" class="btn-smrt fas fa-undo mr-1 ml-1"></a>
+
+                        </form>
+                    </div>
+                </div>
+
+
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-6 m-auto">
+
+                <div class="smart-search-box pb-3 pt-3 d-md-none d-lg-none" style="background:white">
+
+                    <div class="d-flex flex-column align-items-center justify-content-center">
+
+                        <label class="lbl-nameres" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-search m-1"></span>@Localizer["Search"]</label>
+
+                        <div class="collapse" id="collapseExample">
+
+                            <div class="smrt-search-bg">
+                                <form class="smart-search-tab d-flex flex-column" asp-controller="Home" asp-action="Search" method="post">
+
+
+                                    <br />
+                                    <div class="d-flex align-items-center justify-content-center">
+                                        <div class="form-check m-2">
+                                            <input id="picres" type="checkbox" class="form-check-input" value="photos" name="cheak[]">
+                                            <label for="picres" class="form-check-labelres">@Localizer["Photos"]</label>
+
+                                        </div>
+                                        <div class="form-check m-2">
+                                            <input id="videores" type="checkbox" class="form-check-input" value="videos" name="cheak[]">
+                                            <label for="videores" class="form-check-labelres"> @Localizer["Videos"] </label>
+
+                                        </div>
+                                        <div class="form-check m-2">
+                                            <input id="audiores" type="checkbox" class="form-check-input" value="audios" name="cheak[]">
+                                            <label for="audiores" class="form-check-labelres"> @Localizer["Audios"] </label>
+
+                                        </div>
+                                    </div>
+
+                                    <select class="select-boxres" id="category-section-mini" name="categoryids"></select>
+                                    <br />
+                                    <input class="input-dateres" type="date" id="MadeDate" name="MadeDate" value="@ViewBag.SearchDate">
+                                    <br />
+                                    <input class="smart-inputres" type="text" name="search" value="@ViewBag.SearchContent" />
+                                    <br />
+                                    <br />
+                                    <button type="submit" class="smart-search-btnres fas fa-search"></button>
+                                    <br />
+                                    <div style="text-align:center">
+                                        <a asp-controller="Home" asp-action="Index" class="text-info fas fa-undo"></a>
+                                    </div>
+
+                                </form>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+            </div>
+        </div>
+
+
+        <div class="row">
+            <div class="col p-0">
+                <div class="d-none d-md-block">
+                    <div id="marquee-block">
+                        <div class="movetext" id="marquee-text"></div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+
+
+
+    <div class="container-fluid backgrand-order">
+        <div class="container">
+            <main role="main" class="pb-3">
+                @RenderBody()
+
+            </main>
+        </div>
+
+    </div>
+
+    <footer>
+        <div class="container-fluid footer-bg">
+            <div class="container">
+                <div class="row">
+                    <br />
+                    <div class="col">
+                        <div class="main-search-tab d-flex p-2">
+                            <div id="socialmdfooter" class="social-box-bottom d-flex"></div>
+                        </div>
+                    </div>
+                </div>
+                <hr class="new1" />
+
+                <div class="row">
+                    <div class="col-12 col-md-4">
+                        <div class="footer-tab-items p-2">
+                            <h6>@Localizer["Main Titles"]</h6>
+                            <div class="ul">
+
+                               <a class="li d-flex" asp-action="Index" asp-controller="Company">@Localizer["Organisations"]</a>
+
+                                <a class="li d-flex" asp-action="Index" asp-controller="Statement"> @Localizer["Statements"]</a>
+
+
+                                <a class="li d-flex" asp-action="Index" asp-controller="Library">@Localizer["Studies"]</a>
+                                <div class="dropdown">
+                                    @if (CultureInfo.CurrentCulture.Name == "fa-IR" || CultureInfo.CurrentCulture.Name == "ar-SA")
+                                    {
+                                        <a class="li d-flex dropdown-toggle" role="button" data-toggle="dropdown">@Localizer["Paper"]  <span class="fas fa-angle-down mr-auto mr-2"></span></a>
+
+                                    }
+                                    else
+                                    {
+                                        <a class="li d-flex dropdown-toggle" role="button" data-toggle="dropdown">@Localizer["Paper"]  <span class="fas fa-angle-down ml-auto ml-2"></span></a>
+
+                                    }
+                                    <div class="dropdown-menu dropdown-menu-center">
+                                        <a class="dropdown-item" asp-action="All" asp-controller="Paper">@Localizer["All Papers"]</a>
+                                        <a class="dropdown-item" asp-action="Arabic" asp-controller="Paper">@Localizer["Arabic Papers"] </a>
+                                    </div>
+                                </div>
+
+                                <a class="li d-flex" asp-action="Index" asp-controller="ContactUs">@Localizer["Contact Us"]</a>
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="footer-tab-items p-2">
+                            <h6>@Localizer["Gallery"]</h6>
+                            <div class="ul">
+
+                                <a class="li d-flex" asp-action="Index" asp-controller="Videos">@Localizer["Videos"]</a>
+                                <a class="li d-flex" asp-action="Index" asp-controller="Photos">@Localizer["Photos"] </a>
+                                <a class="li d-flex" asp-action="Index" asp-controller="Audios"> @Localizer["Audios"]</a>
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-12 col-md-4">
+                        <div class="footer-tab-items p-2">
+                            <h6>@Localizer["News"]</h6>
+                            <div class="ul">
+                                <a class="li d-flex" asp-action="Index" asp-controller="LastNews">@Localizer["LatestNews"]</a>
+                                <a class="li d-flex" asp-action="Index" asp-controller="WorldNews">@Localizer["WorldNews"]</a>
+                                <a class="li d-flex" asp-action="Index" asp-controller="AlArabia">@Localizer["ArabNews"]</a>
+                                <a class="li d-flex" asp-action="Index" asp-controller="SportsNews">@Localizer["SportsNews"]</a>
+
+
+                            </div>
+                        </div>
+                    </div>
+
+                </div>
+                <hr class="new1" />
+
+                <div class="row">
+                    <div class="col">
+                        <div class="logo-footer d-flex align-items-center">
+                            <img src="~/img/mainlogo.png" alt="Alternate Text" />
+                            <p>© 2021 ALLNEWS</p>
+                            <p class="mr-1 ml-1">@Localizer["Arabic Voice.All Rights Reserved-No Content Of This Website May Be Reproduced In Any From Or By Any Electronic Or No Electronic Means, Including Information Storage, Without Writtrn Permission"]</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+
+        <script data-cfasync="false" type="text/javascript" src="https://code.jquery.com/jquery.min.js"></script>
+
+        <script>
+            var $a = $.noConflict(true);
+            $a(window).scroll(function () {
+                if ($a(window).scrollTop() >= 150) {
+
+                    $a('.responsiv-colap-head').addClass('fixed-header');
+                    $a('.list-menu-nav-res').addClass('second-fixed-header');
+                    $a('.tab-menu').addClass('tab-menu-fixed-header');
+
+                }
+                else {
+
+                    $a('.responsiv-colap-head').removeClass('fixed-header');
+                    $a('.list-menu-nav-res').removeClass('second-fixed-header');
+                    $a('.tab-menu').removeClass('tab-menu-fixed-header');
+
+
+
+                }
+            });
+        </script>
+    </footer>
+
+    <script src="~/lib/jquery/dist/jquery.min.js"></script>
+    <script src="~/js/owl.carousel.min.js"></script>
+    <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+    <script src="~/js/site.js" asp-append-version="true"></script>
+
+    @RenderSection("Scripts", required: false)
+
+    <script>
+
+        var getTime = function () {
+            $.get("/Home/CurrentTime", function (res) {
+                $('.date-time').empty();
+                $('.date-time').append(res);
+            });
+        }
+        setInterval(getTime, 1000);
+
+        $.get("/Home/MoveText", function (res) {
+            $('.movetext').empty();
+            $('.movetext').append(res);
+        });
+        $.get("/Home/Social", function (res) {
+            $('#social').empty();
+            $('#social').append(res);
+        });
+        $.get("/Home/Socialmd", function (res) {
+            $('#socialmd').empty();
+            $('#socialmd').append(res);
+        });
+        $.get("/Home/Social", function (res) {
+            $('#socialmdfooter').empty();
+            $('#socialmdfooter').append(res);
+        });
+
+        $.get("/Home/CategorySearch", function (res) {
+            $('#category-section').empty();
+            $('#category-section').append(res);
+        });
+        $.get("/Home/CategorySearch", function (res) {
+            $('#category-section-mini').empty();
+            $('#category-section-mini').append(res);
+        });
+
+        $.get("/Home/LanguageData", function (res) {
+            $('#lang-section').empty();
+            $('#lang-section').append(res);
+        });
+
+
+        $.get("/Home/LanguageDataRes", function (res) {
+            $('#lang-section-responsiv').empty();
+            $('#lang-section-responsiv').append(res);
+        });
+    </script>
+
+    <script>
+
+
+        $('.Company-loop').owlCarousel({
+            loop: true,
+            margin: 10,
+            nav: false,
+            rtl: true,
+            items: 7,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        })
+
+        $('.hot-news-carousel').owlCarousel({
+
+            items: 10,
+            dots: true,
+            loop: true,
+            margin: 2,
+            nav: false,
+            rtl: true,
+            ltr: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+
+            responsive: {
+                0: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                1000: {
+                    items: 4
+                }
+            }
+        })
+
+
+        var owl = $('.video-carousel');
+        owl.owlCarousel({
+            items: 10,
+            loop: true,
+            nav: false,
+            margin: 5,
+            rtl: true,
+            lazyLoad: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 2
+                },
+                600: {
+                    items: 3
+                },
+                960: {
+                    items: 3
+                },
+                1200: {
+                    items: 4
+                }
+            }
+        });
+        owl.on('mousewheel', '.owl-stage', function (e) {
+            if (e.deltaY > 0) {
+                owl.trigger('next.owl');
+            } else {
+                owl.trigger('prev.owl');
+            }
+            e.preventDefault();
+        });
+
+
+
+    </script>
+
+
+</body>
+</html>

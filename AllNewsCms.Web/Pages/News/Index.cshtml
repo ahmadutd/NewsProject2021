@@ -1,0 +1,247 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
+@model AllNewsCms.Web.Pages.News.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="tab-header d-flex align-items-center alert-info p-2">
+    <strong>News List </strong>
+    <a asp-area="" asp-page="Create" class="btn btn-outline-info ml-auto">Create News Form</a>
+    
+
+</div>
+<hr />
+<div class="row">
+    <div class="col-12 col-md-6">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+    </div>
+    <div class="col-12 col-md-6 d-flex align-items-center justify-content-center">
+        <a asp-page-handler="/" class="btn btn-outline-secondary m-2"><span class="fas fa-grip-horizontal"></span></a>
+
+        @foreach (var filterbtn in Model.Category)
+        {
+            <a asp-page-handler="/" asp-route-id="@filterbtn.Id" class="btn btn-outline-secondary m-2" name="filterNewsCategory" value="@filterbtn.Id">@filterbtn.CategoryName</a>
+        }
+    </div>
+
+    
+
+</div>
+<div class="paginait-count d-flex align-items-center justify-content-start">
+    <strong class="mr-1">Page</strong><strong>@(Model.CurrentPage)</strong>
+</div>
+<div class="row">
+    <div class="col">
+
+        
+        <table id="myTable">
+            <tr class="header">
+                <th scope="col">#</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.News[0].Title)</th>
+                <th scope="col" class="d-none d-lg-table-cell">@Html.DisplayNameFor(x => x.News[0].Category.CategoryName)</th>
+                <th scope="col" class="d-none d-md-table-cell">@Html.DisplayNameFor(x => x.News[0].CreatedDate)</th>
+                <th scope="col">View</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            @if (Model.News != null)
+            {
+                var i = 0;
+                @foreach (var news in Model.News)
+                {
+                    ++i;
+                    <tr>
+                        <td scope="row">@i</td>
+                        <td><span class="font-revo">@news?.Title</span></td>
+                        <td class="font-revo d-none d-lg-table-cell">@news?.Category?.CategoryName</td>
+                        <td class="d-none d-md-table-cell">@news.CreatedDate</td>
+                        <td><a data-toggle="modal" data-target="#exampleModalCenter_@i" class="more-btn btn btn-light fas fa-eye"></a></td>
+                        <td><a asp-area="" asp-page="./Create" asp-route-id="@news.Id" class="more-btn btn btn-light fas fa-pen-alt"></a></td>
+                        <td><a asp-area="" asp-page="./Delete" asp-route-id="@news.Id" class="more-btn btn btn-light fas fa-trash-alt"></a></td>
+
+                        <td>
+                            <div class="modal fade" id="exampleModalCenter_@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                                    <div class="modal-content">
+                                        <div class="modal-header">
+                                            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                                <span aria-hidden="true">&times;</span>
+                                            </button>
+                                        </div>
+                                        <div class="modal-body" style="text-align:center">
+
+                                            @if (news.Title != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].Title)</h6>
+                                                    <span>@news.Title</span>
+
+                                                </div>
+                                            }
+
+                                            @if (news.FirstImage != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].FirstImage)</h6>
+                                                    <img src="@news.FirstImage" alt="Alternate Text" />
+                                                </div>
+                                            }
+                                            @if (news.ImageCoverPath != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].ImageCoverPath)</h6>
+                                                    <img src="~/Upload/News/Images/@news.ImageCoverPath" alt="Alternate Text" />
+
+                                                </div>
+
+                                            }
+
+                                            @if (news.FirstDescription != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].FirstDescription)</h6>
+                                                    <span>@news.FirstDescription</span>
+
+                                                </div>
+                                            }
+                                            @if (news.FirstDescriptionFirstParagraph != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].FirstDescriptionFirstParagraph)</h6>
+                                                   
+                                                     <div class="modal-desc">
+                                                        <pre>@news.FirstDescriptionFirstParagraph</pre>
+                                                     </div>
+                                                </div>
+                                            }
+
+
+
+                                            @if (news.SecondImage != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].SecondImage)</h6>
+                                                    <img src="@news.SecondImage" alt="Alternate Text" />
+                                                </div>
+                                            }
+                                            @if (news.SecondDescription != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].SecondDescription)</h6>
+                                                    <span>@news.SecondDescription</span>
+
+                                                </div>
+                                            }
+                                            @if (news.SecondDescriptionFirstParagraph != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].SecondDescriptionFirstParagraph)</h6>
+                                                    <div class="modal-desc">
+                                                        <pre>@news.SecondDescriptionFirstParagraph</pre>
+                                                    </div>
+
+                                                </div>
+                                            }
+
+
+                                            @if (news.Video != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].Video)</h6>
+                                                    <div class="col col-md-8">
+                                                        <div class="videoplay-container">
+
+                                                            <iframe class="responsive-iframe" src="https://www.youtube.com/embed/@news.Video"
+                                                                    title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                                                            </iframe>
+                                                        </div>
+                                                    </div>
+
+                                                </div>
+                                            }
+                                            @if (news.VideoCoverPath != null)
+                                            {
+                                                <div class="form-view p-1">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].VideoCoverPath)</h6>
+                                                    <div class="col-12 col-md-8 m-auto">
+                                                        <video class="VideoPalyBox" controls="controls">
+                                                            <source class="responsive-iframe" src="~/Upload/News/Videos/@news.VideoCoverPath" type="video/mp4" />
+                                                        </video>
+                                                    </div>
+
+                                                </div>
+
+                                            }
+
+                                            <div class="form-view p-1 d-flex">
+                                                <div class="form-view p-1 w-50">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].CreatedDate)</h6>
+                                                    <span>@news.CreatedDate</span>
+
+                                                </div>
+                                                <div class="form-view p-1 w-50">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].CreatedUser)</h6>
+                                                    <span>@news.CreatedUser?.UserName</span>
+
+                                                </div>
+                                            </div>
+                                            <div class="form-view p-1 d-flex">
+                                                <div class="form-view p-1 w-50">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].UpdatedDate)</h6>
+                                                    <span>@news.UpdatedDate</span>
+
+                                                </div>
+                                                <div class="form-view p-1 w-50">
+                                                    <h6 class="alert-primary">@Html.DisplayNameFor(x => x.News[0].UpdatedUser)</h6>
+                                                    <span>@news.UpdatedUser?.UserName</span>
+
+                                                </div>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                            </div>
+                        </td>
+                    </tr>
+
+
+
+
+
+                }
+            }
+
+
+        </table>
+
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col">
+       
+            <nav aria-label="Page navigation example">
+                <ul class="pagination pagination-sm justify-content-center">
+                    <li class="page-item @(Model.CurrentPage==1?"disabled":"")">
+                        <a class="page-link" href="/News/Index?currentpage=@(Model.CurrentPage-1)">Previous</a>
+                    </li>
+
+                    @for (int i = 1; i <= Model.TotalPages; i++)
+                    {
+                        <li class="page-item @(i==Model.CurrentPage?"active":"")">
+                            <a class="page-link" href="/News/Index?currentpage=@i">@i</a>
+                        </li>
+                    }
+
+                    <li class="page-item @(Model.CurrentPage==Model.TotalPages?"disabled":"")">
+                        <a class="page-link" href="/News/Index?currentpage=@(Model.CurrentPage+1)">Next</a>
+                    </li>
+                </ul>
+            </nav>
+       
+    </div>
+</div>

@@ -1,0 +1,46 @@
+﻿@page
+@model AllNewsCms.Web.Pages.UsersManagmnetModel
+@{
+    ViewData["Title"] = "UsersManagmnet";
+}
+
+<br />
+<div class="row">
+    <div class="col-6 col-md-3 p-1 m-auto">
+        <a class="menu-btn bg-success" asp-area="Identity" asp-page="./Account/Register">
+            <h5>
+                Register User
+                <span class="fas fa-user-plus"></span>
+
+            </h5>
+        </a>
+    </div>
+    <div class="col-6 col-md-3 p-1 m-auto">
+        <a class="menu-btn bg-success" asp-page="./UserControl/Index">
+            <h5>
+                Manage Users
+                <span class="fas fa-user-edit"></span>
+
+            </h5>
+        </a>
+    </div>
+    <div class="col-6 col-md-3 p-1 m-auto">
+        <a class="menu-btn bg-success" asp-page="./RoleUser/Index">
+            <h5>
+                Role & Permissions
+                <span class="fas fa-user-check"></span>
+            </h5>
+
+        </a>
+    </div>
+    <div class="col-6 col-md-3 p-1 m-auto">
+        <a class="menu-btn bg-success" asp-page="./UserActivities/Index">
+            <h5>
+                User Activities
+                <span class="fas fa-user-tag"></span>
+            </h5>
+
+        </a>
+    </div>
+</div>
+

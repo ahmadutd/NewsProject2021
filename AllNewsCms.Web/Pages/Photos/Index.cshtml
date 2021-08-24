@@ -1,0 +1,84 @@
+﻿@page
+@model AllNewsCms.Web.Pages.Photos.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="tab-header d-flex align-items-center alert-info p-2">
+    <strong>Photo List</strong>
+    <a asp-area="" asp-page="Create" class="btn btn-outline-info ml-auto">Create Photo</a>
+
+
+</div>
+<div class="paginait-count d-flex align-items-center justify-content-start">
+    <strong class="mr-1">Page</strong><strong>@(Model.CurrentPage)</strong>
+</div>
+
+<div class="row">
+    <div class="col">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+
+        <table id="myTable">
+            <tr class="header">
+                <th scope="col">#</th>
+                <th scope="col" class="d-none d-md-table-cell">@Html.DisplayNameFor(x => x.Photos[0].Image)</th>
+                <th scope="col">@Html.DisplayNameFor(x => x.Photos[0].Title)</th>
+                <th scope="col" class="d-none d-lg-table-cell">@Html.DisplayNameFor(x => x.Photos[0].CreatedDate)</th>
+                <th scope="col">Edit</th>
+                <th scope="col">Delete</th>
+            </tr>
+            @if (Model.Photos != null)
+            {
+                var i = 0;
+                @foreach (var photos in Model.Photos)
+                {
+                    ++i;
+                    <tr>
+                        <td scope="row">@i</td>
+                        @if (photos.Image != null)
+                        {
+                            <th class="d-none d-md-table-cell"><img style="width:120px;max-height:70px" src="@photos.Image" alt="Alternate Text" /></th>
+                        }
+                        @if (photos.ImageCoverPath != null)
+                        {
+                            <th class="d-none d-md-table-cell"><img style="width:120px;max-height:70px" src="~/Upload/Photos/@photos.ImageCoverPath" alt="Alternate Text" /></th>
+                        }
+                        <td class="font-revo">@photos.Title</td>
+                        <td class="d-none d-lg-table-cell">@photos.CreatedDate</td>
+                        <td><a asp-area="" asp-page="./Create" asp-route-id="@photos.Id" class="more-btn btn btn-light fas fa-pen-alt"></a></td>
+                        <td><a asp-area="" asp-page="./Delete" asp-route-id="@photos.Id" class="more-btn btn btn-light fas fa-trash-alt"></a></td>
+
+                    </tr>
+                }
+            }
+
+
+        </table>
+
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col">
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item @(Model.CurrentPage==1?"disabled":"")">
+                    <a class="page-link" href="/Photos/Index?currentpage=@(Model.CurrentPage-1)">Previous</a>
+                </li>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i==Model.CurrentPage?"active":"")">
+                        <a class="page-link" href="/Photos/Index?currentpage=@i">@i</a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.CurrentPage==Model.TotalPages?"disabled":"")">
+                    <a class="page-link" href="/Photos/Index?currentpage=@(Model.CurrentPage+1)">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>

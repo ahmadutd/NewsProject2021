@@ -1,0 +1,9 @@
+﻿@using AllNews.Domain;
+@model IEnumerable<Language>
+
+@foreach (var item in Model)
+{
+
+    <li class="m-link"><span class="fas fa-globe-africa m-1"></span><a href="/Home/SetLanguage/@item.LangTitle">@item.LangName</a></li>
+
+}

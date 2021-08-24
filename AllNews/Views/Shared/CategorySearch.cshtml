@@ -1,0 +1,7 @@
+﻿@model IEnumerable<AllNews.Domain.Category>
+
+<option>---</option>
+@foreach (var item in Model)
+{
+    <option value="@item.Id">@item.CategoryName</option>
+}

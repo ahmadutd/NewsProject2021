@@ -1,0 +1,121 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@using AllNews.Domain;
+@inject IViewLocalizer Localizer
+@model AllNews.ViewModel.PageinationViewModel<Paper>
+
+<div class="row">
+    <div class="col">
+        <div class="top-title-line mt-1">
+            <h5 class="d-none d-md-block">@Localizer["Paper"]</h5>
+            <span class="d-md-none">@Localizer["Paper"]</span>
+        </div>
+        <div class="top-box-hot-line"></div>
+    </div>
+</div>
+<br />
+
+<div class="row">
+
+    @if (Model.PaginatedList != null)
+    {
+        var i = 0;
+        @foreach (var item in Model.PaginatedList)
+        {
+            ++i;
+            <div class="col-6 col-md-3 p-1 mt-2">
+                <div class="box-paper d-flex flex-column align-items-center justify-content-start" data-toggle="modal" data-target="#paper_@i">
+                    <img class="pin" src="/img/paper-back.png" alt="Alternate Text" />
+                    <br />
+                    <br />
+                    @if (item.Image != null || item.ImageCoverPath != null)
+                    {
+                        @if (item.Image != null)
+                        {
+                            <img class="paper-pic" src="@item.Image" alt="Alternate Text" />
+                        }
+                        @if (item.ImageCoverPath != null)
+                        {
+                            <img class="paper-pic" src="@ViewBag.AdminURL/Upload/Papers/Images/@item.ImageCoverPath" alt="Alternate Text" />
+                        }
+
+                    }
+                    else
+                    {
+                        <img class="paper-pic" src="/img/paper-one.png" alt="Alternate Text" />
+                    }
+                    <br />
+                    <p class="paper-title">@item.Title</p>
+                    <span class="fas fa-ellipsis-h"></span>
+                </div>
+            </div>
+
+            <div class="modal fade " id="paper_@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+
+                        <div class="modal-header d-flex flex-column">
+
+                            <button type="button" class="close-windows-modal" data-dismiss="modal" aria-label="Close"><span class="fas fa-times"></span></button>
+                            <br />
+                            <div class="img-header-object">
+                                <p>@item.Title</p>
+                            </div>
+                        </div>
+                        <div class="modal-body studies-body-modal">
+
+                            <div class="paper-desc-box">
+                                <pre>
+                                     @item.Description
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+
+                            <a href="@ViewBag.AdminURL/Upload/Papers/Downloads/@item.Download" class="dl-link">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
+
+
+                            <button class="dl-link" data-toggle="collapse" href="#share" role="button" aria-expanded="false" aria-controls="share">@Localizer["Share"] <span class=" fas fa-share-alt mr-1"></span></button>
+                            <div class="collapse share-colaps-modal" id="share">
+                                <div class="card card-body d-flex">
+                                    <div class="d-flex">
+                                        <a href="whatsapp://send?text=@item.Title-@ViewBag.ShareURL/Paper/Index/@item.Id" data-action="share/whatsapp/share" class="fab fa-whatsapp text-success"></a>
+                                        <a href="https://telegram.me/share/url?url=@item.Title-@ViewBag.ShareURL/Paper/Index/@item.Id" class="fab fa-telegram text-info"></a>
+                                        <a href="mailto:?=&subject=@item.Title&body=@ViewBag.ShareURL/Paper/Index/@item.Id" class="fas fa-envelope text-secondary"></a>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=@item.Title-@ViewBag.ShareURL/Paper/Index/@item.Id" class="fab fa-facebook text-primary"></a>
+                                        <a href="https://twitter.com/intent/tweet?text=@item.Title-@ViewBag.ShareURL/Paper/Index/@item.Id" class="fab fa-twitter text-info"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+        }
+    }
+
+
+
+</div>
+
+
+<hr />
+<div class="d-flex align-items-center justify-content-center">
+    <div class="pagination pagination-sm">
+
+        <a href="/Paper?page=1" class="@(Model.CurrentPage <= 1?"disabled":"")">@Localizer["First"]</a>
+
+        @for (int i = 1; i <= Model.TotalPage; i++)
+        {
+
+            <a href="/Paper?page=@i" class="@(i==Model.CurrentPage?"active":"")">@i</a>
+
+        }
+
+        <a href="/Paper?page=@(Model.TotalPage)" class="@(Model.CurrentPage >= Model.TotalPage?"disabled":"")">@Localizer["Last"]</a>
+
+
+    </div>
+</div>

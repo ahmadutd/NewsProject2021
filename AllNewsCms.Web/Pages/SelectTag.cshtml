@@ -1,0 +1,38 @@
+﻿@page
+@model AllNewsCms.Web.Pages.SelectTagModel
+@{
+    ViewData["Title"] = "SelectTag";
+}
+
+    <br />
+    <div class="row">
+        <div class="col-8 col-md-3 p-1 m-auto">
+            <a class="menu-btn" asp-page="./NewsTags/Index">
+                <h5>
+                    Set News Tags
+                    <span class="fas fa-tag"></span>
+                </h5>
+
+            </a>
+        </div>
+        <div class="col-8 col-md-3 p-1 m-auto">
+            <a class="menu-btn" asp-page="./VideosTags/Index">
+                <h5>
+                    Set Video Tags
+                    <span class="fas fa-tag"></span>
+                </h5>
+
+            </a>
+        </div>
+        <div class="col-8 col-md-3 p-1 m-auto">
+            <a class="menu-btn" asp-page="./PhotoTag/Index">
+                <h5>
+                    Set Photo Tags
+                    <span class="fas fa-tag"></span>
+                </h5>
+
+            </a>
+        </div>
+    </div>
+    
+

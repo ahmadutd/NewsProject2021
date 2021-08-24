@@ -1,0 +1,104 @@
+﻿@page
+@model AllNewsCms.Web.Pages.Papers.DeleteModel
+@{
+    ViewData["Title"] = "Delete";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="tab-header-delete alert-danger d-flex align-items-center">
+            <img src="~/img/Delete/Delete.png" alt="Alternate Text" />
+            <strong>Are you sure you want to delete this section?</strong>
+            <form class="ml-auto p-1" method="post">
+                <input type="hidden" asp-for="Papers.Id" />
+
+                <button type="submit" class="btn btn-danger">Delete</button>
+            </form>
+        </div>
+    </div>
+</div>
+<hr />
+<div class="row" style="text-align:center">
+
+    <div class="col">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.Title)</h6>
+            <span>@Model.Papers.Title</span>
+
+        </div>
+    </div>
+    @if (@Model.Papers.Image != null)
+    {
+        <div class="col-12">
+            <div class="form-delete p-2">
+
+                <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.Image)</h6>
+                <img src="@Model.Papers.Image" alt="Alternate Text" />
+
+            </div>
+        </div>
+    }
+    @if (@Model.Papers.ImageCoverPath != null)
+    {
+        <div class="col-12">
+            <div class="form-delete p-2">
+
+                <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.ImageCoverPath)</h6>
+                <img src="/Upload/Papers/Images/@Model.Papers.ImageCoverPath" alt="Alternate Text" />
+
+            </div>
+        </div>
+    }
+    @if (Model.Papers.Description != null)
+    {
+        <div class="col-12">
+            <div class="form-delete p-2">
+                <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.Description)</h6>
+                <span>@Model.Papers.Description</span>
+
+            </div>
+        </div>
+    }
+    @if (Model.Papers.Download != null)
+    {
+        <div class="col-12">
+            <div class="form-delete p-2">
+
+                <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.Download)</h6>
+                <a class="btn btn-dark" href="/Upload/Papers/Downloads/@Model.Papers.Download">Download</a>
+
+            </div>
+        </div>
+    }
+    
+    <div class="col-12 col-md-6">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.CreatedDate)</h6>
+            <span>@Model.Papers.CreatedDate</span>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.CreatedBy)</h6>
+            <span>@Model.Papers.CreatedUser?.UserName</span>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.UpdatedDate)</h6>
+            <span>@Model.Papers.UpdatedDate</span>
+        </div>
+
+    </div>
+    <div class="col-12 col-md-6">
+        <div class="form-delete p-2">
+            <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.UpdatedBy)</h6>
+            <span>@Model.Papers.UpdatedUser?.UserName</span>
+        </div>
+
+    </div>
+</div>
+
+

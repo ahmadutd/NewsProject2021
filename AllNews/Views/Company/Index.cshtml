@@ -1,0 +1,108 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
+@model AllNews.ViewModel.PartialViewModel
+
+
+<div class="row">
+    <div class="col">
+        <div class="top-title-line mt-1">
+            <h5 class="d-none d-md-block">@Localizer["Organisations"]</h5>
+            <span class="d-md-none">@Localizer["Organisations"]</span>
+        </div>
+        <div class="top-box-hot-line"></div>
+    </div>
+</div>
+<br />
+
+<div class="row">
+
+    @if (Model.GetAllCompany != null)
+    {
+        var i = 0;
+        @foreach (var item in Model.GetAllCompany)
+        {
+            ++i;
+
+
+            <div class="col-6 col-md-3 p-1">
+                <a class="analyz-box d-flex flex-column align-items-center justify-content-center" data-toggle="modal" data-target="#company_@i">
+                    <div class="analyz-img">
+                        @if (item.Image != null || item.ImageCoverPath != null)
+                        {
+                            @if (item.Image != null)
+                            {
+                                <img src="@item.Image" alt="Alternate Text" />
+                            }
+                            @if (item.ImageCoverPath != null)
+                            {
+                                <img src="@ViewBag.AdminURL/Upload/Organisation/@item.ImageCoverPath" alt="Alternate Text" />
+                            }
+                        }
+                    </div>
+                    <br />
+                    <div class="analyz-info d-flex flex-wrap">
+                        <span>@item.Title</span>
+                    </div>
+
+                    <h4 class="fas fa-ellipsis-h text-secondary"></h4>
+                    <div class="analyz-box-blackover"></div>
+
+                </a>
+                <div class="modal fade bd-example-modal-xl" tabindex="-1" role="dialog" aria-labelledby="" aria-hidden="true" id="company_@i">
+                    <div class="modal-dialog modal-xl">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <button type="button" class="close-windows-modal" data-dismiss="modal" aria-label="Close"><span class="fas fa-times"></span></button>
+
+                            </div>
+                            <div id="modl-company" class="modal-body">
+                                @if (item.Image != null || item.ImageCoverPath != null)
+                                {
+                                    @if (item.Image != null)
+                                    {
+                                        <img src="@item.Image" alt="Alternate Text" />
+                                    }
+                                    @if (item.ImageCoverPath != null)
+                                    {
+                                        <img src="@ViewBag.AdminURL/Upload/Organisation/@item.ImageCoverPath" alt="Alternate Text" />
+                                    }
+                                }
+
+                                <div class="info-company">
+                                    <pre>
+                                        @item.Information
+                                    </pre>
+                                </div>
+
+                            </div>
+                            <div class="modal-footer d-flex justify-content-center">
+
+                                <button class="dl-link" data-toggle="collapse" href="#share" role="button" aria-expanded="false" aria-controls="share">@Localizer["Share"] <span class=" fas fa-share-alt mr-1"></span></button>
+                                <div class="collapse share-colaps-modal" id="share">
+                                    <div class="card card-body d-flex">
+                                        <div class="d-flex">
+                                            <a href="whatsapp://send?text=@item.Title-@ViewBag.ShareURL/Company/Index/@item.Id" data-action="share/whatsapp/share" class="fab fa-whatsapp text-success"></a>
+                                            <a href="https://telegram.me/share/url?url=@item.Title-@ViewBag.ShareURL/Company/Index/@item.Id" class="fab fa-telegram text-info"></a>
+                                            <a href="mailto:?=&subject=@item.Title&body=@ViewBag.ShareURL/Company/Index/@item.Id" class="fas fa-envelope text-secondary"></a>
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u=@item.Title-@ViewBag.ShareURL/Company/Index/@item.Id" class="fab fa-facebook text-primary"></a>
+                                            <a href="https://twitter.com/intent/tweet?text=@item.Title-@ViewBag.ShareURL/Company/Index/@item.Id" class="fab fa-twitter text-info"></a>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            </div>
+            
+
+        }
+    }
+</div>
+
+<hr />
+

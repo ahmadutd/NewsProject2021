@@ -1,0 +1,106 @@
+﻿@model AllNews.Domain.Video
+<br />
+<div class="row">
+    <div class="col">
+        <div class="date-box d-flex align-items-baseline justify-content-start">
+            <span class="fas fa-calendar-alt text-dark m-1"></span>
+            <span class="datetime-now mr-1 ml-1">@Model.UpdatedDate</span>
+
+            <div class="dropdown" id="share">
+                <button class="share-btn btn btn-light mr-1 ml-1 dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    <span class="fas fa-share-alt m-1"></span>
+                </button>
+                <div class="dropdown-menu share-colaps dropdown-menu-center" aria-labelledby="dropdownMenuButton">
+                    <div class="d-flex">
+                        <a class="dropdown-item" href="whatsapp://send?text=@Model.Title-@ViewBag.ShareURL/Videos/VideoPart/@Model.Id" data-action="share/whatsapp/share"><span class="fab fa-whatsapp text-success"></span></a>
+                        <a class="dropdown-item" href="https://telegram.me/share/url?url=@Model.Title-@ViewBag.ShareURL/Videos/VideoPart/@Model.Id"><span class="fab fa-telegram text-info"></span></a>
+                        <a class="dropdown-item" href="mailto:?=&subject=@Model.Title&body=@ViewBag.ShareURL/Videos/VideoPart/@Model.Id"><span class="fas fa-envelope text-secondary"></span></a>
+                        <a class="dropdown-item" href="https://www.facebook.com/sharer/sharer.php?u=@Model.Title-@ViewBag.ShareURL/Videos/VideoPart/@Model.Id"><span class="fab fa-facebook text-primary"></span></a>
+                        <a class="dropdown-item" href="https://twitter.com/intent/tweet?text=@Model.Title-@ViewBag.ShareURL/Videos/VideoPart/@Model.Id"><span class="fab fa-twitter text-info"></span></a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>
+<hr class="m-0" />
+<div class="row">
+    <div class="col">
+        <div class="news-header">
+
+            <h5>@Model.Title</h5>
+
+        </div>
+    </div>
+</div>
+<br />
+@if (Model.VideoPlay != null || Model.VideoCoverPath != null)
+{
+    @if (Model.VideoPlay != null)
+    {
+        <div class="row">
+            <div class="col col-md-8">
+                <div class="videoplay-container">
+                    <iframe class="responsive-iframe" src="https://www.youtube.com/embed/@Model.VideoPlay"
+                            title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen>
+                    </iframe>
+                </div>
+            </div>
+        </div>
+    }
+    @if (Model.VideoCoverPath != null)
+    {
+        <div class="row">
+            <div class="col col-md-8">
+                <video class="w-100" controls="controls">
+                    <source src="@ViewBag.AdminURL/Upload/Videos/Media/@Model.VideoCoverPath" type="video/mp4" />
+                </video>
+            </div>
+        </div>
+
+    }
+
+}
+
+<br />
+@if (Model.Description != null)
+{
+    <div class="col">
+        <div class="row ">
+
+            <div class="col">
+
+                <div class="news-desc">
+
+                    <pre>@Model.Description</pre>
+
+                </div>
+
+            </div>
+
+        </div>
+    </div>
+}
+else
+{
+
+}
+
+<hr />
+<div class="row">
+    <div class="col col-md-10">
+        <div class="tag-box d-flex align-items-baseline p-1">
+
+
+            @foreach (var item in Model.VideoTag)
+            {
+                <button class="btn">@item.Tag.Name</button>
+            }
+
+
+        </div>
+    </div>
+</div>
+<br />

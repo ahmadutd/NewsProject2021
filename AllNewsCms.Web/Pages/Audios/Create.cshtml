@@ -1,0 +1,68 @@
+﻿@page
+@model AllNewsCms.Web.Pages.Audios.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="tab-header d-flex align-items-center alert-success p-2">
+    <strong>Create Audio</strong>
+
+    <a asp-area="" asp-page="Index" class="btn btn-light ml-auto">Audio List</a>
+
+</div>
+<hr />
+<div class="p-2">
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="Audios.Id" />
+        <div class="form-row">
+            <div class="form-group col-6 col-md-2">
+                <label>Select Language</label>
+
+                <div class="dropdown">
+                    <button class="lang-class" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        SetLanguage
+                    </button>
+                    <div id="Lang-class" class="dropdown-menu dropdown-menu-right rtl" aria-labelledby="dropdownMenuButton">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group col-12 col-md-12">
+                <label asp-for="Audios.Title"></label>
+                <input class="form-control form-control-sm" type="text" asp-for="Audios.Title" />
+            </div>
+            <div class="form-group col-12">
+                <label asp-for="Audios.AudioCoverPath"></label>
+
+                <input class="form-control p-1" type="file" asp-for="Audios.File">
+
+            </div>
+
+            <div class="form-group col-12">
+                <label asp-for="Audios.Description"></label>
+                <textarea class="form-control form-control-sm" type="text" asp-for="Audios.Description"></textarea>
+            </div>
+            <div class="form-group col-12">
+                <label asp-for="Audios.Image"></label>
+                <input class="form-control form-control-sm" type="text" asp-for="Audios.Image" placeholder="https//YourAddress/Image/" />
+            </div>
+            <div class="form-group col-12">
+                <label asp-for="Audios.ImageCoverPath"></label>
+
+                <input class="form-control p-1" type="file" asp-for="Audios.ImageFile">
+
+            </div>
+
+
+        </div>
+        <hr />
+        <div class="col-12 col-md-1 p-0">
+            <button type="submit" class="btn btn-success w-100 fas fa-check"></button>
+        </div>
+    </form>
+</div>
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

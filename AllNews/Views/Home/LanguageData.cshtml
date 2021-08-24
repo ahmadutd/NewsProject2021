@@ -1,0 +1,9 @@
+﻿@using AllNews.Domain;
+@model IEnumerable<Language>
+
+@foreach (var item in Model)
+{
+
+    <a href="/Home/SetLanguage/@item.LangTitle"><span class="fas fa-globe-asia mr-1 ml-1"></span>@item.LangName</a>//controller/action/routeva
+
+}

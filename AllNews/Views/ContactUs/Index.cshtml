@@ -1,0 +1,38 @@
+﻿@using AllNews.ViewModel
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
+
+@model AllNews.Domain.SocialManagment
+
+
+<div class="row">
+    <div class="col">
+        <div class="top-title-line mt-1">
+            <h5 class="d-none d-md-block">@Localizer["Contact Us"]</h5>
+            <span class="d-md-none">@Localizer["Contact Us"]</span>
+        </div>
+        <div class="top-box-hot-line"></div>
+    </div>
+</div>
+<div class="row">
+    <div class="col">
+
+        <div class="contact-box">
+            
+            <div class="contact-desc">
+                <strong>@Localizer["We welcome your opinions and participation, and we invite you to send your suggestions through the following means of communication and interaction:"]</strong>
+                <br />
+                <strong>@Localizer["Email :"]</strong><i>@Model.AddressEmail</i>             
+            </div>
+
+            <hr />  
+            <a href="mailto:@Model.AddressEmail?subject=Feedback&body=Message">
+                <img src="/img/Email-avatar.png">
+            </a>
+                          
+            
+        </div>
+    </div>
+</div>
+<br />

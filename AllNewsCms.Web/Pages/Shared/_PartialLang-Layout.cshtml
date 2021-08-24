@@ -1,0 +1,15 @@
+﻿@model IEnumerable<AllNews.Domain.Language>
+
+
+
+@foreach (var item in Model)
+{
+
+
+
+    <a class="Ok-lang" href="/?handler=SetLanguage&&id=@item.LangTitle">@item.LangName</a>
+
+}
+
+
+

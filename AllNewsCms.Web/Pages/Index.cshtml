@@ -1,0 +1,158 @@
+﻿@page
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@using Microsoft.AspNetCore.Identity
+@using AllNews.Domain;
+@using Microsoft.AspNetCore.Authorization
+@inject IAuthorizationService AuthorizationService
+@inject IViewLocalizer Localizer
+
+@model IndexModel
+
+@{
+    ViewData["Title"] = "CMS";
+}
+
+
+    <br />
+    <div class="container m-auto">
+        <div class="row rtl">
+            <div class="col-6 col-md-3 p-1 m-auto">
+                <a class="menu-btn" asp-page="./News/Index">
+                    <h5>
+                        News
+                        <span class="fas fa-globe"></span>
+                    </h5>
+
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1 m-auto">
+                <a class="menu-btn" asp-page="./MoveText/Index">
+                    <h5>
+                        MoveText 
+                        <span class="fas fa-bullhorn"></span>
+                    </h5>
+
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1 m-auto">
+                <a class="menu-btn" asp-page="./Photos/Index">
+                    <h5>
+                        Photos
+                        <span class="fas fa-images"></span>
+                    </h5>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1 m-auto">
+                <a class="menu-btn" asp-page="./Videos/Index">
+                    <h5>
+                        Videos
+                        <span class="fas fa-film"></span>
+                    </h5>
+                </a>
+            </div>
+
+
+        </div>
+        <div class="row rtl">
+            <div class="col-6 col-md-3 p-1 m-auto">
+                <a class="menu-btn" asp-page="./Audios/Index">
+                    <h5>
+                        Audios
+                        <span class="fas fa-microphone"></span>
+                    </h5>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn" asp-page="./Statements/Index">
+                    <h5>
+                        Statements
+                        <span class="fas fa-newspaper"></span>
+                    </h5>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn" asp-page="./Papers/Index">
+                    <h5>
+                        Papers
+                        <span class="fas fa-scroll"></span>
+                    </h5>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn" asp-page="./Companys/Index">
+                    <h5>
+                        Organisations
+                        <span class="fas fa-flag"></span>
+                    </h5>
+                </a>
+            </div>
+
+
+
+        </div>
+        <div class="row rtl">
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn" asp-page="./Studies/Index">
+                    <h5>
+                        Studies
+                        <span class="fas fa-book-open"></span>
+                    </h5>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn" asp-page="./SelectTag">
+                    <h5>
+                        Appointment Tag
+                        <span class="fas fa-plus"></span>
+                    </h5>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn" asp-page="./Categorys/Index">
+                    <h5>
+                        Categorys Managment
+                        <span class="fas fa-cog"></span>
+                    </h5>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn" asp-page="./Tags/Index">
+                    <h5>
+                        Tags Managment
+                        <span class="fas fa-cog"></span>
+                    </h5>
+                </a>
+            </div>
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn" asp-page="./SocialManagment/Index">
+                    <h5>
+                        Social Managment
+                        <span class="fas fa-cog"></span>
+                    </h5>
+                </a>
+            </div>
+
+           
+            <div class="col-6 col-md-3 p-1">
+                <a class="menu-btn bg-success" asp-page="./UsersManagment">
+                    <h5>
+                        Users Managment
+                        <span class="fas fa-users-cog"></span>
+
+                    </h5>
+                </a>
+            </div>
+           
+        </div>
+    </div>
+
+
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}
+
+

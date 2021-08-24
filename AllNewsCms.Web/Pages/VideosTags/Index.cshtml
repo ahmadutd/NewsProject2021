@@ -1,0 +1,140 @@
+﻿@page
+@model AllNewsCms.Web.Pages.VideosTags.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="row">
+    <div class="col">
+        <div class="tab-header d-flex align-items-center alert-primary p-2">
+
+            <strong>Set Video Tags</strong>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="paginait-count d-flex align-items-center justify-content-start">
+    <strong class="mr-1">Page</strong><strong>@(Model.CurrentPage)</strong>
+</div>
+
+<div class="row">
+    <div class="col">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+
+        <table id="myTable">
+            <tr class="header">
+                <th style="width:5%;">#</th>
+                <th style="width:12%;"><span class="fab fa-youtube text-danger mr-1"></span>@Html.DisplayNameFor(x => x.Data[0].VideoImage)</th>
+                <th style="width:88%;">@Html.DisplayNameFor(x => x.Data[0].Title)</th>
+                <th style="width:5%;">Produce</th>
+
+
+            </tr>
+            @if (Model.Data != null)
+            {
+                var i = 0;
+                @foreach (var item in Model.Data)
+                {
+                    ++i;
+                    <tr>
+                        <td>@i</td>
+                        <th><img src="https://img.youtube.com/vi/@item.VideoPlay/mqdefault.jpg" alt="Alternate Text" /></th>
+                        <td>@item.Title</td>
+
+                        <td>
+                            <button type="button" class="btn btn-sm btn-light fas fa-tag" data-toggle="modal" data-target="#myModal_@item.Id"></button>
+                        </td>
+
+
+                    </tr>
+
+
+
+
+
+                    <div class="modal " id="myModal_@item.Id">
+
+                        <div class="modal-dialog modal-lg">
+                            <div class="modal-content">
+                                <form method="post">
+                                    <div class="modal-header">
+
+                                        <div class="w-100">
+                                            <select class="js-example-basic-multiple" id="@item.Id" asp-items="@Model.TagSelectList" asp-for="@Model.TagIds" multiple="multiple"></select>
+
+                                            <input type="hidden" asp-for="@Model.VideoId" value="@item.Id" />
+                                            <button type="submit" class="btn btn-info fas fa-plus w-100 p-1" style="border-radius:0px"></button>
+                                        </div>
+
+                                    </div>
+                                    <div class="modal-body">
+
+                                        <div class="p-2 d-flex flex-wrap">
+                                            @foreach (var videoTag in item.VideoTag)
+                                            {
+
+                                                <div class="tag-container">
+                                                    <div class="tag-text">@videoTag.Tag.Name</div>
+                                                    <form asp-page="Index" asp-page-handler="Delete" method="post">
+                                                        <input type="hidden" asp-for="@Model.TagSelectedForDeleteId" value="@videoTag.Tag.Id" />
+                                                        <button type="submit" class="tag-btn fas fa-times-circle"></button>
+                                                    </form>
+                                                </div>
+
+
+                                            }
+                                        </div>
+
+                                    </div>
+
+
+                                    <div class="modal-footer">
+                                        <button type="button" class="btn btn-danger fas fa-times" data-dismiss="modal"></button>
+                                    </div>
+
+                                </form>
+                            </div>
+                        </div>
+
+                    </div>
+
+
+
+
+
+                }
+            }
+
+
+        </table>
+
+    </div>
+</div>
+
+<hr />
+<div class="row">
+    <div class="col">
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item @(Model.CurrentPage==1?"disabled":"")">
+                    <a class="page-link" href="/VideosTags/Index?currentpage=@(Model.CurrentPage-1)">Previous</a>
+                </li>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i==Model.CurrentPage?"active":"")">
+                        <a class="page-link" href="/VideosTags/Index?currentpage=@i">@i</a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.CurrentPage==Model.TotalPages?"disabled":"")">
+                    <a class="page-link" href="/VideosTags/Index?currentpage=@(Model.CurrentPage+1)">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>

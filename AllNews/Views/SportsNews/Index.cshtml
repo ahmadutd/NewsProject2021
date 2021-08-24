@@ -1,0 +1,91 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@using AllNews.Domain;
+@inject IViewLocalizer Localizer
+@model AllNews.ViewModel.PageinationViewModel<News>
+<div class="row">
+    <div class="col">
+        <div class="top-title-line mt-1">
+            <h5 class="d-none d-md-block">@Localizer["SportsNews"]</h5>
+            <span class="d-md-none">@Localizer["SportsNews"]</span>
+        </div>
+        <div class="top-box-hot-line"></div>
+    </div>
+</div>
+<br />
+
+<div class="row">
+    
+        @foreach (var item in Model.PaginatedList)
+        {
+            
+            <div class="col-6 col-md-3 p-1">
+            <a asp-action="Index" asp-controller="NewsPage" asp-route-id="@item.Id" class="politic-card">
+                <div class="img-card-box">
+                    @if (item.FirstImage != null || item.ImageCoverPath != null)
+                    {
+                        @if (item.FirstImage != null)
+                        {
+                            <img src="@item.FirstImage" alt="Alternate Text" />
+                        }
+                        @if (item.ImageCoverPath != null)
+                        {
+                            <img src="@ViewBag.AdminURL/Upload/News/Images/@item.ImageCoverPath" alt="Alternate Text" />
+                        }
+                    }
+                    else
+                    {
+                        @if (item.Video != null)
+                        {
+                            <img src="https://img.youtube.com/vi/@item.Video/mqdefault.jpg" alt="Alternate Text" />
+                        }
+                        @if (item.VideoCoverPath != null)
+                        {
+                            <img src="@ViewBag.AdminURL/Upload/News/VideoImg/@item.VideoImg" alt="Alternate Text" />
+                        }
+                    }
+
+                    @if (item.Video != null || item.VideoCoverPath != null)
+                    {
+                        <span class="video-avatar fab fa-youtube text-white"></span>
+                    }
+                    else
+                    {
+
+                    }
+                </div>
+                <div class="news-card-text-box">
+
+                    <h6 class="card-text-news">
+                        @item.Title
+                    </h6>
+                </div>
+                <div class="date-box d-flex align-items-center justify-content-start">
+
+                    <span class="fas fa-calendar-alt"></span>
+                    <span class="datetime-now">@item.UpdatedDate</span>
+                </div>
+            </a>
+        </div>
+        }
+   
+</div>
+
+<hr />
+<div class="d-flex align-items-center justify-content-center">
+    <div class="pagination pagination-sm">
+
+        <a href="/SportsNews?page=1" class="@(Model.CurrentPage <= 1?"disabled":"")">@Localizer["First"]</a>
+
+        @for (int i = 1; i <= Model.TotalPage; i++)
+        {
+
+            <a href="/SportsNews?page=@i" class="@(i==Model.CurrentPage?"active":"")">@i</a>
+
+        }
+
+        <a href="/SportsNews?page=@(Model.TotalPage)" class="@(Model.CurrentPage >= Model.TotalPage?"disabled":"")">@Localizer["Last"]</a>
+
+
+    </div>
+</div>

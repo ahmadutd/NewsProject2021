@@ -1,0 +1,40 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp3.1</TargetFramework>
+    <UserSecretsId>aspnet-AllNewsCms.Web-2358B068-C1F5-4300-A524-740866061894</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Include="Pages\Photos\Create.cshtml" />
+    <None Include="Pages\Photos\Index.cshtml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="3.1.4" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Proxies" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="3.1.4" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="3.1.4" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.5" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\AllNews.Data\AllNews.Data.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="wwwroot\Upload\Audios\Images\" />
+    <Folder Include="wwwroot\Upload\News\VideoImg\" />
+    <Folder Include="wwwroot\Upload\Organisation\" />
+    <Folder Include="wwwroot\Upload\Papers\Downloads\" />
+    <Folder Include="wwwroot\Upload\Papers\Images\" />
+    <Folder Include="wwwroot\Upload\Photos\" />
+    <Folder Include="wwwroot\Upload\Statements\" />
+    <Folder Include="wwwroot\Upload\Studies\Downloads\" />
+    <Folder Include="wwwroot\Upload\Studies\Images\" />
+    <Folder Include="wwwroot\Upload\Videos\Img\" />
+  </ItemGroup>
+
+</Project>

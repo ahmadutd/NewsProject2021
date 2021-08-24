@@ -1,0 +1,388 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
+@model AllNews.ViewModel.SearchViewModel
+<br />
+<div class="row">
+    <div class="col-8 col-md-4 m-auto">
+        <div class="top-box-hot-search">
+
+            <h4 class="fas fa-search mr-2 ml-2"></h4>
+
+            <h5>@Localizer["Search Result"]</h5>
+
+        </div>
+    </div>
+
+</div>
+
+<br />
+
+@if (Model.audioSearchData != null)
+{
+    @if (Model.audioSearchData.Any())
+    {
+        <br />
+        <div class="row">
+            <div class="col">
+                <div class="top-title-line">
+                    <h5 class="d-none d-md-block">@Localizer["Audios"]</h5>
+                    <span class="d-md-none">@Localizer["Audios"]</span>
+                </div>
+                <div class="top-box-hot-line"></div>
+            </div>
+        </div>
+        <br />
+
+        <div class="row">
+            @foreach (var search in Model?.audioSearchData)
+
+            {
+
+
+                <div class="col-6 col-md-3 p-1">
+                    <a asp-action="AudioPart" asp-controller="Audios" asp-route-id="@search?.Id" class="audio-box d-flex flex-column align-items-center justify-content-center">
+                        <span class="title-audio"> @search.Title</span>
+                        <div class="audio-img-box">
+                            @if (search.Image != null || search.ImageCoverPath != null)
+                            {
+                                @if (search.Image != null)
+                                {
+                                    <img src="@search?.Image" alt="Alternate Text" />
+                                }
+                                @if (search.ImageCoverPath != null)
+                                {
+                                    <img src="@ViewBag.AdminURL/Upload/Audios/Images/@search?.ImageCoverPath" alt="Alternate Text" />
+                                }
+                            }
+                            else
+                            {
+                                <img src="/img/MicroPhoneAvatar.png" alt="Alternate Text" />
+                            }
+                        </div>
+                        <span class="fas fa-microphone mt-2"></span>
+
+                    </a>
+                </div>
+
+            }
+        </div>
+
+    }
+
+}
+
+
+@if (Model.videoSearchData != null)
+{
+    @if (Model.videoSearchData.Any())
+    {
+        <br />
+        <div class="row">
+            <div class="col">
+                <div class="top-title-line">
+                    <h5 class="d-none d-md-block">@Localizer["Videos"]</h5>
+                    <span class="d-md-none">@Localizer["Videos"]</span>
+                </div>
+                <div class="top-box-hot-line"></div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            @foreach (var item in Model?.videoSearchData)
+            {
+
+                <div class="col-6 col-md-3 p-1 mb-2">
+                    <a class="video-box" asp-action="VideoPart" asp-controller="Videos" asp-route-id="@item.Id">
+
+                        <div class="videocard-body">
+                            @if (item.VideoPlay != null || item.VideoCoverPath != null)
+                            {
+                                @if (item.VideoPlay != null)
+                                {
+                                    <img src="https://img.youtube.com/vi/@item?.VideoPlay/mqdefault.jpg" alt="Alternate Text" />
+                                }
+                                @if (item.VideoCoverPath != null)
+                                {
+                                    <img src="@ViewBag.AdminURL/Upload/Videos/Img/@item?.VideoImage" alt="Alternate Text" />
+                                }
+                            }
+                            <div class="play-avatar"></div>
+                        </div>
+                        <div class="video-name d-flex align-items-center justify-content-center">
+
+                            <span class="mr-1 ml-1">@item?.Title</span>
+                        </div>
+                    </a>
+                </div>
+
+            }
+        </div>
+
+    }
+
+}
+
+
+@if (Model.photoSearchData != null)
+{
+    @if (Model.photoSearchData.Any())
+    {
+        <br />
+        <div class="row">
+            <div class="col">
+                <div class="top-title-line">
+                    <h5 class="d-none d-md-block">@Localizer["Photos"]</h5>
+                    <span class="d-md-none">@Localizer["Photos"]</span>
+                </div>
+                <div class="top-box-hot-line"></div>
+            </div>
+        </div>
+        <br />
+        <div class="row">
+            @foreach (var item in Model?.photoSearchData)
+            {
+
+
+                <div class="col-6 col-md-2 p-1">
+                    <a asp-action="PhotoView" asp-controller="Photos" asp-route-id="@item?.Id">
+                        <div class="image-space">
+                            @if (item.Image != null || item.ImageCoverPath != null)
+                            {
+                                @if (item.Image != null)
+                                {
+                                    <img src="@item?.Image" alt="Avatar" class="image" style="height:123px">
+                                }
+                                @if (item.ImageCoverPath != null)
+                                {
+                                    <img src="@ViewBag.AdminURL/Upload/Photos/@item?.ImageCoverPath" alt="Avatar" class="image" style="height:123px">
+                                }
+                            }
+                            <div class="overlay-image">
+                                <h4 class="title-image fas fa-image"></h4>
+
+                            </div>
+                        </div>
+                    </a>
+
+                </div>
+
+            }
+        </div>
+
+    }
+}
+
+
+@if (Model.newsSearchData != null && Model.newsSearchData.Any())
+{
+    <br />
+    <div class="row">
+        <div class="col">
+            <div class="top-title-line">
+                <h5 class="d-none d-md-block">@Localizer["News"]</h5>
+                <span class="d-md-none">@Localizer["News"]</span>
+            </div>
+            <div class="top-box-hot-line"></div>
+        </div>
+    </div>
+    <br />
+
+    <div class="row">
+        @foreach (var search in Model.newsSearchData)
+        {
+
+
+            <div class="col-6 col-md-3 p-1">
+                <a asp-action="Index" asp-controller="NewsPage" asp-route-id="@search?.Id" class="politic-card">
+                    <div class="img-card-box">
+                        @if (search.FirstImage != null || search.ImageCoverPath != null)
+                        {
+                            @if (search.FirstImage != null)
+                            {
+                                <img src="@search?.FirstImage" alt="Alternate Text" />
+                            }
+                            @if (search.ImageCoverPath != null)
+                            {
+                                <img src="@ViewBag.AdminURL/Upload/News/Images/@search?.ImageCoverPath" alt="Alternate Text" />
+                            }
+                        }
+                        else
+                        {
+                            @if (search.Video != null)
+                            {
+                                <img src="https://img.youtube.com/vi/@search.Video/mqdefault.jpg" alt="Alternate Text" />
+                            }
+                            @if (search.VideoCoverPath != null)
+                            {
+                                <img src="@ViewBag.AdminURL/Upload/News/VideoImg/@search?.VideoImg" alt="Alternate Text" />
+                            }
+                        }
+
+                        @if (search.Video != null || search?.VideoCoverPath != null)
+                        {
+                            <span class="video-avatar fab fa-youtube text-white"></span>
+                        }
+                        else
+                        {
+
+                        }
+                    </div>
+                    <div class="news-card-text-box">
+
+                        <h6 class="card-text-news">
+                            @search.Title
+                        </h6>
+                    </div>
+                    <div class="date-box d-flex align-items-center justify-content-start">
+                        <span class="fas fa-calendar-alt"></span>
+                        <span class="datetime-now">@search.UpdatedDate</span>
+                    </div>
+                </a>
+            </div>
+
+
+        }
+    </div>
+}
+
+
+@if (Model.paperSearchData != null && Model.paperSearchData.Any())
+{
+    <br />
+    <div class="row">
+        <div class="col">
+            <div class="top-title-line">
+                <h5 class="d-none d-md-block">@Localizer["Paper"]</h5>
+                <span class="d-md-none">@Localizer["Paper"]</span>
+            </div>
+            <div class="top-box-hot-line"></div>
+        </div>
+    </div>
+    <br />
+
+    var i = 0;
+    <div class="row">
+        @foreach (var item in Model.paperSearchData)
+        {
+            ++i;
+            <div class="col-6 col-md-3 p-1 mt-2">
+                <div class="box-paper d-flex flex-column align-items-center justify-content-start" data-toggle="modal" data-target="#paper_@i">
+                    <img class="pin" src="/img/paper-back.png" alt="Alternate Text" />
+                    <br />
+                    <br />
+                    @if (item.Image != null || item.ImageCoverPath != null)
+                    {
+                        @if (item.Image != null)
+                        {
+                            <img class="paper-pic" src="@item.Image" alt="Alternate Text" />
+                        }
+                        @if (item.ImageCoverPath != null)
+                        {
+                            <img class="paper-pic" src="@ViewBag.AdminURL/Upload/Papers/Images/@item.ImageCoverPath" alt="Alternate Text" />
+                        }
+
+                    }
+                    else
+                    {
+                        <img class="paper-pic" src="/img/paper-one.png" alt="Alternate Text" />
+                    }
+                    <br />
+                    <p class="paper-title">@item.Title</p>
+                    <span class="fas fa-ellipsis-h"></span>
+                </div>
+            </div>
+
+            <div class="modal fade " id="paper_@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content modal-object ">
+
+
+                        <div class="modal-header d-flex flex-column">
+
+                            <button type="button" class="close-windows-modal" data-dismiss="modal" aria-label="Close"><span class="fas fa-times"></span></button>
+                            <br />
+                            <div class="img-header-object m-auto">
+                                @if (item.Image == null)
+                                {
+                                    <img src="/img/paper-one.png" alt="Alternate Text" />
+                                }
+                                else
+                                {
+                                    <img src="@item?.Image" alt="Alternate Text" />
+                                }
+
+                            </div>
+                        </div>
+                        <div class="modal-body studies-body-modal">
+
+                            <div class="paper-desc-box">
+                                <pre>
+                                     @item.Description
+                                </pre>
+                            </div>
+                        </div>
+                        <div class="modal-footer d-flex justify-content-center">
+
+                            <a href="@ViewBag.AdminURL/Upload/Papers/Downloads/@item.Download" class="dl-link">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
+
+
+                            <button class="dl-link" data-toggle="collapse" href="#share" role="button" aria-expanded="false" aria-controls="share">@Localizer["Share"] <span class=" fas fa-share-alt mr-1"></span></button>
+                            <div class="collapse share-colaps-modal" id="share">
+                                <div class="card card-body d-flex">
+                                    <div class="d-flex">
+                                        <a href="whatsapp://send?text=@item.Title-@ViewBag.ShareURL/Paper/Index/@item.Id" data-action="share/whatsapp/share" class="fab fa-whatsapp text-success"></a>
+                                        <a href="https://telegram.me/share/url?url=@item.Title-@ViewBag.ShareURL/Paper/Index/@item.Id" class="fab fa-telegram text-info"></a>
+                                        <a href="mailto:?=&subject=@item.Title&body=@ViewBag.ShareURL/Paper/Index/@item.Id" class="fas fa-envelope text-secondary"></a>
+                                        <a href="https://www.facebook.com/sharer/sharer.php?u=@item.Title-@ViewBag.ShareURL/Paper/Index/@item.Id" class="fab fa-facebook text-primary"></a>
+                                        <a href="https://twitter.com/intent/tweet?text=@item.Title-@ViewBag.ShareURL/Paper/Index/@item.Id" class="fab fa-twitter text-info"></a>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+        }
+    </div>
+}
+
+
+@if (Model.newsSearchData != null && Model.newsSearchData.Any() ||
+ Model.paperSearchData != null && Model.paperSearchData.Any() ||
+ Model.audioSearchData != null && Model.audioSearchData.Any() ||
+ Model.videoSearchData != null && Model.videoSearchData.Any() ||
+ Model.photoSearchData != null && Model.photoSearchData.Any()
+ )
+{
+
+}
+else
+{
+    <div class="row">
+        <div class="col">
+            <div class="not-fnd d-flex justify-content-center">
+                <h5>@Localizer["Not Found !"]</h5>
+            </div>
+        </div>
+    </div>
+}
+
+
+
+
+
+
+
+
+
+
+
+<hr />
+
+
+
+
+

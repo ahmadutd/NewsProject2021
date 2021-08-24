@@ -1,0 +1,8 @@
+﻿@model IEnumerable<AllNews.Domain.MoveText>
+
+@foreach (var item in Model)
+{
+    <span class="fas fa-square text-danger mr-1 ml-1"></span>
+    <span>@item.Text</span>
+
+}

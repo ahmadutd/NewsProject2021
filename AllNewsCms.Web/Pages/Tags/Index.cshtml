@@ -1,0 +1,122 @@
+﻿@page
+@model AllNewsCms.Web.Pages.Tags.IndexModel
+@{
+    ViewData["Title"] = "Index";
+}
+
+
+
+<div class="row">
+    <div class="col">
+        <div class="tab-header d-flex align-items-center alert-success p-2">
+
+            <strong>Create Tag Form</strong>
+
+        </div>
+
+    </div>
+</div>
+
+<div class="paginait-count d-flex align-items-center justify-content-start">
+    <strong class="mr-1">Page</strong><strong>@(Model.CurrentPage)</strong>
+</div>
+
+<div>
+    <form method="post">
+        <div class="form-row mb-3 d-flex align-items-center">
+
+            <div class="form-group col-6 col-md-2">
+                <label>Select Language</label>
+
+                <div class="dropdown">
+                    <button class="lang-class" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        SetLanguage
+                    </button>
+                    <div id="Lang-class" class="dropdown-menu rtl" aria-labelledby="dropdownMenuButton">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group col-6 col-md-6">
+                <label asp-for="Tag.Name"></label>
+                <input class="form-control form-control-sm" type="text" asp-for="Tag.Name" />
+
+            </div>
+
+            <div class="col-12 col-md-2">
+                <button type="submit" class="btn-save mt-3 mr-1 ml-1 w-100"><span class="fas fa-plus"></span></button>
+            </div>
+
+
+
+        </div>
+
+    </form>
+</div>
+
+<div class="row">
+    <div class="col-12 col-md-10">
+        <input type="text" id="myInput" onkeyup="myFunction()" placeholder="Search">
+
+        <table id="myTable">
+            <tr class="header">
+                <th style="width:5%;">#</th>
+                <th style="width:85%;">@Html.DisplayNameFor(x => x.Tag.Name)</th>
+                <th style="width:5%;">Edit</th>
+                <th style="width:5%;">Delete</th>
+
+            </tr>
+            @if (Model.TagList != null)
+            {
+                var i = 0;
+                @foreach (var taglist in Model.TagList)
+                {
+                    ++i;
+                    <tr>
+                        <td>@i</td>
+                        <td class="font-revo">@taglist.Name</td>
+
+                        <td><a asp-area="" asp-page="./Create" asp-route-id="@taglist.Id" class="more-btn btn btn-light fas fa-pen-alt"></a></td>
+                        <td><a asp-area="" asp-page="./Delete" asp-route-id="@taglist.Id" class="more-btn btn btn-light fas fa-trash-alt"></a></td>
+
+                    </tr>
+                }
+            }
+
+
+        </table>
+
+    </div>
+</div>
+<hr />
+<div class="row">
+    <div class="col">
+
+        <nav aria-label="Page navigation example">
+            <ul class="pagination pagination-sm justify-content-center">
+                <li class="page-item @(Model.CurrentPage==1?"disabled":"")">
+                    <a class="page-link" href="/Tags/Index?currentpage=@(Model.CurrentPage-1)">Previous</a>
+                </li>
+
+                @for (int i = 1; i <= Model.TotalPages; i++)
+                {
+                    <li class="page-item @(i==Model.CurrentPage?"active":"")">
+                        <a class="page-link" href="/Tags/Index?currentpage=@i">@i</a>
+                    </li>
+                }
+
+                <li class="page-item @(Model.CurrentPage==Model.TotalPages?"disabled":"")">
+                    <a class="page-link" href="/Tags/Index?currentpage=@(Model.CurrentPage+1)">Next</a>
+                </li>
+            </ul>
+        </nav>
+
+    </div>
+</div>
+
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

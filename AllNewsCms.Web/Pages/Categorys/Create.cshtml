@@ -1,0 +1,50 @@
+﻿@page
+@model AllNewsCms.Web.Pages.Categorys.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="tab-header d-flex align-items-center alert-success p-2">
+    <strong>Create Category</strong>
+    <a asp-area="" asp-page="Index" class="btn btn-light ml-auto">Category List</a>
+    
+
+</div>
+<hr />
+<div class="p-2">
+    <form method="post">
+        <input type="hidden" asp-for="Categorys.Id" />
+        <div class="form-row">
+           
+            <div class="form-group col-6 col-md-2">
+                <label>Select Language</label>
+
+                <div class="dropdown">
+                    <button class="lang-class" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        SetLanguage
+                    </button>
+                    <div id="Lang-class" class="dropdown-menu rtl" aria-labelledby="dropdownMenuButton">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group col-12 col-md-6">
+                <label asp-for="Categorys.CategoryName"></label>
+                <input class="form-control form-control-sm" type="text" asp-for="Categorys.CategoryName" />
+                
+                
+            </div>
+
+        </div>
+        <hr />
+        <div class="col-12 col-md-1 p-0">
+            <button type="submit" class="btn btn-success w-100 fas fa-check"></button>
+        </div>
+    </form>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

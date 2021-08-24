@@ -1,0 +1,165 @@
+﻿@page
+@using Microsoft.AspNetCore.Identity;
+@using AllNews.Domain;
+@model AllNewsCms.Web.Pages.RoleUserManagment.IndexModel
+@inject UserManager<AppUser> userManager
+@{
+    ViewData["Title"] = "Index";
+}
+
+<div class="alert alert-info d-flex align-items-center">
+    <h4 class="fas fa-user-check mr-2"></h4>
+    <h4>Role & Permission Managment</h4>
+</div>
+
+<br />
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered">
+            <tr>
+                <th>Id</th>
+                <th>UserName</th>
+                <th>Email</th>
+                <th>Role</th>
+                <th>Action</th>
+            </tr>
+            @foreach (var item in Model.UserList)
+            {
+                var roles = string.Join('/',await userManager.GetRolesAsync(item));
+                <tr>
+                    <td>@item.Id</td>
+                    <td>@item.UserName</td>
+                    <td>@item.Email</td>
+                    <td>
+                        
+                        <span class="role-box">@roles</span>
+                        
+
+                    </td>
+                    <td>
+
+                        <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#AddRole_@item.Id" onclick="ChangeModalState(@item.Id, '@roles')">Manage Role</button>
+                        <a href="/ManagePermission?id=@item.Id" class="btn btn-sm btn-secondary">Manage Permission</a>
+                    </td>
+                </tr>
+                <div class="modal fade" id="AddRole_@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered" role="document">
+                        <div class="modal-content">
+                            <div class="modal-header">
+                                <h5 class="modal-title" id="exampleModalLabel">Add Role For (@item.UserName)</h5>
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                                    <span aria-hidden="true">&times;</span>
+                                </button>
+                            </div>
+                            <div class="modal-body">
+                                <div id="CheckBoxContainer_@item.Id" class="d-flex flex-wrap align-items-center justify-content-center">
+                                    @foreach (var role in Model.RoleList)
+                                    {
+                                        @Html.AntiForgeryToken()
+                                        <div class="form-check m-2">
+                                            <input class="form-check-input" type="checkbox" value="@role.Id" name="checkbox[]" id="chbox_@role.Id" data-chbox="@role.Name">
+                                            <label class="form-check-label" for="chbox_@role.Id">
+                                               @role.Name
+                                            </label>
+                                        </div>
+                                    }
+
+                                </div>
+                            </div>
+                            <div class="modal-footer">
+                                <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                                <button type="button" class="btn btn-success" onclick="AddRole(@item.Id,'#CheckBoxContainer_@item.Id')">Save changes</button>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            }
+        </table>
+    </div>
+</div>
+@section Scripts{ 
+
+    <script>
+
+        let userRoleList = [];
+
+        function ChangeModalState(userId, data) {
+
+            userRoleList = [];
+
+            if (data) {      
+                data.split(',').forEach(function (val) {
+
+                    userRoleList.push(val);
+                    }
+                );
+            }
+           
+            SetSelectedCheckBox(userId, '#CheckBoxContainer_' + userId);
+
+
+        }
+
+
+        function SetSelectedCheckBox(id, obj) {
+            $(obj + ' input:checkbox').each(function (index, obj) {
+                var role = $(this).data('chbox');
+                if (userRoleList.some(x => x == role)) {
+
+                    $(this).prop('checked', true);
+                }
+
+
+            });
+
+        }
+
+
+
+        function AddRole(id, obj) {
+         
+            let roleId = [];
+            $(obj + ' input:checkbox:checked').each(function () {
+
+                roleId.push(parseInt(this.value))
+            })
+
+            SetRole(id, roleId);
+        }
+
+
+        var SetRole = function (id,roleId) {
+
+            var data = {};
+            data.Id = id;
+            data.RoleId = roleId;
+
+            $.ajax(
+                {
+                    url: "/RoleUser?handler=SetRoleUser",
+                    beforeSend: function (xhr) {
+                        xhr.setRequestHeader("XSRF-TOKEN", $('input:hidden[name="__RequestVerificationToken"]').val())
+                    },
+
+                    type: "POST",
+                    data: data,
+                    success: function (response) {
+                        $('#AddRole_' + data.Id).modal('hide')
+                       
+                        location.reload()
+                    },
+                    failure: function (response) {
+                        alert: (response);
+                    }
+                }
+            );
+                
+
+
+
+        }
+
+
+
+    </script>
+}

@@ -1,0 +1,71 @@
+﻿@page
+@model AllNewsCms.Web.Pages.Papers.CreateModel
+@{
+    ViewData["Title"] = "Create";
+}
+
+<div class="tab-header d-flex align-items-center alert-success p-2">
+    <strong>Create Paper</strong>
+    <a asp-area="" asp-page="Index" class="btn btn-light ml-auto">Paper List </a>
+
+
+</div>
+<hr />
+<div class="p-2">
+    <form method="post" enctype="multipart/form-data">
+        <input type="hidden" asp-for="@Model.Papers.Id" />
+        <div class="form-row">
+            <div class="form-group col-2 col-md-2">
+                <label>Select Language</label>
+
+                <div class="dropdown">
+                    <button class="lang-class" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        SetLanguage
+                    </button>
+                    <div id="Lang-class" class="dropdown-menu dropdown-menu-right rtl" aria-labelledby="dropdownMenuButton">
+
+                    </div>
+                </div>
+
+            </div>
+            <div class="form-group col-12 col-md-12">
+                <label asp-for="@Model.Papers.Title"></label>
+                <input class="form-control form-control-sm" type="text" asp-for="@Model.Papers.Title" />
+            </div>
+            <div class="form-group col-12 col-md-12">
+                <label asp-for="Papers.Category.CategoryName"></label>
+                <div class="input-group">
+                    <select asp-items="Model.CategoryPapers" asp-for="@Model.Papers.CategoryId" class="custom-select"></select>
+                </div>
+
+            </div>
+
+            <div class="form-group col-12 col-md-12 col-lg-12">
+                <label asp-for="@Model.Papers.Image"></label>
+                <input class="form-control form-control-sm" type="text" asp-for="@Model.Papers.Image" placeholder="https//YourAddress/Image/" />
+
+            </div>
+            <div class="form-group col-12 col-md-12 col-lg-12">
+                <label asp-for="@Model.Papers.ImageCoverPath"></label>
+                <input class="form-control p-1" type="file" asp-for="@Model.Papers.ImageFile"/>
+
+            </div>
+            <div class="form-group col-12">
+                <label asp-for="@Model.Papers.Description"></label>
+                <textarea class="form-control form-control-sm" type="text" asp-for="@Model.Papers.Description"></textarea>
+            </div>
+            <div class="form-group col-12 col-md-12 col-lg-12">
+                <label asp-for="@Model.Papers.Download"></label>
+                <input class="form-control p-1" type="file" asp-for="@Model.Papers.DownloadFile" />
+
+            </div>
+        </div>
+        <hr />
+        <div class="col-12 col-md-1 p-0">
+            <button type="submit" class="btn btn-success w-100 fas fa-check"></button>
+        </div>
+    </form>
+</div>
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

@@ -46,6 +46,10 @@
     src: url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.eot);
     src: url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'), url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.woff2) format('woff2'), url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.woff) format('woff'), url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.ttf) format('truetype');
 }
+body {
+    background: rgb(0,95,255);
+    background: linear-gradient(27deg, rgba(0,95,255,0.3029586834733894) 0%, rgba(255,255,255,0) 100%);
+}
 .rtl {
     direction: rtl !important;
     text-align: right !important;
@@ -58,9 +62,14 @@
 .tac{
     text-align:center !important;
 }
-.modal-body .form-view span
-{
-     font-family: 'Almarai', sans-serif;
+.paginait-count {
+    border-bottom: 3px solid rgba(43, 43, 43, 0.43);
+    color: rgba(43, 43, 43, 0.43);
+    margin:10px 5px;
+    padding:10px 0;
+}
+.modal-body .form-view span {
+    font-family: 'Almarai', sans-serif;
 }
 .modal-desc
 {
@@ -225,7 +234,8 @@ html {
   }
 }
 
-.border-top {
+.border-top
+{
   border-top: 1px solid #e5e5e5;
 }
 .border-bottom {
@@ -312,6 +322,7 @@ body {
 #myTable tr .font-revo
 {
     font-family: 'Almarai', sans-serif;   
+    font-size:11px;
   
 }
 
@@ -535,7 +546,7 @@ body {
   display: inline-block;
   position: relative;
   transition: 0.5s;
-  font-size:17px !important;
+  font-size:15px !important;
   font-weight:400;
  
 }

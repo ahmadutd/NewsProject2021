@@ -39,9 +39,9 @@
     src: url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.eot);
     src: url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.eot?#iefix) format('embedded-opentype'), url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.woff2) format('woff2'), url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.woff) format('woff'), url(//fonts.gstatic.com/ea/droidarabickufi/v6/DroidKufi-Bold.ttf) format('truetype');
 }
-.modal-header
-{
-    position:relative;
+
+.modal-header {
+    position: relative;
 }
 .modal-header .close-windows-modal
 {
@@ -102,9 +102,10 @@ a
    text-decoration: none !important;
 }
 .backgrand-order {
-    background: rgb(255,255,255);
-    background: radial-gradient(circle, rgba(255,255,255,1) 64%, rgba(0,185,255,0.23012955182072825) 100%);
+    /*background: rgb(0,118,185);
+    background: radial-gradient(circle, rgba(0,118,185,0) 0%, rgba(0,129,203,0.19931722689075626) 100%);*/
     position: relative;
+    background:url(../img/iEwnvd.jpg) no-repeat fixed center ;
 }
 .Time-head {
     
@@ -133,12 +134,12 @@ a
     font-family: 'Almarai', sans-serif;
 }
 
-.Time-head-mini .celender-header {
-    font-size: 13px;
-    color: #1e1e1e;
-    padding: 2px 5px;
+.Time-head-mini .celender-header
+{
+    font-size: 12px;
+    color: rgb(61, 61, 61);
+    padding: 0px 5px 10px 5px;
     font-family: 'Almarai', sans-serif;
-    font-weight:700
 }
 .Language 
 {
@@ -162,7 +163,7 @@ a
 }
 .Language a:hover
 {
-    color: #00b9ff;
+    color: #008ddd;
 }
 
 .Language a:hover span
@@ -209,16 +210,19 @@ a
 {
     color:#008ddd
 }
+.responsiv-menu-top {
+    background:url(../img/backresponsive.jpg)
+}
+
 .responsiv-menu-top img {
     padding: 5px;
     width: 83px;
-    height: 83px;
+    height: 85px;
 }
+
 .responsiv-colap-head 
 {
     background: #008ddd;
-    border-bottom-left-radius: 5px;
-    border-bottom-right-radius: 5px;
     width:100%;
     margin:0px;
 }
@@ -259,17 +263,19 @@ a
 }
 
 .title-web {
-    font-family: 'Kufam', sans-serif;
+    font-family: 'Almarai', sans-serif;
+    /*font-family: 'Kufam', sans-serif;*/
     font-size: 21px;
     margin: 0 6px;
     padding: 0 0 10px 0;
-    text-shadow: 3px 4px rgba(48, 48, 48, 0.3);
+    text-shadow: 3px 4px rgba(48, 48, 48, 0.2);
 }
 .title-web-mini {
-    font-family: 'Kufam', sans-serif;
-    font-size: 13px;
-    margin: 12px 2px 0 0;
-    padding: 0 0 7px 0;
+    font-family: 'Almarai', sans-serif;
+    /*font-family: 'Kufam', sans-serif;*/
+    font-size: 14px;
+    padding: 0 0 5px 0;
+    text-shadow: 3px 4px rgba(48, 48, 48, 0.2);
 }
 .web-image
 {
@@ -333,18 +339,26 @@ a
 {
     color:white
 }
+
 /*Menu Nav List Responsiv*/
+.list-nav .list-menu-nav-res
+{
+    height:440px;
+    overflow:auto
+}
 .list-nav .list-menu-nav-res ul
 {
     list-style:none;
     margin:0px !important;
     padding:0px !important;
+    
 }
 .list-nav .list-menu-nav-res ul .m-link
 {
     margin:5px 5px;
     padding:5px!important;
     transition:all .5s ease;
+    font-size:13px;
 
 }
 .list-nav .list-menu-nav-res ul .m-link:hover
@@ -359,7 +373,7 @@ a
     font-family: 'Almarai', sans-serif;
     text-decoration:none;
     margin:1px 3px;
-    font-size:14px;
+    font-size:13px;
     color:#303030;
     transition:all 400ms ease;
     cursor:pointer
@@ -773,19 +787,18 @@ a
     color:#008ddd
 }
 
-.smart-search-box .lbl-nameres
+.lbl-nameres
 {
     font-family: 'Almarai', sans-serif;
     font-size:13px;
     font-weight:500;
-    background-color:#008ddd;
-    padding:10px;
+    background-color:#222222;
+    padding:5px;
     color:white;
-    border-radius:5px;
     box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;
-
-
+    text-align:center
 }
+
 .smart-search-box .smart-search-tab .smart-search-btnres {
     border:none;
     outline:none!important;
@@ -1278,8 +1291,9 @@ hr.new1 {
 .our-news-card {
     display: block;
     text-decoration: none !important;
-    box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;
+/*    box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;*/
     padding: 3px 3px 3px 3px;
+    border:1px solid rgba(0, 123, 193, 0.15);
 }
 .our-news-card:hover
 {
@@ -1295,34 +1309,40 @@ hr.new1 {
     
     
 }
-.world-news-list
-{
+.world-news-list {
     width: 100%;
-    height:179px;
-    box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;
-    margin:5px 0;
-    overflow:auto !important;
+    height: 199px;
+    /*box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;*/
+    border:1px solid rgba(0, 120, 189, 0.15);
+    margin: 5px 0;
+    padding: 5px 0;
 }
-
+.world-news-list-box
+{
+    height:100%;
+    overflow:auto !important;
+    
+}
 .world-news-list .world-news-list-items {
     padding: 2px 2px;
     color: rgba(48, 48, 48, 0.6);
     display: flex;
     align-items:baseline;
-    margin: 3px 3px;
+    margin: 5px 3px;
     font-family: 'Almarai', sans-serif;
-    font-size: 11px;
+    font-size: 12px;
 
     
 }
 .world-news-list .world-news-list-items:hover
 {
     background:rgba(212, 212, 212, 0.52);
-    color:rgb(70,211,255);
+    color:#008ddd;
 }
 .box-image {
     display: block;
-    box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;
+/*    box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;*/
+    border:1px solid rgba(2, 125, 195, 0.16);
     padding: 3px 3px 3px 3px;
 }
 .box-image .first-main-box {
@@ -1349,7 +1369,7 @@ hr.new1 {
     width: 100%;
     transform: scale(1);
     transition: transform .6s ease;
-    height: 320px;
+    height: 300px;
 }
 .box-image .first-main-box:hover img
 {
@@ -1441,7 +1461,8 @@ hr.new1 {
 .politic-card {
     display: block;
     text-decoration: none !important;
-    box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;
+/*    box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;*/
+    border:1px solid rgba(0, 130, 204, 0.15);
     padding:3px 3px 3px 3px;
 
 }
@@ -1543,40 +1564,52 @@ hr.new1 {
 /*politics section*/
 
 /*object section*/
-.paper-bg
-{
-    background:url(../img/paper-bg.jpg) fixed!important;
-    padding:20px;
+.paper-bg {
+    background: url(../img/paper-bg.jpg) no-repeat center fixed;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 5px;
+    padding-right: 5px;
 }
-.box-paper
-{
-    display:block;
-    width:85%;
-    height:250px;
-    background:aliceblue;
-    border-radius:5px;
+.box-paper {
+    display: block;
+    width: 85%;
+    height: 250px;
+    background: aliceblue;
+    border-radius: 5px;
     box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.35) !important;
-    position:relative;
-    cursor:pointer;
-    transition:all 400ms ease !important;
-    top:0;
-    opacity:.8;
-    margin:auto
+    position: relative;
+    cursor: pointer;
+    transition: all 400ms ease !important;
+    top: 0;
+    opacity: .9;
+    margin: auto
 }
-.box-paper .pin
-{
-    position:absolute;
-    top:0;
-    left:0;
-    margin:5px;
-    padding:5px;
-    width:30px;
+.Paper-Carusel .box-paper .pin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px;
+    padding: 5px;
+    width: 30px;
 }
-.box-paper .paper-pic
-{
-    width:100px;
-    height:100px;
-    border-radius:3px;
+.box-paper .pin {
+    position: absolute;
+    top: 0;
+    left: 0;
+    margin: 5px;
+    padding: 5px;
+    width: 30px;
+}
+.Paper-Carusel .box-paper .paper-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
+}
+.box-paper .paper-pic {
+    width: 100px;
+    height: 100px;
+    border-radius: 3px;
 }
 .box-paper .paper-title
 {
@@ -1591,7 +1624,7 @@ hr.new1 {
 }
 .box-paper:hover {
     box-shadow: 1px 2px 10px 3px rgba(48, 48, 48, 0.65) !important;
-    top: -12px;
+    top: -8px;
     transition: all 400ms ease !important;
     opacity: 1;
 }
@@ -1817,7 +1850,7 @@ hr.new1 {
 }
 .with-card .img-with-card img
 {
-    width:400px;
+    width:100%;
     height:240px;
     transition:transform 600ms ease !important;
 
@@ -1837,7 +1870,7 @@ hr.new1 {
 .with-card .img-with-card .img-with-card-descres
 {
     height:120px;
-    width:310px;
+    width:410px;
     overflow:hidden;
     padding:10px 5px;
 
@@ -1995,72 +2028,51 @@ hr.new1 {
 
 /*End photo Section*/
 /*marquee*/
-#marquee-block {
-    width: auto;
-    margin: 0 auto;
-    white-space: nowrap;
+
+.ticker {
+    border-top: 1px solid white;
+    width: 100%;
+    height: 22px;
     overflow: hidden;
-    box-sizing: border-box;
-    direction: rtl;
-    padding: 1px;
-    border-bottom:2px solid rgb(255,255,255)
+    line-height: 2;
+    list-style: none;
+    text-align: center;
+    background: rgba(48, 48, 48, 0.3);
+    background: linear-gradient(90deg, rgba(0,118,185,0) 0%, rgba(37,37,37,0.8519782913165266) 8%, rgba(34,34,34,0.8519782913165266) 92%, rgba(0,141,221,0) 100%);
 }
 
-#marquee-text {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-family: 'Almarai', sans-serif;
-    font-weight:700 !important;
-    color: black;
+.ticker li {
+
+    color:#b0b0b0;
     font-size: 11px;
-    padding: 3px;
-    animation: marquee 25s linear infinite both;
-    -webkit-animation: marquee 25s linear infinite both;
-    -moz-animation: marquee 25s linear infinite both;
+    list-style:none !important;
+    font-family: 'Almarai', sans-serif;
 }
-
-@-webkit-keyframes marquee {
-    0% {
-        -webkit-transform: translate(0, 0);
-    }
-
-    100% {
-        -webkit-transform: translate(100%, 0);
-    }
-
+.ticker span
+{
+   -webkit-animation: wink 2s linear infinite;
+    font-size:13px;
+    margin:0 10px;
 }
-
-@-moz-keyframes marquee {
-    0% {
-        -moz-transform: translate(0, 0);
+@-webkit-keyframes wink
+{
+    0%{
+        color:aliceblue;
     }
-
-    100% {
-        -moz-transform: translate(100%, 0);
-    }
-
-
-
-}
-
-
-@keyframes marquee {
-    0% {
-        transform: translate(0, 0);
-    }
-
-    100% {
-        transform: translate(100%, 0);
+    100%{
+        color:#008ddd;
     }
 }
-
-
-
-
+.ticker li:hover {
+    color: #008ddd;
+    cursor:default
+}
+.ticker-h
+{
+    
+    height:22px !important;
+}
 /*End Home Index*/
-
-
 /*Start News Index*/
 .news-header {
     padding: 20px 0px 0px 0px;
@@ -2157,7 +2169,7 @@ hr.new1 {
     padding:5px;
     color:rgb(34,34,34);
     margin:0 10px;
-    width:400px;
+    width:350px;
 
 
 }
@@ -2338,6 +2350,7 @@ hr.new1 {
     width:200px;
     box-shadow:1px 2px 5px 4px rgba(48, 48, 48, 0.3);
 }
+
 .share-colaps-book {
     padding: 3px;
     background: aliceblue;
@@ -2345,15 +2358,14 @@ hr.new1 {
     box-shadow: 1px 2px 5px 4px rgba(48, 48, 48, 0.3);
     text-align:center !important;
 }
-.share-colaps a
-{
-    text-decoration:none !important;
-    font-size:22px;
-    margin:3px;
-    transform:scale(1);
-    transition:transform 300ms ease;
-}
 
+.share-colaps a {
+    text-decoration: none !important;
+    font-size: 22px;
+    margin: 3px 8px;
+    transform: scale(1);
+    transition: transform 300ms ease;
+}
 .share-colaps a:hover
 {
     transform:scale(1.2);
@@ -2497,8 +2509,9 @@ hr.new1 {
     white-space:pre-line;
 
 }
-.contact-box .contact-desc strong {
+.contact-box .contact-desc p {
     font-family: 'Almarai', sans-serif;
+    line-height:2;
     cursor: default;
     color: black;
 }
@@ -2592,18 +2605,33 @@ audio::-webkit-media-controls-panel {
     color: rgb(255,255,255);
 }
 /*End Audios Index*/
-
+.w75{
+    width:75% !important;
+}
+.w100 {
+    width: 100% !important;
+}
+.Studies-Carusel .studies-option img 
+{
+    width: 30px;
+    height: 30px;
+}
+.Studies-Carusel .studies-option
+{
+    background:white;
+}
 .studies-box {
-    
     display: block;
     box-shadow: 1px 2px 10px 1px rgba(48, 48, 48, 0.3);
     border-radius: 3px;
-    width:100%;
+    width: 100%;
     height: 310px;
 }
 .image-relativ
 {
     position: relative;
+    width: 100%;
+    height:280px;
 
 }
 .studies-box img {
@@ -2616,7 +2644,8 @@ audio::-webkit-media-controls-panel {
 }
 .studies-option img 
 {
-    width: 30px;
+
+   width: 30px;
    height:30px;
 }
 .overlay {
@@ -2678,16 +2707,22 @@ audio::-webkit-media-controls-panel {
     bottom: 0;
     height: 100%;
 }
-.tag-box button
+.tag-box .tag-item
 {
 
-    margin:0 5px;
-    background:rgba(13, 150, 202, 0.14);
-    color:aliceblue;
+    margin:4px;
+    background:aliceblue;
     font-size:11px;
-    color:rgba(48, 48, 48, 0.7);
+    color:#222222;
     border-radius:2px !important;
+    font-family: 'Almarai', sans-serif;
+    padding:5px 5px;
+    cursor:default;
 
+}
+.tag-box .tag-item:hover
+{
+    background:rgba(0, 118, 185, 0.22);
 }
 .tag-box span
 {

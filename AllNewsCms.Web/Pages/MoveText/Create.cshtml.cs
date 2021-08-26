@@ -47,6 +47,7 @@ namespace AllNewsCms.Web.Pages.MoveText
             {
                 var movetextForDb = _unitofwork.movetextRepo.Get(x => x.Id == MoveText.Id);
                 movetextForDb.Text = MoveText.Text;
+                movetextForDb.Title = MoveText.Title;
 
                 _unitofwork.movetextRepo.Update(movetextForDb);
             }

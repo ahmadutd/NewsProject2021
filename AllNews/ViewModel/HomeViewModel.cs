@@ -20,7 +20,8 @@ namespace AllNews.ViewModel
         public IEnumerable<Photo> Top4Photo { get; set; }
         public IEnumerable<Photo> TopPhoto { get; set; }
         public IEnumerable<Video> GetLast8Videos { get; set; }
-        
+        public IEnumerable<Studies> GetLast4Studies { get; set; }
+
 
 
 

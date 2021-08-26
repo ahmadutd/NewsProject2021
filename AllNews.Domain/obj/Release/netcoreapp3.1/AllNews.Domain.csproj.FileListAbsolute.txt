@@ -7,3 +7,12 @@ E:\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.Assem
 E:\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.csproj.CoreCompileInputs.cache
 E:\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.dll
 E:\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.pdb
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\bin\Release\netcoreapp3.1\AllNews.Domain.deps.json
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\bin\Release\netcoreapp3.1\AllNews.Domain.dll
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\bin\Release\netcoreapp3.1\AllNews.Domain.pdb
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.csprojAssemblyReference.cache
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.AssemblyInfoInputs.cache
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.AssemblyInfo.cs
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.csproj.CoreCompileInputs.cache
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.dll
+E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Release\netcoreapp3.1\AllNews.Domain.pdb

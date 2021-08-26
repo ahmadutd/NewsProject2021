@@ -166,12 +166,12 @@
 <hr />
 <div class="row">
     <div class="col col-md-10">
-        <div class="tag-box d-flex align-items-baseline p-1">
-
+        <div class="tag-box d-flex flex-wrap">
+            <span class="fas fa-tags mr-1 ml-1"></span>
 
             @foreach (var item in Model.NewsTag)
             {
-                <button class="btn">@item.Tag.Name</button>
+                <div class="tag-item">@item.Tag.Name</div>
             }
 
 

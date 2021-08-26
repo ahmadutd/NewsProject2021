@@ -13,6 +13,10 @@
     <link href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@1,600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Harmattan&display=swap" rel="stylesheet">
+
+
+
 
 
 
@@ -34,19 +38,21 @@
 
 
 
+
 </head>
 
 <body>
-    
+
 
 
     <div class="container-fluid">
         <div class="row">
             <div class="col p-0">
-                <div class="responsiv-menu-top d-md-none">
-                    @if (CultureInfo.CurrentCulture.Name == "fa-IR" || CultureInfo.CurrentCulture.Name == "ar-SA")
-                    {
-                        <div class="d-flex align-items-center">
+
+                @if (CultureInfo.CurrentCulture.Name == "fa-IR" || CultureInfo.CurrentCulture.Name == "ar-SA")
+                {
+                    <div class="responsiv-menu-top d-md-none">
+                        <div class="d-flex align-items-end">
                             <a class="top-menu-logo-mini" asp-action="Index" asp-controller="Home">
                                 <img src="/img/mainlogo.png" alt="Alternate Text" />
                             </a>
@@ -55,16 +61,16 @@
 
                             <div class="Time-head-mini mr-auto ml-2">
                                 <div class="celender-header d-flex align-items-baseline">
-                                  
                                     <div style="width:auto;" class="date-time mr-1 ml-1"></div>
                                 </div>
                             </div>
                         </div>
-                    }
-                    else
-                    {
-
-                        <div class="d-flex align-items-center">
+                    </div>
+                }
+                else
+                {
+                    <div class="responsiv-menu-top d-md-none">
+                        <div class="d-flex align-items-end">
                             <a asp-action="Index" asp-controller="Home" class="top-menu-logo-mini">
                                 <img src="/img/mainlogo.png" alt="Alternate Text" />
                             </a>
@@ -73,15 +79,16 @@
 
                             <div class="Time-head-mini ml-auto ml-2">
                                 <div class="celender-header d-flex align-items-baseline">
-                                    
+
                                     <div style="width:auto;" class="date-time mr-1 ml-1"></div>
                                 </div>
                             </div>
                         </div>
-                    }
+                    </div>
+                 }
 
-                </div>
             </div>
+
 
         </div>
 
@@ -140,25 +147,10 @@
                                 <ul id="lang-section-responsiv" class="card card-body m-link-mini">
                                 </ul>
                             </li>
-                            <li class="m-link"><span class="fas fa-phone m-2"></span><a asp-area="" asp-controller="Home" asp-action="ContactUs">@Localizer["Contact Us"]</a></li>
+                            <li class="m-link"><span class="fas fa-phone m-2"></span><a asp-area="" asp-controller="ContactUs" asp-action="Index">@Localizer["Contact Us"]</a></li>
                             <li class="break">
                                 <hr>
                             </li>
-                            <li class="m-link" data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="#item1">
-                                <a asp-area="" asp-action="Index" asp-controller="Company">
-                                    <span class="fas fa-flag mr-1 ml-1 p-1"></span>
-                                    @Localizer["Organisations"]
-
-                                </a>
-                            </li>
-
-                            <li class="m-link">
-                                <a asp-area="" asp-action="Index" asp-controller="Statement">
-                                    <span class="fas fa-newspaper mr-1 ml-1 p-1"></span>
-                                    @Localizer["Statements"]
-                                </a>
-                            </li>
-
                             <li class="m-link" data-toggle="collapse" href="#item2" role="button" aria-expanded="false" aria-controls="#item2">
                                 <span class="fas fa-globe mr-1 ml-1 p-1"></span>
                                 <a>
@@ -175,15 +167,6 @@
 
                                 </ul>
                             </li>
-
-                            <li class="m-link" data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="#item1">
-                                <a asp-area="" asp-action="Index" asp-controller="Library">
-                                    <span class="fas fa-book-open mr-1 ml-1 p-1"></span>
-                                    @Localizer["Studies"]
-
-                                </a>
-                            </li>
-
                             <li class="m-link" data-toggle="collapse" href="#item4" role="button" aria-expanded="false" aria-controls="#item4"><a><span class="fas fa-scroll mr-1 ml-1 p-1"></span>@Localizer["Paper"]</a><span class="fas fa-angle-down m-2"></span></li>
                             <li class="collapse" id="item4">
                                 <ul class="card card-body m-link-mini">
@@ -192,7 +175,7 @@
 
                                 </ul>
                             </li>
-                            <li class="m-link" data-toggle="collapse" href="#item3" role="button" aria-expanded="false" aria-controls="#item3"><a><span class="fas fa-ellipsis-h mr-1 ml-1 p-1"></span>@Localizer["Gallery"]</a><span class="fas fa-angle-down m-2"></span></li>
+                            <li class="m-link" data-toggle="collapse" href="#item3" role="button" aria-expanded="false" aria-controls="#item3"><a><span class="fas fa-photo-video mr-1 ml-1 p-1"></span>@Localizer["Gallery"]</a><span class="fas fa-angle-down m-2"></span></li>
                             <li class="collapse" id="item3">
                                 <ul class="card card-body m-link-mini">
                                     <li class="m-link"><a asp-action="Index" asp-controller="Photos"><span class="fas fa-image mr-1 ml-1 p-1"></span>@Localizer["Photos"]</a></li>
@@ -202,6 +185,32 @@
 
                                 </ul>
                             </li>
+                            <li class="m-link" data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="#item1">
+                                <a asp-area="" asp-action="Index" asp-controller="Company">
+                                    <span class="fas fa-flag mr-1 ml-1 p-1"></span>
+                                    @Localizer["Organisations"]
+
+                                </a>
+                            </li>
+
+                            <li class="m-link">
+                                <a asp-area="" asp-action="Index" asp-controller="Statement">
+                                    <span class="fas fa-newspaper mr-1 ml-1 p-1"></span>
+                                    @Localizer["Statements"]
+                                </a>
+                            </li>
+
+
+
+                            <li class="m-link" data-toggle="collapse" href="#item1" role="button" aria-expanded="false" aria-controls="#item1">
+                                <a asp-area="" asp-action="Index" asp-controller="Library">
+                                    <span class="fas fa-book-open mr-1 ml-1 p-1"></span>
+                                    @Localizer["Studies"]
+
+                                </a>
+                            </li>
+
+
 
                         </ul>
 
@@ -211,17 +220,6 @@
             </div>
         </div>
 
-
-        @* mariquee Responsive *@
-        <div class="row">
-            <div class="col d-md-none p-0">
-                <div id="marquee-block">
-                    <div class="movetext" id="marquee-text"></div>
-                </div>
-
-            </div>
-        </div>
-        @* mariquee Responsive *@
 
 
 
@@ -274,7 +272,7 @@
 
         <div class="row">
             <div class="col p-0">
-                <div class="blue-tab"></div>
+                <div class="blue-tab d-none d-md-block"></div>
             </div>
         </div>
         <div class="row">
@@ -345,7 +343,7 @@
                     </li>
                     <li class="m-link">
                         <a class="a-link" href="#">
-                            <span class="fas fa-ellipsis-v mr-1 ml-1 p-1"></span>
+                            <span class="fas fa-photo-video mr-1 ml-1 p-1"></span>
 
                             @Localizer["Gallery"]
                             <span class="chevron fas fa-sort-up text-white"></span>
@@ -375,9 +373,9 @@
 
         </div>
 
-        <div class="row mt-1">
+        <div class="row">
             <div class="col p-0">
-                <div class="d-none d-md-block">
+                <div class="d-none d-md-block mt-1">
                     <div class="colaps-filter-btn d-flex justify-content-center" data-toggle="collapse" href="#filter" role="button" aria-expanded="false" aria-controls="filter">
                         <span class="fas fa-search text-white"></span>
                         <a class="text-white">@Localizer["Search"]</a>
@@ -438,13 +436,11 @@
             </div>
         </div>
         <div class="row">
-            <div class="col-6 m-auto">
-
-                <div class="smart-search-box pb-3 pt-3 d-md-none d-lg-none" style="background:white">
+            <div class="col-12 p-0">
+                <label class="lbl-nameres d-block d-md-none" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-search m-1"></span>@Localizer["Search"]</label>
+                <div class="smart-search-box d-md-none" style="background:white">
 
                     <div class="d-flex flex-column align-items-center justify-content-center">
-
-                        <label class="lbl-nameres" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-search m-1"></span>@Localizer["Search"]</label>
 
                         <div class="collapse" id="collapseExample">
 
@@ -499,26 +495,24 @@
 
 
         <div class="row">
-            <div class="col p-0">
-                <div class="d-none d-md-block">
-                    <div id="marquee-block">
-                        <div class="movetext" id="marquee-text"></div>
-                    </div>
-                </div>
-
+            <div class="col ticker-h p-0 d-none d-md-block">
+                                   
+                <ul class="ticker movetext"></ul> 
+               
             </div>
+
+
         </div>
+        
 
 
     </div>
-
-
-
-
-    <div class="container-fluid backgrand-order">
+    <div class="container-fluid p-0 backgrand-order overflow-hidden">
         <div class="container">
-            <main role="main" class="pb-3">
+            <main role="main">
+
                 @RenderBody()
+
 
             </main>
         </div>
@@ -544,7 +538,7 @@
                             <h6>@Localizer["Main Titles"]</h6>
                             <div class="ul">
 
-                               <a class="li d-flex" asp-action="Index" asp-controller="Company">@Localizer["Organisations"]</a>
+                                <a class="li d-flex" asp-action="Index" asp-controller="Company">@Localizer["Organisations"]</a>
 
                                 <a class="li d-flex" asp-action="Index" asp-controller="Statement"> @Localizer["Statements"]</a>
 
@@ -642,7 +636,7 @@
             });
         </script>
     </footer>
-
+    <script src="~/js/ticker.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/owl.carousel.min.js"></script>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
@@ -650,7 +644,32 @@
 
     @RenderSection("Scripts", required: false)
 
-    <script>
+    <script>    
+
+        var hoveredElement = null;
+
+        function tick() {
+            $('.ticker').filter(function (item) {
+                return !$(this).is(hoveredElement)
+            }).each(function () {
+                $(this).find('li:first').slideUp(function () {
+                    $ticker = $(this).closest('.ticker');
+
+                    $(this).appendTo($ticker).slideDown();
+                });
+            });
+        }
+        setInterval(tick, 7000);
+
+        $(function () {
+            $('.ticker').hover(function () {
+                hoveredElement = $(this);
+            }, function () {
+                hoveredElement = null;
+            });
+        });
+
+
 
         var getTime = function () {
             $.get("/Home/CurrentTime", function (res) {
@@ -701,12 +720,17 @@
     <script>
 
 
-        $('.Company-loop').owlCarousel({
-            loop: true,
-            margin: 10,
+        var owl = $('.Studies-Carusel');
+        owl.owlCarousel({
+            items: 8,
+            loop: false,
             nav: false,
+            margin: 10,
             rtl: true,
-            items: 7,
+            lazyLoad: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
             responsive: {
                 0: {
                     items: 2
@@ -714,11 +738,38 @@
                 600: {
                     items: 3
                 },
-                1000: {
+                960: {
+                    items: 5
+                },
+
+            }
+        });
+        var owl = $('.Paper-Carusel');
+        owl.owlCarousel({
+            items: 8,
+            loop: false,
+            nav: false,
+            margin: 10,
+            rtl: true,
+            lazyLoad: true,
+            autoplay: true,
+            autoplayTimeout: 5000,
+            autoplayHoverPause: true,
+            responsive: {
+                0: {
+                    items: 1
+                },
+                600: {
+                    items: 2
+                },
+                960: {
+                    items: 3
+                },
+                1200: {
                     items: 4
                 }
             }
-        })
+        });
 
         $('.hot-news-carousel').owlCarousel({
 
@@ -785,6 +836,8 @@
 
 
     </script>
+
+
 
 
 </body>

@@ -33,7 +33,7 @@
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.FirstImage)</h6>
-                <img src="@Model.News.FirstImage" alt="Alternate Text" />
+                <img style="width:200px;height:150px;" src="@Model.News.FirstImage" alt="Alternate Text" />
 
             </div>
         </div>
@@ -43,7 +43,7 @@
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.ImageCoverPath)</h6>
-                <img src="~/Upload/News/Images/@Model.News.ImageCoverPath" alt="Alternate Text" />
+                <img style="width:200px;height:150px;" src="~/Upload/News/Images/@Model.News.ImageCoverPath" alt="Alternate Text" />
             </div>
         </div>
     }

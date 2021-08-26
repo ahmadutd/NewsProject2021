@@ -28,8 +28,7 @@ namespace AllNewsCms.Web.Pages.MoveText
         {
             var currentLanguage = CultureInfo.CurrentCulture;
 
-            MoveTexts = _unitOfWork.movetextRepo.GetAll()
-            .Where(x => x.SiteLanguage.LangTitle == currentLanguage.Name).ToList();
+            MoveTexts = _unitOfWork.movetextRepo.GetMoveText(true, null, currentLanguage.Name).ToList();
         }
     }
 }

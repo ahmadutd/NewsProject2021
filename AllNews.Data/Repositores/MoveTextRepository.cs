@@ -8,16 +8,25 @@ using System.Linq;
 
 namespace AllNews.Data.Repositores
 {
-    public class MoveTextRepository:Repository<MoveText>,IMoveTextRepository
+    public class MoveTextRepository : Repository<MoveText>, IMoveTextRepository
     {
-        public MoveTextRepository(AllNewsDbContext context):base(context)
+        public MoveTextRepository(AllNewsDbContext context) : base(context)
         {
 
         }
 
-        public IEnumerable<MoveText> GetLast8MoveText()
+        public IEnumerable<MoveText> GetMoveText(bool sortDesc = true, int? countItem = null, string culture = null)
         {
-            return GetAll().OrderByDescending(x=>x.UpdatedDate).Take(8).ToList();
+            if (countItem != null)
+            {
+                if (sortDesc)
+
+
+                    return Find(x => culture == null || x.SiteLanguage.LangTitle == culture).OrderByDescending(x => x.UpdatedDate).Take((int)countItem).ToList();
+            }
+
+            return Find(x => culture == null || x.SiteLanguage.LangTitle == culture).OrderByDescending(x => x.UpdatedDate).ToList();
         }
+
     }
 }

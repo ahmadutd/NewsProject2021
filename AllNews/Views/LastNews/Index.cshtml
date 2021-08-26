@@ -21,7 +21,7 @@
 
     @foreach (var item in Model.PaginatedList)
     {
-        <div class="col-6 col-md-3 p-1">
+        <div class="col-6 col-md-3 p-0">
             <a asp-action="Index" asp-controller="NewsPage" asp-route-id="@item.Id" class="our-news-card">
                 <div class="img-card-box">
                     @if (item.FirstImage != null || item.ImageCoverPath != null)

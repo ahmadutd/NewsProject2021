@@ -41,7 +41,7 @@ namespace WebApplication1.Controllers
             var currentLanguage = CultureInfo.CurrentCulture;
 
             var dataLast10News = _unitOfWork.newsRepo.GetLastNews(true,10,currentLanguage.Name);
-            var dataLast4Papers =_unitOfWork.paperRepo.GetPapers(true,4,currentLanguage.Name);
+            var dataLast4Papers =_unitOfWork.paperRepo.GetPapers(true,8,currentLanguage.Name);
             var dataLast4Company = _unitOfWork.companyRepo.Last4Company(true, 4, currentLanguage.Name);
             var dataTop4Photo = _unitOfWork.photoRepo.GetPhotos(true,4,currentLanguage.Name);
             var dataTopPhoto = _unitOfWork.photoRepo.GetAll().Where(x => x.SiteLanguage.LangTitle == currentLanguage.Name).ToList();
@@ -54,6 +54,7 @@ namespace WebApplication1.Controllers
             var dataLast4ArabicNews = _unitOfWork.newsRepo.GetArabicNews(true,4, currentLanguage.Name);
             var dataLast10ArabicNews = _unitOfWork.newsRepo.GetArabicNews(true,10, currentLanguage.Name);
             var dataLast2SportsNews = _unitOfWork.newsRepo.GetSportsNews(true,2,currentLanguage.Name);
+            var dataLast4Studies = _unitOfWork.studiesRepo.GetStudies(true,10,currentLanguage.Name);
 
             var homeViewModel = new HomeViewModel
             {
@@ -68,6 +69,7 @@ namespace WebApplication1.Controllers
                 GetLast8Videos = dataTop10Video,
                 Last10WorldNews = dataLast10WorldNews,
                 Last10ArabicNews = dataLast10ArabicNews,
+                GetLast4Studies = dataLast4Studies,
 
 
             };
@@ -533,7 +535,7 @@ namespace WebApplication1.Controllers
         public PartialViewResult MoveText()
         {
             var currentLanguage = CultureInfo.CurrentCulture;
-            var dataMoveText = _unitOfWork.movetextRepo.GetLast8MoveText().Where(x => x.SiteLanguage.LangTitle == currentLanguage.Name).ToList();
+            var dataMoveText = _unitOfWork.movetextRepo.GetMoveText(true, 8, currentLanguage.Name).ToList();
             return PartialView(dataMoveText);
         }
 

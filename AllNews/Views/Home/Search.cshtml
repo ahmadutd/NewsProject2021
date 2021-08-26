@@ -298,19 +298,22 @@
                     <div class="modal-content modal-object ">
 
 
-                        <div class="modal-header d-flex flex-column">
+                        <div class="modal-header">
 
                             <button type="button" class="close-windows-modal" data-dismiss="modal" aria-label="Close"><span class="fas fa-times"></span></button>
-                            <br />
-                            <div class="img-header-object m-auto">
-                                @if (item.Image == null)
+                            <div class="img-header-object d-flex align-items-center">
+
+
+                                @if (item.Image != null)
                                 {
-                                    <img src="/img/paper-one.png" alt="Alternate Text" />
+                                    <img style="height:50px !important" src="@item.Image" alt="Alternate Text" />
                                 }
-                                else
+                                @if (item.ImageCoverPath != null)
                                 {
-                                    <img src="@item?.Image" alt="Alternate Text" />
+                                    <img style="height:50px !important" src="@ViewBag.AdminURL/Upload/Studies/Images/@item.ImageCoverPath" alt="Alternate Text" />
                                 }
+
+                                <p>@item.Title</p>
 
                             </div>
                         </div>

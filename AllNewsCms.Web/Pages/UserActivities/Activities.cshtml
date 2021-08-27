@@ -7,109 +7,167 @@
 <div class="row">
     <div class="col">
         <div class="alert alert-info d-flex align-items-center">
-            <h4 class="fas fa-th-list mr-2"></h4>
-            <h4>User Activities</h4>
+            <h4 class="fas fa-history mr-2"></h4>
+            <h4>User Activities - @Model.Human?.UserName</h4>
         </div>
     </div>
 </div>
 <hr />
 
-    
-
-<table class="table table-bordered">
-    <tr class="bg-secondary text-white" style="text-align:center">
-        <th>News</th>
-        <th>Papers</th>
-        <th>Studies</th>
-        <th>Statements</th>
-        <th>Organisations</th>
-        <th>Photos</th>
-        <th>Videos</th>
-        <th>Audios</th>
-    </tr>
-
-    <tr style="text-align:center">
-        <td>
-            @if (Model.NewsCounts.Count() > 0)
-            {
-                @Model.NewsCounts.Count()
-            }
-            else
-            {
-                <span>0</span>
-            }
-        </td>
-        <td>
-            @if (Model.PaperCounts.Count() > 0)
-            {
-                @Model.PaperCounts.Count()
-            }
-            else
-            {
-                <span>0</span>
-            }
-        </td>
-        <td>
-            @if (Model.StudieCounts.Count() > 0)
-            {
-                @Model.StudieCounts.Count()
-            }
-            else
-            {
-                <span>0</span>
-            }
-        </td>
-        <td>
-            @if (Model.StatementCounts.Count() > 0)
-            {
-                @Model.StatementCounts.Count()
-            }
-            else
-            {
-                <span>0</span>
-            }
-        </td>
-        <td>
-            @if (Model.CompanyCounts.Count() > 0)
-            {
-                @Model.CompanyCounts.Count()
-            }
-            else
-            {
-                <span>0</span>
-            }
-        </td>
-        <td>
-            @if (Model.PhotoCounts.Count() > 0)
-            {
-                @Model.PhotoCounts.Count()
-            }
-            else
-            {
-                <span>0</span>
-            }
-        </td>
-        <td>
-            @if (Model.VideoCounts.Count() > 0)
-            {
-                @Model.VideoCounts.Count()
-            }
-            else
-            {
-                <span>0</span>
-            }
-        </td>
-        <td>
-            @if (Model.AudioCounts.Count() > 0)
-            {
-                @Model.AudioCounts.Count()
-            }
-            else
-            {
-                <span>0</span>
-            }
-        </td>
-    </tr>
-
-
+<table class="table">
+    <thead class="thead-dark">
+        <tr style="text-align:center">
+            <th scope="col">News</th>
+            <th scope="col">Papers</th>
+            <th scope="col">Studies</th>
+            <th scope="col">Statements</th>
+            <th scope="col">Organisations</th>
+            <th scope="col">Photos</th>
+            <th scope="col">Videos</th>
+            <th scope="col">Audios</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr style="text-align:center">
+            <td scope="col">
+                @if (Model.NewsCounts.Count() > 0)
+                {
+                    
+                     <span class="badge badge-info">@Model.NewsCounts.Count()</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">0</span>
+                }
+            </td>
+            <td scope="col">
+                @if (Model.PaperCounts.Count() > 0)
+                {
+                    <span class="badge badge-info">@Model.PaperCounts.Count()</span>
+                }
+                else
+                {
+                     <span class="badge badge-danger">0</span>
+                }
+            </td>
+            <td scope="col">
+                @if (Model.StudieCounts.Count() > 0)
+                {
+                    <span class="badge badge-info">@Model.StudieCounts.Count()</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">0</span>
+                }
+            </td>
+            <td scope="col">
+                @if (Model.StatementCounts.Count() > 0)
+                {
+                    <span class="badge badge-info">@Model.StatementCounts.Count()</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">0</span>
+                }
+            </td>
+            <td scope="col">
+                @if (Model.CompanyCounts.Count() > 0)
+                {
+                    <span class="badge badge-info">@Model.CompanyCounts.Count()</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">0</span>
+                }
+            </td>
+            <td scope="col">
+                @if (Model.PhotoCounts.Count() > 0)
+                {
+                    <span class="badge badge-info">@Model.PhotoCounts.Count()</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">0</span>
+                }
+            </td>
+            <td scope="col">
+                @if (Model.VideoCounts.Count() > 0)
+                {
+                    <span class="badge badge-info">@Model.VideoCounts.Count()</span>
+                }
+                else
+                {
+                     <span class="badge badge-danger">0</span>
+                }
+            </td>
+            <td scope="col">
+                @if (Model.AudioCounts.Count() > 0)
+                {
+                    <span class="badge badge-info">@Model.AudioCounts.Count()</span>
+                }
+                else
+                {
+                    <span class="badge badge-danger">0</span>
+                }
+            </td>
+        </tr>
+        <tr style="text-align:center;font-size:10px">
+            <td scope="col">
+                @if (Model.NewsCounts.Count() > 0)
+                {
+                    @Model.NewsCounts.FirstOrDefault()?.UpdatedDate
+                }
+                
+            </td>
+            <td scope="col">
+                @if (Model.PaperCounts.Count() > 0)
+                {
+                    @Model.PaperCounts.FirstOrDefault()?.UpdatedDate
+                }
+              
+            </td>
+            <td scope="col">
+                @if (Model.StudieCounts.Count() > 0)
+                {
+                    @Model.StudieCounts.FirstOrDefault()?.UpdatedDate
+                }
+                
+            </td>
+            <td scope="col">
+                @if (Model.StatementCounts.Count() > 0)
+                {
+                    @Model.StatementCounts.FirstOrDefault()?.UpdatedDate
+                }
+                
+            </td>
+            <td scope="col">
+                @if (Model.CompanyCounts.Count() > 0)
+                {
+                    @Model.CompanyCounts.FirstOrDefault()?.UpdatedDate
+                }
+                
+            </td>
+            <td scope="col">
+                @if (Model.PhotoCounts.Count() > 0)
+                {
+                    @Model.PhotoCounts.FirstOrDefault()?.UpdatedDate
+                }
+                
+            </td>
+            <td scope="col">
+                @if (Model.VideoCounts.Count() > 0)
+                {
+                    @Model.VideoCounts.FirstOrDefault()?.UpdatedDate
+                }
+                
+            </td>
+            <td scope="col">
+                @if (Model.AudioCounts.Count() > 0)
+                {
+                    @Model.AudioCounts.FirstOrDefault()?.UpdatedDate
+                }
+                
+            </td>
+        </tr>
+    </tbody>
 </table>

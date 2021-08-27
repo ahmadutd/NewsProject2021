@@ -496,9 +496,16 @@
 
         <div class="row">
             <div class="col ticker-h p-0 d-none d-md-block">
-                                   
-                <ul class="ticker movetext"></ul> 
-               
+                @if (CultureInfo.CurrentCulture.Name == "fa-IR" || CultureInfo.CurrentCulture.Name == "ar-SA")
+                {
+                    <ul class="ticker movetext ylt"></ul>
+                }
+                else
+                {
+                    <ul class="ticker movetext "></ul>
+                }
+
+
             </div>
 
 
@@ -802,7 +809,7 @@
         owl.owlCarousel({
             items: 10,
             loop: true,
-            nav: false,
+            nav: true,
             margin: 5,
             rtl: true,
             lazyLoad: true,

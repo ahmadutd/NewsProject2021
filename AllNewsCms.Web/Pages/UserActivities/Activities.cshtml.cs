@@ -32,6 +32,8 @@ namespace AllNewsCms.Web.Pages.UserActivities
         public List<Photo> PhotoCounts { get; set; }
         public List<Video> VideoCounts { get; set; }
         public List<Audio> AudioCounts { get; set; }
+
+        public AppUser Human { get; set; }
         public void OnGet(int ? id)
         {
             
@@ -44,6 +46,8 @@ namespace AllNewsCms.Web.Pages.UserActivities
             VideoCounts = _unitOfWork.videoRepo.GetAll().Where(n => n.CreatedBy == id).ToList();
             AudioCounts = _unitOfWork.audioRepo.GetAll().Where(n => n.CreatedBy == id).ToList();
 
+            Human = _unitOfWork.appUserRepo.Get(x => x.Id == id);
+           
         }
     }
 }

@@ -7,7 +7,7 @@
 <div class="row">
     <div class="col">
         <div class="alert alert-info d-flex align-items-center">
-            <h4 class="fas fa-user-tag mr-2"></h4>
+            <h4 class="fas fa-user-clock mr-2"></h4>
             <h4>Users Activities</h4>
         </div>
     </div>
@@ -32,8 +32,8 @@
                 <td>@i</td>
                 <td>@user.UserName</td>
                 <td>@user.Email</td>
-                <td style="text-align:center">
-                    <a class="fas fa-th-list text-secondary" asp-area="" asp-page="./Activities" asp-route-id="@user.Id"></a>
+                <td style="text-align:center;font-size:15px">
+                    <a style="text-decoration:none" class="fas fa-history text-info" asp-area="" asp-page="./Activities" asp-route-id="@user.Id"></a>
 
                 </td>
             

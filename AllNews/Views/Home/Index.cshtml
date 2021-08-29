@@ -876,33 +876,36 @@
                                         }
 
 
-                                        <div class="overlay d-flex flex-column align-items-center justify-content-center">
+                                    <div class="overlay d-flex flex-column align-items-center justify-content-center">
 
-                                            <button class="dl-link" data-toggle="modal" data-target="#exampleModalCenter_@item.Id">@Localizer["View"] <span class=" fas fa-eye mr-1"></span></button>
-                                            <br />
+                                        <button class="dl-link" data-toggle="modal" data-target="#exampleModalCenter_@item.Id">@Localizer["View"] <span class=" fas fa-eye mr-1"></span></button>
+                                        <br />
+                                        @if (item.DownloadLink != null)
+                                        {
                                             <a class="dl-link" href="@ViewBag.AdminURL/Upload/Studies/Downloads/@item.DownloadLink">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
                                             <br />
+                                        }
 
-                                            <div class="dropdown" id="share">
-                                                <button class="dl-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                    @Localizer["Share"] <span class=" fas fa-share-alt mr-1 ml-1"></span>
-                                                </button>
-                                                <div class="dropdown-menu share-colaps-book dropdown-menu-center" aria-labelledby="dropdownMenuButton">
-                                                    <div class="d-flex">
-                                                        <a href="whatsapp://send?text=@item.Title-@ViewBag.AdminURL/Upload/Studies/Downloads/@item.DownloadLink" data-action="share/whatsapp/share"><span class="fab fa-whatsapp text-success"></span></a>
-                                                        <a href="https://telegram.me/share/url?url=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-telegram text-info"></span></a>
-                                                        <a href="mailto:?=&subject=@item.Title&body=@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fas fa-envelope text-secondary"></span></a>
-                                                        <a href="https://www.facebook.com/sharer/sharer.php?u=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-facebook text-primary"></span></a>
-                                                        <a href="https://twitter.com/intent/tweet?text=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-twitter text-info"></span></a>
-                                                    </div>
+                                        <div class="dropdown" id="share">
+                                            <button class="dl-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                                @Localizer["Share"] <span class=" fas fa-share-alt mr-1 ml-1"></span>
+                                            </button>
+                                            <div class="dropdown-menu share-colaps-book dropdown-menu-center" aria-labelledby="dropdownMenuButton">
+                                                <div class="d-flex">
+                                                    <a href="whatsapp://send?text=@item.Title-@ViewBag.AdminURL/Upload/Studies/Downloads/@item.DownloadLink" data-action="share/whatsapp/share"><span class="fab fa-whatsapp text-success"></span></a>
+                                                    <a href="https://telegram.me/share/url?url=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-telegram text-info"></span></a>
+                                                    <a href="mailto:?=&subject=@item.Title&body=@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fas fa-envelope text-secondary"></span></a>
+                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-facebook text-primary"></span></a>
+                                                    <a href="https://twitter.com/intent/tweet?text=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-twitter text-info"></span></a>
                                                 </div>
-
                                             </div>
 
-
-
-
                                         </div>
+
+
+
+
+                                    </div>
                                     </div>
 
                                     <div class="studies-option d-flex justify-content-center">
@@ -1385,7 +1388,7 @@
 
             @foreach (var item in Model.Top4Photo)
             {
-                <div class="col-6 col-md-6 p-1 mb-md-2">
+                <div class="col-6 col-md-6 p-1">
                     <a asp-action="PhotoView" asp-controller="Photos" asp-route-id="@item.Id">
                         <div class="image-space">
                             @if (item.Image != null || item.ImageCoverPath != null)

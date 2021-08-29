@@ -120,6 +120,9 @@
   <data name="ArabNews" xml:space="preserve">
     <value>اخبار عربی</value>
   </data>
+  <data name="Download" xml:space="preserve">
+    <value>دانلود</value>
+  </data>
   <data name="Latest Videos" xml:space="preserve">
     <value>آخرین ویدئوها</value>
   </data>
@@ -158,6 +161,9 @@
   </data>
   <data name="Videos" xml:space="preserve">
     <value>ویدئو ها</value>
+  </data>
+  <data name="View" xml:space="preserve">
+    <value>نمایش</value>
   </data>
   <data name="WorldNews" xml:space="preserve">
     <value>اخبار جهان</value>

@@ -437,55 +437,51 @@
         </div>
         <div class="row">
             <div class="col-12 p-0">
-                <label class="lbl-nameres d-block d-md-none" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-search m-1"></span>@Localizer["Search"]</label>
-                <div class="smart-search-box d-md-none" style="background:white">
+                <label class="lbl-nameres d-md-none" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-search m-1"></span>@Localizer["Search"]</label>
+                <div class="smart-search-box-rs d-md-none">                    
 
-                    <div class="d-flex flex-column align-items-center justify-content-center">
+                    <div class="collapse" id="collapseExample">
 
-                        <div class="collapse" id="collapseExample">
-
-                            <div class="smrt-search-bg">
-                                <form class="smart-search-tab d-flex flex-column" asp-controller="Home" asp-action="Search" method="post">
+                            
+                        <form class="d-flex flex-column align-items-center justify-content-center bg-smart-pic" asp-controller="Home" asp-action="Search" method="post">
 
 
-                                    <br />
-                                    <div class="d-flex align-items-center justify-content-center">
-                                        <div class="form-check m-2">
-                                            <input id="picres" type="checkbox" class="form-check-input" value="photos" name="cheak[]">
-                                            <label for="picres" class="form-check-labelres">@Localizer["Photos"]</label>
+                            <br />
+                            <div class="d-flex align-items-center justify-content-center">
+                                <div class="form-check m-2">
+                                    <input id="picres" type="checkbox" class="form-check-input" value="photos" name="cheak[]">
+                                    <label for="picres" class="form-check-labelres">@Localizer["Photos"]</label>
 
-                                        </div>
-                                        <div class="form-check m-2">
-                                            <input id="videores" type="checkbox" class="form-check-input" value="videos" name="cheak[]">
-                                            <label for="videores" class="form-check-labelres"> @Localizer["Videos"] </label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <input id="videores" type="checkbox" class="form-check-input" value="videos" name="cheak[]">
+                                    <label for="videores" class="form-check-labelres"> @Localizer["Videos"] </label>
 
-                                        </div>
-                                        <div class="form-check m-2">
-                                            <input id="audiores" type="checkbox" class="form-check-input" value="audios" name="cheak[]">
-                                            <label for="audiores" class="form-check-labelres"> @Localizer["Audios"] </label>
+                                </div>
+                                <div class="form-check m-2">
+                                    <input id="audiores" type="checkbox" class="form-check-input" value="audios" name="cheak[]">
+                                    <label for="audiores" class="form-check-labelres"> @Localizer["Audios"] </label>
 
-                                        </div>
-                                    </div>
-
-                                    <select class="select-boxres" id="category-section-mini" name="categoryids"></select>
-                                    <br />
-                                    <input class="input-dateres" type="date" id="MadeDate" name="MadeDate" value="@ViewBag.SearchDate">
-                                    <br />
-                                    <input class="smart-inputres" type="text" name="search" value="@ViewBag.SearchContent" />
-                                    <br />
-                                    <br />
-                                    <button type="submit" class="smart-search-btnres fas fa-search"></button>
-                                    <br />
-                                    <div style="text-align:center">
-                                        <a asp-controller="Home" asp-action="Index" class="text-info fas fa-undo"></a>
-                                    </div>
-
-                                </form>
+                                </div>
                             </div>
+                            <br />
+                            <select class="select-boxres" id="category-section-mini" name="categoryids"></select>
+                            <br />
+                            <input class="input-dateres" type="date" id="MadeDate" name="MadeDate" value="@ViewBag.SearchDate">
+                            <br />
+                            <input class="smart-inputres" type="text" name="search" value="@ViewBag.SearchContent" />
+                            <br />
+                            <button type="submit" class="smart-search-btnres fas fa-search"></button>
+                            <br />
+                            <div style="text-align:center">
+                                <a asp-controller="Home" asp-action="Index" class="text-secondary fas fa-undo"></a>
+                            </div>
+                            <br />
+                        </form>
+                           
 
-
-                        </div>
                     </div>
+                   
                 </div>
 
 

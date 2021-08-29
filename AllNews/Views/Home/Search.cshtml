@@ -327,7 +327,10 @@
                         </div>
                         <div class="modal-footer d-flex justify-content-center">
 
-                            <a href="@ViewBag.AdminURL/Upload/Papers/Downloads/@item.Download" class="dl-link">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
+                            @if (item.Download != null)
+                            {
+                                <a href="@ViewBag.AdminURL/Upload/Papers/Downloads/@item.Download" class="dl-link">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
+                            }
 
 
                             <button class="dl-link" data-toggle="collapse" href="#share" role="button" aria-expanded="false" aria-controls="share">@Localizer["Share"] <span class=" fas fa-share-alt mr-1"></span></button>

@@ -19,7 +19,7 @@
             <tr>
                 <th>Id</th>
                 <th>UserName</th>
-                <th>Email</th>
+                <th class="d-none d-md-block">Email</th>
                 <th>Role</th>
                 <th>Action</th>
             </tr>
@@ -29,18 +29,19 @@
                 <tr>
                     <td>@item.Id</td>
                     <td>@item.UserName</td>
-                    <td>@item.Email</td>
+                    <td class="d-none d-md-block">@item.Email</td>
                     <td>
                         
                         <span class="role-box">@roles</span>
                         
 
                     </td>
-                    <td>
+                    <td class="d-flex">
 
-                        <button type="button" class="btn btn-sm btn-info" data-toggle="modal" data-target="#AddRole_@item.Id" onclick="ChangeModalState(@item.Id, '@roles')">Manage Role</button>
+                        <button type="button" class="btn btn-sm btn-info mr-md-2" data-toggle="modal" data-target="#AddRole_@item.Id" onclick="ChangeModalState(@item.Id, '@roles')">Manage Role</button>
                         <a href="/ManagePermission?id=@item.Id" class="btn btn-sm btn-secondary">Manage Permission</a>
                     </td>
+                    
                 </tr>
                 <div class="modal fade" id="AddRole_@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog modal-dialog-centered" role="document">

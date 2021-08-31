@@ -13,41 +13,45 @@
     </div>
 </div>
 <hr />
-<table class="table table-bordered">
-    <tr class="activites-style">
-        <th>Id</th>
-        <th>UserName</th>
-        <th>Email</th>
-        <th>Edit</th>
-        <th>ResetPassword</th>
-        <th>Delete</th>
+<div class="row">
+    <div class="col">
+        <table class="table table-bordered">
+            <tr class="activites-style">
+                <th>Id</th>
+                <th>UserName</th>
+                <th class="d-none d-md-block">Email</th>
+                <th>Edit</th>
+                <th>ResetPassword</th>
+                <th>Delete</th>
 
-    </tr>
-    @foreach (var user in Model.UserList)
-    {
+            </tr>
+            @foreach (var user in Model.UserList)
+            {
 
-        <tr class="user-control-td">
-            <td class="users-bg">@user?.Id</td>
-            <td class="users-bg">@user?.UserName</td>
-            <td class="users-bg">@user?.Email</td>
-            
-            <td class="edite-bg">
-                <a class="text-white" asp-area="" asp-page="./Edit" asp-route-id="@user.Id">Edit</a>
+                <tr class="user-control-td">
+                    <td class="users-bg">@user?.Id</td>
+                    <td class="users-bg">@user?.UserName</td>
+                    <td class="users-bg d-none d-md-block">@user?.Email</td>
 
-            </td>
-            <td class="resetpswrd-bg">
-                <a class="text-white" asp-area="" asp-page="./PasswordConfrime" asp-route-id="@user.Id">RessetPassword</a>
+                    <td class="edite-bg">
+                        <a class="text-white" asp-area="" asp-page="./Edit" asp-route-id="@user.Id">Edit</a>
 
-            </td>
-            <td class="delet-bg">
-                <form asp-page-handler="Delete" method="post">
-                    <input type="hidden" asp-for="@Model.DeleteUser" value="@user.Id" />
-                    <button class="text-white" type="submit">Delete</button>
-                </form>
+                    </td>
+                    <td class="resetpswrd-bg">
+                        <a class="text-white" asp-area="" asp-page="./PasswordConfrime" asp-route-id="@user.Id">RessetPassword</a>
+
+                    </td>
+                    <td class="delet-bg">
+                        <form asp-page-handler="Delete" method="post">
+                            <input type="hidden" asp-for="@Model.DeleteUser" value="@user.Id" />
+                            <button class="text-white" type="submit">Delete</button>
+                        </form>
 
 
-            </td>
+                    </td>
 
-        </tr>
-    }
-</table>
+                </tr>
+            }
+        </table>
+    </div>
+</div>

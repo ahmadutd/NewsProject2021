@@ -20,6 +20,8 @@ using System.Globalization;
 using Microsoft.AspNetCore.Localization;
 using AllNewsCms.Web.Common;
 using AllNews.Data.Service;
+using AllNewsCms.Web.AntiRobot.GoogleRecaptcha;
+using AllNewsCms.Web.AntiRobot.Service;
 
 namespace AllNewsCms.Web
 {
@@ -35,6 +37,8 @@ namespace AllNewsCms.Web
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddHttpContextAccessor();
+            services.AddTransient<IGoogleRecaptcha,GoogleRecaptcha>();
             services.AddDbContext<AllNewsDbContext>(
 
                 options =>
@@ -45,7 +49,7 @@ namespace AllNewsCms.Web
                     }
                 );
 
-
+           
             services.AddLocalization(options => options.ResourcesPath = "LangResources");
 
             services.AddMvc().AddViewLocalization(Microsoft.AspNetCore.Mvc.Razor.LanguageViewLocationExpanderFormat.Suffix, options =>

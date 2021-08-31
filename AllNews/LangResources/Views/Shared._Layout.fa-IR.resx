@@ -117,20 +117,20 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="Ahwaz Voice All Rights Reserved - No Content Of This Website May Be Reproduced In Any Form Or By Any Electronic Or No Electronic Means, Including Information Storage , Without Written Permission !" xml:space="preserve">
+    <value>صدای احواز-کلیه حقوق محفوظ است و هرگونه نشر محتوای این وبسایت بصورت الکترونیک یا غیره و از جمله ذخایر اطلاعات . بدون مجوز کتبی قابل پیگرد قانونی است</value>
+  </data>
+  <data name="Al-Ahwaz News" xml:space="preserve">
+    <value>اخبار احواز</value>
+  </data>
+  <data name="Al-Ahwaz Papers" xml:space="preserve">
+    <value>مقاله های احواز</value>
+  </data>
   <data name="All News World Arabic" xml:space="preserve">
     <value>تمامی خبرهای جهانی و عربی</value>
   </data>
   <data name="All Papers" xml:space="preserve">
     <value>همه مقاله ها</value>
-  </data>
-  <data name="Arabic Papers" xml:space="preserve">
-    <value>مقاله های عربی</value>
-  </data>
-  <data name="Arabic Voice.All Rights Reserved-No Content Of This Website May Be Reproduced In Any From Or By Any Electronic Or No Electronic Means, Including Information Storage, Without Writtrn Permission" xml:space="preserve">
-    <value>صدای عربی.کلیه حقوق محفوظ است و هرگونه نشر محتوای این وبسایت بصورت الکترونیک یا غیره و از جمله ذخایر اطلاعات . بدون مجوز کتبی قابل پیگرد قانونی است</value>
-  </data>
-  <data name="ArabNews" xml:space="preserve">
-    <value>اخبار عربی</value>
   </data>
   <data name="Audios" xml:space="preserve">
     <value>فایل صوتی</value>

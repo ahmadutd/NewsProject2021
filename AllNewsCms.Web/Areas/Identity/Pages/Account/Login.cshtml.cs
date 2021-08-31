@@ -12,6 +12,9 @@ using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.AspNetCore.Mvc.RazorPages;
 using Microsoft.Extensions.Logging;
+using Newtonsoft.Json;
+using System.Net;
+using AllNewsCms.Web.AntiRobot.GoogleRecaptcha;
 
 namespace AllNewsCms.Web.Areas.Identity.Pages.Account
 {
@@ -21,14 +24,16 @@ namespace AllNewsCms.Web.Areas.Identity.Pages.Account
         private readonly UserManager<AppUser> _userManager;
         private readonly SignInManager<AppUser> _signInManager;
         private readonly ILogger<LoginModel> _logger;
+        private readonly IGoogleRecaptcha _recaptcha;
 
         public LoginModel(SignInManager<AppUser> signInManager, 
             ILogger<LoginModel> logger,
-            UserManager<AppUser> userManager)
+            UserManager<AppUser> userManager,IGoogleRecaptcha recaptcha)
         {
             _userManager = userManager;
             _signInManager = signInManager;
             _logger = logger;
+            _recaptcha = recaptcha;
         }
 
         [BindProperty]
@@ -57,6 +62,8 @@ namespace AllNewsCms.Web.Areas.Identity.Pages.Account
             public bool RememberMe { get; set; }
         }
 
+
+        
         public async Task OnGetAsync(string returnUrl = null)
         {
             if (!string.IsNullOrEmpty(ErrorMessage))
@@ -80,12 +87,18 @@ namespace AllNewsCms.Web.Areas.Identity.Pages.Account
 
             if (ModelState.IsValid)
             {
+                if (!await _recaptcha.IsSatidfy())
+                {
+                    ModelState.AddModelError(string.Empty, "reCAPTCHA Is Required !");
+                    return Page();
+                }
+
                 // This doesn't count login failures towards account lockout
                 // To enable password failures to trigger account lockout, set lockoutOnFailure: true
                 var result = await _signInManager.PasswordSignInAsync(Input.UserName, Input.Password, Input.RememberMe, lockoutOnFailure: false);
                 if (result.Succeeded)
                 {
-                    _logger.LogInformation("User logged in.");
+                    _logger.LogInformation("User logged in");
                     return LocalRedirect(returnUrl);
                 }
                 if (result.RequiresTwoFactor)
@@ -94,14 +107,16 @@ namespace AllNewsCms.Web.Areas.Identity.Pages.Account
                 }
                 if (result.IsLockedOut)
                 {
-                    _logger.LogWarning("User account locked out.");
+                    _logger.LogWarning("User account locked out");
                     return RedirectToPage("./Lockout");
                 }
                 else
                 {
-                    ModelState.AddModelError(string.Empty, "Invalid login attempt.");
+                    ModelState.AddModelError(string.Empty, "Invalid login attempt");
                     return Page();
                 }
+
+                
             }
 
             // If we got this far, something failed, redisplay form

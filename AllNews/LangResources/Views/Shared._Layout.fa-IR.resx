@@ -126,11 +126,11 @@
   <data name="Al-Ahwaz Papers" xml:space="preserve">
     <value>مقاله های احواز</value>
   </data>
-  <data name="All News World Arabic" xml:space="preserve">
-    <value>تمامی خبرهای جهانی و عربی</value>
-  </data>
   <data name="All Papers" xml:space="preserve">
     <value>همه مقاله ها</value>
+  </data>
+  <data name="Arab Front For Libration Of Alahwaz" xml:space="preserve">
+    <value>جبهه عربی آزادی بخش احواز</value>
   </data>
   <data name="Audios" xml:space="preserve">
     <value>فایل صوتی</value>

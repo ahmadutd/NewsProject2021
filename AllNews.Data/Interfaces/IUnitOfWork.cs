@@ -26,6 +26,8 @@ namespace AllNews.Data.Interfaces
         IAppUserRepository appUserRepo { get; }
         IAppRoleUserRepository appRoleUserRepo { get; }
 
+        IAboutRepository aboutRepo { get; }
+
         int Commit();
     }
 }

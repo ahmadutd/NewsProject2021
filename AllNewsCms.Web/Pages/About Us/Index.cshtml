@@ -1,0 +1,28 @@
+﻿@page
+@model AllNewsCms.Web.Pages.About_Us.IndexModel
+@{
+}
+<div class="tab-header d-flex align-items-center alert-info p-2">
+    <strong>About Us </strong>
+    <a asp-area="" asp-page="Edite" asp-route-id="@Model.AboutUs?.Id" class="btn btn-outline-info ml-auto">Create News Form</a>
+
+
+</div>
+<br />
+<div class="row" style="text-align:center">
+    <div class="col">
+        <strong>Title</strong>
+        
+        <p class="about-title">@Model.AboutUs?.Title</p>
+    </div>
+</div>
+<hr />
+<div class="row" style="text-align:center">
+    <div class="col">
+        <strong>Information</strong>
+        <div class="about-desc">
+            <pre>@Model.AboutUs?.Text</pre>
+        </div>
+        
+    </div>
+</div>

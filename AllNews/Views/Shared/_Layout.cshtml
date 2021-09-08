@@ -4,16 +4,20 @@
 @inject IViewLocalizer Localizer
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
+
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>@Localizer["Arab Front For Libration Of Alahwaz"]</title>
+    <link rel="shortcut icon" href="~/img/pic-title.png" />
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Kufam:ital,wght@1,600&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=El+Messiri:wght@600&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cairo&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Almarai:wght@700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Harmattan&display=swap" rel="stylesheet">
+
 
 
 
@@ -32,6 +36,9 @@
         <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.css" />
 
     }
+
+
+
     <link rel="stylesheet" href="~/css/fontawesome/all.css" />
     <link rel="stylesheet" href="~/css/owl.carousel.min.css" />
     <link rel="stylesheet" href="~/css/site.css" />
@@ -43,9 +50,10 @@
 
 <body>
 
-
+    @*<div id="cover"></div>*@
 
     <div class="container-fluid">
+
         <div class="row">
             <div class="col p-0">
 
@@ -57,7 +65,7 @@
                                 <img src="/img/mainlogo.png" alt="Alternate Text" />
                             </a>
                             <h6 class="title-web-mini">@Localizer["Arab Front For Libration Of Alahwaz"]</h6>
-                            <span class="title-web-mini-alfa">(Alfa)</span>
+                            @*<span class="title-web-mini-alfa">(Alfa)</span>*@
 
 
                             <div class="Time-head-mini mr-auto ml-2">
@@ -76,7 +84,7 @@
                                 <img src="/img/mainlogo.png" alt="Alternate Text" />
                             </a>
                             <h6 class="title-web-mini">@Localizer["Arab Front For Libration Of Alahwaz"]</h6>
-                            <span class="title-web-mini-alfa">(Alfa)</span>
+                            @*<span class="title-web-mini-alfa">(Alfa)</span>*@
 
 
                             <div class="Time-head-mini ml-auto ml-2">
@@ -87,7 +95,7 @@
                             </div>
                         </div>
                     </div>
-                 }
+                }
 
             </div>
 
@@ -150,6 +158,7 @@
                                 </ul>
                             </li>
                             <li class="m-link"><span class="fas fa-phone m-2"></span><a asp-area="" asp-controller="ContactUs" asp-action="Index">@Localizer["Contact Us"]</a></li>
+                            <li class="m-link"><span class="fas fa-star m-2"></span><a asp-area="" asp-controller="AboutUs" asp-action="Index">@Localizer["About Us"]</a></li>
                             <li class="break">
                                 <hr>
                             </li>
@@ -162,10 +171,10 @@
                             </li>
                             <li class="collapse" id="item2">
                                 <ul class="card card-body m-link-mini">
-                                    <li class="m-link"><a asp-action="Index" asp-controller="LastNews"><span class="fas fa-circle mr-1 ml-1 p-1"></span>@Localizer["LatestNews"]</a></li>
-                                    <li class="m-link"><a asp-action="Index" asp-controller="WorldNews"> <span class="fas fa-circle mr-1 ml-1 p-1"></span>@Localizer["WorldNews"]</a></li>
-                                    <li class="m-link"><a asp-action="Index" asp-controller="AlArabia"><span class="fas fa-circle mr-1 ml-1 p-1"></span> @Localizer["Al-Ahwaz News"]</a></li>
-                                    <li class="m-link"><a asp-action="Index" asp-controller="SportsNews"><span class="fas fa-circle mr-1 ml-1 p-1"></span>@Localizer["SportsNews"] </a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="LastNews"><span class="fas fa-genderless mr-1 ml-1 p-1"></span>@Localizer["LatestNews"]</a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="WorldNews"> <span class="fas fa-genderless mr-1 ml-1 p-1"></span>@Localizer["WorldNews"]</a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="AlArabia"><span class="fas fa-genderless mr-1 ml-1 p-1"></span> @Localizer["Al-Ahwaz News"]</a></li>
+                                    <li class="m-link"><a asp-action="Index" asp-controller="SportsNews"><span class="fas fa-genderless mr-1 ml-1 p-1"></span>@Localizer["SportsNews"] </a></li>
 
                                 </ul>
                             </li>
@@ -316,10 +325,10 @@
                         </a>
                         <ul class="hidd-list" style="list-style:none">
 
-                            <li><a asp-action="Index" asp-controller="LastNews"><span class="fas fa-circle mr-1 ml-1 p-1"></span>@Localizer["LatestNews"]</a></li>
-                            <li><a asp-action="Index" asp-controller="WorldNews"><span class="fas fa-circle mr-1 ml-1 p-1"></span>@Localizer["WorldNews"]</a></li>
-                            <li><a asp-action="Index" asp-controller="AlArabia"><span class="fas fa-circle mr-1 ml-1 p-1"></span>@Localizer["Al-Ahwaz News"]</a></li>
-                            <li><a asp-action="Index" asp-controller="SportsNews"><span class="fas fa-circle mr-1 ml-1 p-1"></span>@Localizer["SportsNews"]</a></li>
+                            <li><a asp-action="Index" asp-controller="LastNews"><span class="fas fa-genderless mr-1 ml-1 p-1"></span>@Localizer["LatestNews"]</a></li>
+                            <li><a asp-action="Index" asp-controller="WorldNews"><span class="fas fa-genderless mr-1 ml-1 p-1"></span>@Localizer["WorldNews"]</a></li>
+                            <li><a asp-action="Index" asp-controller="AlArabia"><span class="fas fa-genderless mr-1 ml-1 p-1"></span>@Localizer["Al-Ahwaz News"]</a></li>
+                            <li><a asp-action="Index" asp-controller="SportsNews"><span class="fas fa-genderless mr-1 ml-1 p-1"></span>@Localizer["SportsNews"]</a></li>
 
                         </ul>
 
@@ -366,6 +375,13 @@
                         <a class="a-link" asp-action="Index" asp-controller="ContactUs">
                             <span class="fas fa-phone mr-1 ml-1 p-1"></span>
                             @Localizer["Contact Us"]
+                        </a>
+
+                    </li>
+                    <li class="m-link d-none d-lg-block">
+                        <a class="a-link" asp-action="Index" asp-controller="AboutUs">
+                            <span class="fas fa-star mr-1 ml-1 p-1"></span>
+                            @Localizer["About Us"]
                         </a>
 
                     </li>
@@ -442,11 +458,11 @@
         <div class="row">
             <div class="col-12 p-0">
                 <label class="lbl-nameres d-md-none" data-toggle="collapse" href="#collapseExample" role="button" aria-expanded="false" aria-controls="collapseExample"><span class="fas fa-search m-1"></span>@Localizer["Search"]</label>
-                <div class="smart-search-box-rs d-md-none">                    
+                <div class="smart-search-box-rs d-md-none">
 
                     <div class="collapse" id="collapseExample">
 
-                            
+
                         <form class="d-flex flex-column align-items-center justify-content-center bg-smart-pic" asp-controller="Home" asp-action="Search" method="post">
 
 
@@ -482,10 +498,10 @@
                             </div>
                             <br />
                         </form>
-                           
+
 
                     </div>
-                   
+
                 </div>
 
 
@@ -510,12 +526,14 @@
 
 
         </div>
-        
+
 
 
     </div>
+
     <div class="container-fluid p-0 backgrand-order overflow-hidden">
-        <div class="container">
+
+        <div id="wds" class="container">
             <main role="main">
 
                 @RenderBody()
@@ -526,7 +544,7 @@
 
     </div>
 
-    <footer>
+    <footer id="wds">
         <div class="container-fluid footer-bg">
             <div class="container">
                 <div class="row">
@@ -569,6 +587,7 @@
                                 </div>
 
                                 <a class="li d-flex" asp-action="Index" asp-controller="ContactUs">@Localizer["Contact Us"]</a>
+                                <a class="li d-flex" asp-action="Index" asp-controller="AboutUs">@Localizer["About Us"]</a>
 
                             </div>
                         </div>
@@ -608,12 +627,12 @@
                 <div class="row">
                     <div class="col">
                         <div class="logo-footer d-flex align-items-center">
-                            <img src="~/img/mainlogo.png" alt="Alternate Text" />                            
+                            <img src="~/img/mainlogo.png" alt="Alternate Text" />
                             <p class="mr-1 ml-1">@Localizer["Ahwaz Voice All Rights Reserved - No Content Of This Website May Be Reproduced In Any Form Or By Any Electronic Or No Electronic Means, Including Information Storage , Without Written Permission !"]</p>
                         </div>
                     </div>
                 </div>
-
+                <br />
             </div>
         </div>
 
@@ -642,6 +661,19 @@
             });
         </script>
     </footer>
+
+
+
+
+
+
+
+
+
+
+
+
+
     <script src="~/js/ticker.js"></script>
     <script src="~/lib/jquery/dist/jquery.min.js"></script>
     <script src="~/js/owl.carousel.min.js"></script>
@@ -650,7 +682,16 @@
 
     @RenderSection("Scripts", required: false)
 
-    <script>    
+    <script>
+        //var justShow = $('#wds').hide();
+
+        //$(window).on('load', function () {
+            
+        //    $('#cover').fadeOut(1000);
+        //    this.justShow.show();
+            
+
+        //})
 
         var hoveredElement = null;
 

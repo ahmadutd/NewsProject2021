@@ -493,3 +493,10 @@ E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\staticwebassets
 E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.dll
 E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.pdb
 E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.genruntimeconfig.cache
+E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\Razor\Views\AboutUs\Index.cshtml.g.cs
+E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.LangResources.Views.AboutUs.Index.en-UK.resources
+E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.LangResources.Views.AboutUs.Index.ar-SA.resources
+E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.LangResources.Views.AboutUs.Index.fa-IR.resources
+E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.LangResources.Views.Shared.CategorySearch.en-UK.resources
+E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.LangResources.Views.Shared.CategorySearch.ar-SA.resources
+E:\AllNewsBackUp\AllNews\Allnews\AllNews\obj\Debug\netcoreapp3.1\AllNews.LangResources.Views.Shared.CategorySearch.fa-IR.resources

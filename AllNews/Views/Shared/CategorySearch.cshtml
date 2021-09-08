@@ -1,7 +1,11 @@
 ﻿@model IEnumerable<AllNews.Domain.Category>
-
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
 <option>---</option>
 @foreach (var item in Model)
 {
     <option value="@item.Id">@item.CategoryName</option>
 }
+<option value="Statements">@Localizer["Statements"]</option>
+<option value="Studies">@Localizer["Studies"]</option>

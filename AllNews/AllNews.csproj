@@ -24,4 +24,10 @@
     <ProjectReference Include="..\AllNews.Data\AllNews.Data.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <EmbeddedResource Update="LangResources\Views\AboutUs.Index.fa-IR.resx">
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+  </ItemGroup>
+
 </Project>

@@ -71,12 +71,14 @@ namespace AllNews.Data
             builder.Entity<Language>().HasMany(x => x.Statement).WithOne(x => x.SiteLanguage).HasForeignKey(x => x.LangId);
             builder.Entity<Language>().HasMany(x => x.Studies).WithOne(x => x.SiteLanguage).HasForeignKey(x => x.LangId);
             builder.Entity<Language>().HasMany(x => x.Category).WithOne(x => x.SiteLanguage).HasForeignKey(x => x.LangId);
+            builder.Entity<Language>().HasMany(x => x.About).WithOne(x => x.SiteLanguage).HasForeignKey(x => x.LangId);
 
         }
 
 
 
         public virtual DbSet<News> News { get; set; }
+        public virtual DbSet<About> About { get; set; }
         public virtual DbSet<Category> Category { get; set; }
         public virtual DbSet<Photo> Photos { get; set; }
         public virtual DbSet<Video> Videos { get; set; }

@@ -84,7 +84,6 @@ namespace WebApplication1.Controllers
         public IActionResult Search()
         {
             var form = HttpContext.Request.Form;
-
             var PostTypeCheackBoxResult = form["cheak[]"];
             var searchnewsform = form["search"];
             var categoryidsselect = form["categoryids"];
@@ -241,6 +240,34 @@ namespace WebApplication1.Controllers
                         ).OrderByDescending(x => x.UpdatedDate)
                         .Where(x => x.CategoryId.ToString() == categoryidsselect);
                         SearchDataModle.paperSearchData = paperbyfilter;
+
+
+                        if (categoryidsselect.Any(val => val == "Statements"))
+                        {
+                            
+                            var statebyfilter = _unitOfWork.statementRepo.Find(
+                              x =>
+                              x.UpdatedDate >= date && x.UpdatedDate < date.AddHours(24) &&
+                              x.SiteLanguage.LangTitle == currentLanguage.Name
+                              ).OrderByDescending(x => x.UpdatedDate);
+
+                            SearchDataModle.statementSearchData = statebyfilter;
+                        }
+
+                        if (categoryidsselect.Any(val => val == "Studies"))
+                        {
+
+                            var studiesbyfilter = _unitOfWork.studiesRepo.Find(
+                              x =>
+                              x.UpdatedDate >= date && x.UpdatedDate < date.AddHours(24) &&
+                              x.SiteLanguage.LangTitle == currentLanguage.Name
+                              ).OrderByDescending(x => x.UpdatedDate);
+
+                            SearchDataModle.studiesSearchData = studiesbyfilter;
+                        }
+
+
+
                     }
 
                     else
@@ -267,6 +294,25 @@ namespace WebApplication1.Controllers
                         ).OrderByDescending(x => x.UpdatedDate)
                         .Where(x => x.CategoryId.ToString() == categoryidsselect);
                         SearchDataModle.paperSearchData = paperssbycontentfilter;
+
+
+                        var statebycontentfilter = _unitOfWork.statementRepo.Find(
+                        x =>
+                        x.UpdatedDate >= date && x.UpdatedDate < date.AddHours(24) &&
+                        x.SiteLanguage.LangTitle == currentLanguage.Name &&
+                        x.Title.Contains(searchnewsform) ||
+                        x.Description.Contains(searchnewsform)
+                        ).OrderByDescending(x => x.UpdatedDate);
+                        SearchDataModle.statementSearchData = statebycontentfilter;
+
+                        var studiebycontentfilter = _unitOfWork.studiesRepo.Find(
+                        x =>
+                        x.UpdatedDate >= date && x.UpdatedDate < date.AddHours(24) &&
+                        x.SiteLanguage.LangTitle == currentLanguage.Name &&
+                        x.Title.Contains(searchnewsform) ||
+                        x.Description.Contains(searchnewsform)
+                        ).OrderByDescending(x => x.UpdatedDate);
+                        SearchDataModle.studiesSearchData = studiebycontentfilter;
                     }
                 }
                 else
@@ -293,6 +339,30 @@ namespace WebApplication1.Controllers
                         ).OrderByDescending(x => x.UpdatedDate)
                         .Where(x => x.CategoryId.ToString() == categoryidsselect);
                         SearchDataModle.paperSearchData = paperssbycontentfilter;
+
+                        if(categoryidsselect.Any(val => val=="Statements"))
+                        {
+                            var statebycontentfilter = _unitOfWork.statementRepo.Find(
+                               x =>
+                               x.SiteLanguage.LangTitle == currentLanguage.Name &&
+                               x.Title.Contains(searchnewsform) ||
+                               x.Description.Contains(searchnewsform)
+                               ).OrderByDescending(x => x.UpdatedDate);
+                                
+                            SearchDataModle.statementSearchData = statebycontentfilter;
+                        }
+                        if (categoryidsselect.Any(val => val == "Studies"))
+                        {
+                            var studiesbycontentfilter = _unitOfWork.studiesRepo.Find(
+                               x =>
+                               x.SiteLanguage.LangTitle == currentLanguage.Name &&
+                               x.Title.Contains(searchnewsform) ||
+                               x.Description.Contains(searchnewsform)
+                               ).OrderByDescending(x => x.UpdatedDate);
+
+                            SearchDataModle.studiesSearchData = studiesbycontentfilter;
+                        }
+
                     }
 
                     

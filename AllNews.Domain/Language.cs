@@ -23,6 +23,7 @@ namespace AllNews.Domain
         public virtual ICollection<Statement> Statement { get; set; }
         public virtual ICollection<Studies> Studies { get; set; }
         public virtual ICollection<Category> Category { get; set; }
+        public virtual ICollection<About> About { get; set; }
 
 
 

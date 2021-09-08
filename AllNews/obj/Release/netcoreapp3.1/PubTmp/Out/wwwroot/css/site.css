@@ -269,12 +269,24 @@ a
     padding: 0 0 10px 0;
     text-shadow: 3px 4px rgba(48, 48, 48, 0.2);
 }
+.title-web-alfa
+{
+    font-size: 12px;
+    font-weight:700;
+    margin:0 2px 15px 2px;
+}
 .title-web-mini {
     font-family: 'Almarai', sans-serif;
     /*font-family: 'Kufam', sans-serif;*/
     font-size: 14px;
     padding: 0 0 5px 0;
     text-shadow: 3px 4px rgba(48, 48, 48, 0.2);
+}
+.title-web-mini-alfa 
+{
+    font-size: 12px;
+    font-weight:600;
+    margin:0 5px 11px 5px;
 }
 .web-image
 {

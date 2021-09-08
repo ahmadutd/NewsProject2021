@@ -211,6 +211,16 @@ namespace AllNews.Data.Repositores
                 return _appRoleUserRepo;
             }
         }
+        private readonly IAboutRepository _aboutRepo;
+        public IAboutRepository aboutRepo
+        {
+            get
+            {
+                if (_aboutRepo == null)
+                    return new AboutRepository(_context);
+                return _aboutRepo;
+            }
+        }
 
         public void Dispose()
         {

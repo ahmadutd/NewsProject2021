@@ -161,10 +161,15 @@ a.navbar-brand {
     text-align: center;
     word-break: break-all;
 }
-
-a 
+.navbar-brand img
 {
-  color: #0366d6;
+    width:60px;
+    height:63px;
+}
+.title
+{
+    color:rgb(57, 57, 57);
+    font-size:17px;
 }
 
 .btn-primary {
@@ -679,4 +684,24 @@ body {
 .custom-select
 {
     font-family: 'Almarai', sans-serif; 
+}
+
+.about-desc
+{
+    padding:10px;
+    background:white;
+    border-radius:5px;
+}
+.about-desc pre
+{
+    font-family: 'Almarai', sans-serif;
+    white-space:pre-line;
+    margin-top:10px;
+}
+.about-title {
+    padding: 10px;
+    background: white;
+    border-radius: 5px;
+    font-family: 'Almarai', sans-serif;
+    margin-top: 10px;
 }

@@ -354,14 +354,233 @@
         }
     </div>
 }
+@if (Model.statementSearchData != null && Model.statementSearchData.Any())
+{
+    <br />
+    <div class="row">
+        <div class="col">
+            <div class="top-title-line">
+                <h5 class="d-none d-md-block">@Localizer["Statements"]</h5>
+                <span class="d-md-none">@Localizer["Statements"]</span>
+            </div>
+            <div class="top-box-hot-line"></div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        @foreach (var item in Model.statementSearchData)
+        {
+            <div class="col-md-12 col-lg-6 p-1 d-none d-md-block">
+
+                <a asp-action="View" asp-controller="Statement" asp-route-id="@item.Id" class="Albayni-tab d-flex align-items-start justify-content-start">
+                    <div class="Albayni-img">
+                        @if (item.Image != null || item.ImageCoverPath != null)
+                        {
+                            @if (item.Image != null)
+                            {
+                                <img src="@item.Image" alt="Alternate Text" />
+                            }
+                            @if (item.ImageCoverPath != null)
+                            {
+                                <img src="@ViewBag.AdminURL/Upload/Statements/@item.ImageCoverPath" alt="Alternate Text" />
+                            }
+                        }
+                    </div>
+                    <div class="Albayni-info">
+
+                        <p class="Albayni-title">
+
+                            @item.Title
+                        </p>
+                        <hr />
+                        <span class="date-box d-flex align-items-baseline justify-content-start">
+                            <span class="fas fa-calendar-alt"></span>
+                            <span class="datetime-now">@item.UpdatedDate</span>
+                        </span>
+                    </div>
+
+                </a>
+                <br />
+
+            </div>
+
+
+            <div class="col-12 p-1 d-md-none">
+
+                <a asp-action="View" asp-controller="Statement" asp-route-id="@item.Id" class="Albayni-tab d-flex flex-column">
+                    <div class="Albayni-img">
+                        @if (item.Image != null || item.ImageCoverPath != null)
+                        {
+                            @if (item.Image != null)
+                            {
+                                <img style="width:100%; height:250px" src="@item.Image" alt="Alternate Text" />
+                            }
+                            @if (item.ImageCoverPath != null)
+                            {
+                                <img style="width:100%;height:250px" src="@ViewBag.AdminURL/Upload/Statements/@item.ImageCoverPath" alt="Alternate Text" />
+                            }
+                        }
+                    </div>
+                    <div class="Albayni-info-res">
+
+                        <p class="Albayni-title">@item.Title</p>
+                        <hr />
+                        <span class="date-box d-flex align-items-baseline ">
+                            <span class="fas fa-calendar-alt"></span>
+                            <span class="datetime-now">@item.UpdatedDate</span>
+                        </span>
+                    </div>
+
+                </a>
+                <br />
+
+            </div>
+
+        }
+    </div>
+}
+
+
+@if (Model.studiesSearchData != null && Model.studiesSearchData.Any())
+{
+    <br />
+    <div class="row">
+        <div class="col">
+            <div class="top-title-line">
+                <h5 class="d-none d-md-block">@Localizer["Studies"]</h5>
+                <span class="d-md-none">@Localizer["Studies"]</span>
+            </div>
+            <div class="top-box-hot-line"></div>
+        </div>
+    </div>
+    <br />
+    <div class="row">
+        @if (Model.studiesSearchData != null)
+        {
+            var i = 0;
+            @foreach (var item in Model.studiesSearchData)
+            {
+                ++i;
+
+                <div class="col-6 col-md-2 p-1">
+                    <div class="studies-box">
+                        <div class="image-relativ">
+
+                            @if (item.Image != null || item.ImageCoverPath != null)
+                            {
+                                @if (item.Image != null)
+                                {
+                                    <img src="@item.Image" alt="Alternate Text" />
+                                }
+                                @if (item.ImageCoverPath != null)
+                                {
+                                    <img src="@ViewBag.AdminURL/Upload/Studies/Images/@item.ImageCoverPath" alt="Alternate Text" />
+                                }
+                            }
+                            else
+                            {
+                                <img src="/img/Book.png" />
+                            }
+
+
+                            <div class="overlay d-flex flex-column align-items-center justify-content-center">
+
+                                <button class="dl-link" data-toggle="modal" data-target="#exampleModalCenter_@i">@Localizer["View"] <span class=" fas fa-eye mr-1"></span></button>
+                                <br />
+                                @if (item.DownloadLink != null)
+                                {
+                                    <a class="dl-link" href="@ViewBag.AdminURL/Upload/Studies/Downloads/@item.DownloadLink">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
+                                    <br />
+                                }
+
+
+                                <div class="dropdown" id="share">
+                                    <button class="dl-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                        @Localizer["Share"] <span class=" fas fa-share-alt mr-1 ml-1"></span>
+                                    </button>
+                                    <div class="dropdown-menu share-colaps-book dropdown-menu-center" aria-labelledby="dropdownMenuButton">
+                                        <div class="d-flex">
+                                            <a href="whatsapp://send?text=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id" data-action="share/whatsapp/share"><span class="fab fa-whatsapp text-success"></span></a>
+                                            <a href="https://telegram.me/share/url?url=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-telegram text-info"></span></a>
+                                            <a href="mailto:?=&subject=@item.Title&body=@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fas fa-envelope text-secondary"></span></a>
+                                            <a href="https://www.facebook.com/sharer/sharer.php?u=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-facebook text-primary"></span></a>
+                                            <a href="https://twitter.com/intent/tweet?text=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-twitter text-info"></span></a>
+                                        </div>
+                                    </div>
+
+                                </div>
+
+
+
+
+                            </div>
+                        </div>
+                        <div class="studies-option d-flex justify-content-center">
+                            <img src="/img/BookLogo.png" alt="Alternate Text" />
+                        </div>
+
+                    </div>
+
+                </div>
+
+                <div class="modal fade " id="exampleModalCenter_@i" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                    <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                        <div class="modal-content">
+
+
+                            <div class="modal-header p-0">
+                                <button type="button" class="close-windows-modal" data-dismiss="modal" aria-label="Close"><span class="fas fa-times"></span></button>
+
+                                <div class="img-header-object d-flex align-items-center">
+
+
+                                    @if (item.Image != null)
+                                    {
+                                        <img src="@item.Image" alt="Alternate Text" />
+                                    }
+                                    @if (item.ImageCoverPath != null)
+                                    {
+                                        <img src="@ViewBag.AdminURL/Upload/Studies/Images/@item.ImageCoverPath" alt="Alternate Text" />
+                                    }
+
+                                    <p>@item.Title</p>
+
+                                </div>
+
+
+                            </div>
+                            <div class="modal-body studies-body-modal">
+                                <div class="paper-desc-box">
+                                    <pre>
+                                         @item.Description
+                                    </pre>
+                                </div>
+                            </div>
+
+
+                        </div>
+                    </div>
+                </div>
+
+
+
+
+
+            }
+        }
+    </div>
+}
+
 
 
 @if (Model.newsSearchData != null && Model.newsSearchData.Any() ||
- Model.paperSearchData != null && Model.paperSearchData.Any() ||
- Model.audioSearchData != null && Model.audioSearchData.Any() ||
- Model.videoSearchData != null && Model.videoSearchData.Any() ||
- Model.photoSearchData != null && Model.photoSearchData.Any()
- )
+Model.paperSearchData != null && Model.paperSearchData.Any() ||
+Model.audioSearchData != null && Model.audioSearchData.Any() ||
+Model.videoSearchData != null && Model.videoSearchData.Any() ||
+Model.photoSearchData != null && Model.photoSearchData.Any() ||
+Model.statementSearchData != null && Model.statementSearchData.Any() ||
+Model.studiesSearchData != null && Model.studiesSearchData.Any()
+)
 {
 
 }

@@ -117,11 +117,14 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="About Us" xml:space="preserve">
+    <value>معلومات عنا</value>
+  </data>
   <data name="Ahwaz Voice All Rights Reserved - No Content Of This Website May Be Reproduced In Any Form Or By Any Electronic Or No Electronic Means, Including Information Storage , Without Written Permission !" xml:space="preserve">
     <value>جمیع حقوق النشر محفوظه لموقع صوت الاحواز</value>
   </data>
   <data name="Al-Ahwaz News" xml:space="preserve">
-    <value>الاخبار الاحوازیه</value>
+    <value>أخبار الأحوازیه</value>
   </data>
   <data name="Al-Ahwaz Papers" xml:space="preserve">
     <value>المقالات الاحوازیه</value>
@@ -196,7 +199,7 @@
     <value>اشتراک</value>
   </data>
   <data name="SportsNews" xml:space="preserve">
-    <value>الاخبار الریاضیه</value>
+    <value>أخبار الرياضة</value>
   </data>
   <data name="Statements" xml:space="preserve">
     <value>البیانیات</value>
@@ -208,6 +211,6 @@
     <value>مقاطع مصوره</value>
   </data>
   <data name="WorldNews" xml:space="preserve">
-    <value>الاخبار العالمیه</value>
+    <value>أخبار العالم</value>
   </data>
 </root>

@@ -118,7 +118,7 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <data name="Al-Ahwaz News" xml:space="preserve">
-    <value>الاخبار الاحوازیه</value>
+    <value>أخبار الأحوازیه</value>
   </data>
   <data name="Download" xml:space="preserve">
     <value>تنزیل</value>
@@ -151,7 +151,7 @@
     <value>خاص</value>
   </data>
   <data name="SportsNews" xml:space="preserve">
-    <value>الاخبار الرياضة</value>
+    <value>أخبار الرياضة</value>
   </data>
   <data name="Statements" xml:space="preserve">
     <value>البیانیات</value>
@@ -166,6 +166,6 @@
     <value>عرض</value>
   </data>
   <data name="WorldNews" xml:space="preserve">
-    <value>الاخبار العالمیه</value>
+    <value>أخبار العالم</value>
   </data>
 </root>

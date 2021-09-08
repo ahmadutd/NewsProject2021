@@ -1,0 +1,42 @@
+﻿@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
+@model AllNews.Domain.About
+<br />
+<div class="row">
+    <div class="col">
+        <div class="top-title-line mt-1">
+            <h5 class="d-none d-md-block">@Localizer["About Us"]</h5>
+            <span class="d-md-none">@Localizer["About Us"]</span>
+        </div>
+        <div class="top-box-hot-line"></div>
+    </div>
+</div>
+<br />
+<br />
+<div class="row">
+    <div class="col">
+        <div class="about-img-box">
+            <img src="/img/mainlogo.png" alt="Alternate Text" />
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col">
+        <div class="about-sub">
+            <strong>@Model?.Title</strong>
+        </div>
+    </div>
+</div>
+<br />
+<div class="row">
+    <div class="col">
+
+        <div class="about-desc">
+
+            <pre>@Model?.Text</pre>
+        </div>
+    </div>
+</div>
+<br />

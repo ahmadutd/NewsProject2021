@@ -18,41 +18,41 @@
     </div>
 </div>
 <hr />
-<div class="row">
+<div class="row" style="text-align:center">
 
-    <div class="col col-md-10">
+    <div class="col col-md-12">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Tags.Name)</h6>
-            <span>@Model.Tags.Name</span>
+            <span>@Model.Tags?.Name</span>
 
         </div>
     </div>
 
-    <div class="col-12 col-md-5">
+    <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Tags.CreatedDate)</h6>
             <b>@Model.Tags.CreatedDate</b>
         </div>
 
     </div>
-    <div class="col-12 col-md-5">
+    <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Tags.CreatedBy)</h6>
-            <b>@Model.Tags.CreatedUser</b>
+            <b>@Model.Tags?.CreatedUser</b>
         </div>
 
     </div>
-    <div class="col-12 col-md-5">
+    <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Tags.UpdatedDate)</h6>
-            <b>@Model.Tags.UpdatedDate</b>
+            <b>@Model.Tags?.UpdatedDate</b>
         </div>
 
     </div>
-    <div class="col-12 col-md-5">
+    <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Tags.UpdatedBy)</h6>
-            <b>@Model.Tags.UpdatedUser</b>
+            <b>@Model.Tags?.UpdatedUser</b>
         </div>
 
     </div>

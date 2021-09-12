@@ -528,3 +528,5 @@ E:\AllNewsBackUp\AllNews\Allnews\AllNewsCms.Web\obj\Release\netcoreapp3.1\static
 E:\AllNewsBackUp\AllNews\Allnews\AllNewsCms.Web\obj\Release\netcoreapp3.1\AllNewsCms.Web.dll
 E:\AllNewsBackUp\AllNews\Allnews\AllNewsCms.Web\obj\Release\netcoreapp3.1\AllNewsCms.Web.pdb
 E:\AllNewsBackUp\AllNews\Allnews\AllNewsCms.Web\obj\Release\netcoreapp3.1\AllNewsCms.Web.genruntimeconfig.cache
+E:\AllNewsBackUp\AllNews\Allnews\AllNewsCms.Web\obj\Release\netcoreapp3.1\Razor\Pages\About Us\Edite.cshtml.g.cs
+E:\AllNewsBackUp\AllNews\Allnews\AllNewsCms.Web\obj\Release\netcoreapp3.1\Razor\Pages\About Us\Index.cshtml.g.cs

@@ -80,7 +80,7 @@ namespace AllNewsCms.Web.Pages.News
                     var videofile = News.VideoFile;
                     var videoImg = News.ImgFile;
                     if (file !=null )
-                         {
+                    {
                             var ext = Path.GetExtension(file.FileName);
                        
                             var fileName = Guid.NewGuid().ToString("N").Substring(0, 10) + ext;
@@ -93,16 +93,16 @@ namespace AllNewsCms.Web.Pages.News
                             {
                                 using (var memoryStream = new MemoryStream())
                                 {
-                                    if (file.Length < 3000000)
-                                    {
-                                        News.File.CopyToAsync(memoryStream).GetAwaiter().GetResult();
-                                        System.IO.File.WriteAllBytes(filePath, memoryStream.ToArray());
-                                    }
+                                    
+                                    
+                                    News.File.CopyToAsync(memoryStream).GetAwaiter().GetResult();
+                                    System.IO.File.WriteAllBytes(filePath, memoryStream.ToArray());
+                                    
 
                                 }
-                             }
+                            }
 
-                         }
+                    }
                          if(videofile !=null)
                          {
                             var videoext = Path.GetExtension(videofile.FileName);

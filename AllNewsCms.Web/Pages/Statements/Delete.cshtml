@@ -23,38 +23,38 @@
     <div class="col-12">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Statements.Title)</h6>
-            <span>@Model.Statements.Title</span>
+            <span>@Model.Statements?.Title</span>
 
         </div>
     </div>
-    @if (Model.Statements.Image != null)
+    @if (Model.Statements?.Image != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Statements.Image)</h6>
-                <img style="width:200px;height:200px;" src="@Model.Statements.Image" alt="Alternate Text" />
+                <img style="width:200px;height:200px;" src="@Model.Statements?.Image" alt="Alternate Text" />
 
             </div>
         </div>
     }
-    @if (Model.Statements.ImageCoverPath != null)
+    @if (Model.Statements?.ImageCoverPath != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Statements.ImageCoverPath)</h6>
-                <img style="width:200px;height:200px;" src="~/Upload/Statements/@Model.Statements.ImageCoverPath" alt="Alternate Text" />
+                <img style="width:200px;height:200px;" src="~/Upload/Statements/@Model.Statements?.ImageCoverPath" alt="Alternate Text" />
 
             </div>
         </div>
     }
-    @if (Model.Statements.Description != null)
+    @if (Model.Statements?.Description != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Statements.Description)</h6>
-                <span>@Model.Statements.Description</span>
+                <span>@Model.Statements?.Description</span>
 
             </div>
         </div>
@@ -63,28 +63,28 @@
     <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Statements.CreatedDate)</h6>
-            <b>@Model.Statements.CreatedDate</b>
+            <b>@Model.Statements?.CreatedDate</b>
         </div>
 
     </div>
     <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Statements.CreatedBy)</h6>
-            <b>@Model.Statements.CreatedUser?.UserName</b>
+            <b>@Model.Statements?.CreatedUser?.UserName</b>
         </div>
 
     </div>
     <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Statements.UpdatedDate)</h6>
-            <b>@Model.Statements.UpdatedDate</b>
+            <b>@Model.Statements?.UpdatedDate</b>
         </div>
 
     </div>
     <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Statements.UpdatedBy)</h6>
-            <b>@Model.Statements.UpdatedUser?.UserName</b>
+            <b>@Model.Statements?.UpdatedUser?.UserName</b>
         </div>
 
     </div>

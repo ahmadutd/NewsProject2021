@@ -23,103 +23,103 @@
     <div class="col-12">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.Title)</h6>
-            <span>@Model.News.Title</span>
+            <span>@Model.News?.Title</span>
 
         </div>
     </div>
-    @if (@Model.News.FirstImage != null)
+    @if (@Model.News?.FirstImage != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.FirstImage)</h6>
-                <img style="width:200px;height:150px;" src="@Model.News.FirstImage" alt="Alternate Text" />
+                <img style="width:200px;height:150px;" src="@Model.News?.FirstImage" alt="Alternate Text" />
 
             </div>
         </div>
     }
-    @if (@Model.News.ImageCoverPath != null)
+    @if (@Model.News?.ImageCoverPath != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.ImageCoverPath)</h6>
-                <img style="width:200px;height:150px;" src="~/Upload/News/Images/@Model.News.ImageCoverPath" alt="Alternate Text" />
+                <img style="width:200px;height:150px;" src="~/Upload/News/Images/@Model.News?.ImageCoverPath" alt="Alternate Text" />
             </div>
         </div>
     }
 
-    @if (@Model.News.FirstDescription != null)
+    @if (@Model.News?.FirstDescription != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.FirstDescription)</h6>
-                <span>@Model.News.FirstDescription</span>
+                <span>@Model.News?.FirstDescription</span>
 
             </div>
         </div>
     }
-    @if (@Model.News.FirstDescriptionFirstParagraph != null)
+    @if (@Model.News?.FirstDescriptionFirstParagraph != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.FirstDescriptionFirstParagraph)</h6>
-                <span>@Model.News.FirstDescriptionFirstParagraph</span>
+                <span>@Model.News?.FirstDescriptionFirstParagraph</span>
 
             </div>
         </div>
     }
 
 
-    @if (@Model.News.SecondImage != null)
+    @if (@Model.News?.SecondImage != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.SecondImage)</h6>
-                <img src="@Model.News.SecondImage" alt="Alternate Text" />
+                <img src="@Model.News?.SecondImage" alt="Alternate Text" />
 
             </div>
         </div>
     }
-    @if (@Model.News.SecondDescription != null)
+    @if (@Model.News?.SecondDescription != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.SecondDescription)</h6>
-                <span>@Model.News.SecondDescription</span>
+                <span>@Model.News?.SecondDescription</span>
 
             </div>
         </div>
     }
-    @if (@Model.News.SecondDescriptionFirstParagraph != null)
+    @if (@Model.News?.SecondDescriptionFirstParagraph != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.SecondDescriptionFirstParagraph)</h6>
-                <span>@Model.News.SecondDescriptionFirstParagraph</span>
+                <span>@Model.News?.SecondDescriptionFirstParagraph</span>
 
             </div>
         </div>
     }
 
-    @if (@Model.News.Video != null)
+    @if (@Model.News?.Video != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.Video)</h6>
-                <iframe width="560" height="315" src="https://www.youtube.com/embed/@Model.News.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                <iframe width="560" height="315" src="https://www.youtube.com/embed/@Model.News?.Video" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
 
             </div>
         </div>
     }
-    @if (@Model.News.VideoCoverPath != null)
+    @if (@Model.News?.VideoCoverPath != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.VideoCoverPath)</h6>
                 
                     <video class="VideoPalyBox" controls="controls">
-                        <source src="~/Upload/News/Videos/@Model.News.VideoCoverPath" type="video/mp4" />
+                        <source src="~/Upload/News/Videos/@Model.News?.VideoCoverPath" type="video/mp4" />
                     </video>
                
 
@@ -130,7 +130,7 @@
     <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.News.CreatedDate)</h6>
-            <span>@Model.News.CreatedDate</span>
+            <span>@Model.News?.CreatedDate</span>
         </div>
 
     </div>

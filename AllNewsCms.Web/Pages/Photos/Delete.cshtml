@@ -23,36 +23,36 @@
     <div class="col-12">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Photos.Title)</h6>
-            <span>@Model.Photos.Title</span>
+            <span>@Model.Photos?.Title</span>
 
         </div>
     </div>
-    @if (Model.Photos.Image != null)
+    @if (Model.Photos?.Image != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Photos.Image)</h6>
-                <img style="width:200px;height:150px;" src="@Model.Photos.Image" alt="Alternate Text" />
+                <img style="width:200px;height:150px;" src="@Model.Photos?.Image" alt="Alternate Text" />
             </div>
         </div>
     }
-    @if (Model.Photos.ImageCoverPath != null)
+    @if (Model.Photos?.ImageCoverPath != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Photos.ImageCoverPath)</h6>
-                <img style="width:200px;height:150px;" src="~/Upload/Photos/@Model.Photos.ImageCoverPath" alt="Alternate Text" />
+                <img style="width:200px;height:150px;" src="~/Upload/Photos/@Model.Photos?.ImageCoverPath" alt="Alternate Text" />
             </div>
         </div>
     }
-    @if (Model.Photos.Description != null)
+    @if (Model.Photos?.Description != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Photos.Description)</h6>
-                <span>@Model.Photos.Description</span>
+                <span>@Model.Photos?.Description</span>
 
             </div>
         </div>
@@ -61,7 +61,7 @@
     <div class="col-12 col-md-6">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Photos.CreatedDate)</h6>
-            <b>@Model.Photos.CreatedDate</b>
+            <b>@Model.Photos?.CreatedDate</b>
         </div>
 
     </div>

@@ -50,7 +50,7 @@
 
 <body>
 
-    @*<div id="cover"></div>*@
+    <div id="cover"></div>
 
     <div class="container-fluid">
 
@@ -518,7 +518,7 @@
                 }
                 else
                 {
-                    <ul class="ticker movetext "></ul>
+                    <ul class="ticker movetext"></ul>
                 }
 
 
@@ -683,15 +683,15 @@
     @RenderSection("Scripts", required: false)
 
     <script>
-        //var justShow = $('#wds').hide();
+        var justShow = $('#wds').hide();
 
-        //$(window).on('load', function () {
+        $(window).on('load', function () {
             
-        //    $('#cover').fadeOut(1000);
-        //    this.justShow.show();
+            $('#cover').fadeOut(1000);
+            this.justShow.show();
             
 
-        //})
+        })
 
         var hoveredElement = null;
 

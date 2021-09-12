@@ -20,55 +20,55 @@
 <hr />
 <div class="row" style="text-align:center">
 
-    @if (@Model.Audios.Title != null)
+    @if (@Model.Audios?.Title != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.Title)</h6>
-                <span>@Model.Audios.Title</span>
+                <span>@Model.Audios?.Title</span>
 
             </div>
         </div>
     }
-    @if (@Model.Audios.AudioCoverPath != null)
+    @if (@Model.Audios?.AudioCoverPath != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.AudioCoverPath)</h6>
                 <audio controls="controls">
-                    <source src="/Upload/Audios/Voices/@Model.Audios.AudioCoverPath" type="audio/mp3" />
+                    <source src="/Upload/Audios/Voices/@Model.Audios?.AudioCoverPath" type="audio/mp3" />
                 </audio>
 
             </div>
         </div>
     }
-    @if (@Model.Audios.Description != null)
+    @if (@Model.Audios?.Description != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.Description)</h6>
-                <span>@Model.Audios.Description</span>
+                <span>@Model.Audios?.Description</span>
 
             </div>
         </div>
     }
-    @if (@Model.Audios.Image != null)
+    @if (@Model.Audios?.Image != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.Image)</h6>
-                <img style="width:200px;height:200px;" src="@Model.Audios.Image" alt="Alternate Text" />
+                <img style="width:200px;height:200px;" src="@Model.Audios?.Image" alt="Alternate Text" />
 
             </div>
         </div>
     }
-    @if (@Model.Audios.ImageCoverPath != null)
+    @if (@Model.Audios?.ImageCoverPath != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.ImageCoverPath)</h6>
-                <img style="width:200px;height:200px;" src="/Upload/Audios/Images/@Model.Audios.ImageCoverPath" alt="Alternate Text" />
+                <img style="width:200px;height:200px;" src="/Upload/Audios/Images/@Model.Audios?.ImageCoverPath" alt="Alternate Text" />
 
             </div>
         </div>
@@ -76,28 +76,28 @@
     <div class="col-12">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.CreatedDate)</h6>
-            <b>@Model.Audios.CreatedDate</b>
+            <b>@Model.Audios?.CreatedDate</b>
         </div>
 
     </div>
     <div class="col-12">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.CreatedBy)</h6>
-            <b>@Model.Audios.CreatedUser?.UserName</b>
+            <b>@Model.Audios?.CreatedUser.UserName</b>
         </div>
 
     </div>
     <div class="col-12">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.UpdatedDate)</h6>
-            <b>@Model.Audios.UpdatedDate</b>
+            <b>@Model.Audios?.UpdatedDate</b>
         </div>
 
     </div>
     <div class="col-12">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Audios.UpdatedBy)</h6>
-            <b>@Model.Audios.UpdatedUser?.UserName</b>
+            <b>@Model.Audios?.UpdatedUser?.UserName</b>
         </div>
 
     </div>

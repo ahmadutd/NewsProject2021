@@ -23,49 +23,49 @@
     <div class="col">
         <div class="form-delete p-2">
             <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.Title)</h6>
-            <span>@Model.Papers.Title</span>
+            <span>@Model.Papers?.Title</span>
 
         </div>
     </div>
-    @if (@Model.Papers.Image != null)
+    @if (Model.Papers?.Image != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.Image)</h6>
-                <img style="width:200px;height:200px;" src="@Model.Papers.Image" alt="Alternate Text" />
+                <img style="width:200px;height:200px;" src="@Model.Papers?.Image" alt="Alternate Text" />
 
             </div>
         </div>
     }
-    @if (@Model.Papers.ImageCoverPath != null)
+    @if (@Model.Papers?.ImageCoverPath != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.ImageCoverPath)</h6>
-                <img style="width:200px;height:200px;" src="/Upload/Papers/Images/@Model.Papers.ImageCoverPath" alt="Alternate Text" />
+                <img style="width:200px;height:200px;" src="/Upload/Papers/Images/@Model.Papers?.ImageCoverPath" alt="Alternate Text" />
 
             </div>
         </div>
     }
-    @if (Model.Papers.Description != null)
+    @if (Model.Papers?.Description != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.Description)</h6>
-                <span>@Model.Papers.Description</span>
+                <span>@Model.Papers?.Description</span>
 
             </div>
         </div>
     }
-    @if (Model.Papers.Download != null)
+    @if (Model.Papers?.Download != null)
     {
         <div class="col-12">
             <div class="form-delete p-2">
 
                 <h6 class="alert-danger">@Html.DisplayNameFor(x => x.Papers.Download)</h6>
-                <a class="btn btn-dark" href="/Upload/Papers/Downloads/@Model.Papers.Download">Download</a>
+                <a class="btn btn-dark" href="/Upload/Papers/Downloads/@Model.Papers?.Download">Download</a>
 
             </div>
         </div>

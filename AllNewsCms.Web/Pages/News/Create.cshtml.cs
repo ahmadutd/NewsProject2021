@@ -85,9 +85,15 @@ namespace AllNewsCms.Web.Pages.News
                        
                             var fileName = Guid.NewGuid().ToString("N").Substring(0, 10) + ext;
                         
-                            var filePath = $"{_environment.WebRootPath}\\Upload\\News\\Images\\{fileName}";
-                        
-                             News.ImageCoverPath = fileName;
+                            var folderPath = $"~/Upload/News/Images";
+
+                    if (!Directory.Exists(folderPath))
+                        Directory.CreateDirectory(folderPath);
+
+
+                    var filePath = $"{Path.Combine(folderPath,fileName)}";
+
+                    News.ImageCoverPath = fileName;
                                                   
                             if (_unitofwork.Commit() > 0)
                             {

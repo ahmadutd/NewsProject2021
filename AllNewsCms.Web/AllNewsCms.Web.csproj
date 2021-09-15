@@ -26,7 +26,6 @@
 
   <ItemGroup>
     <Folder Include="wwwroot\Upload\Audios\Images\" />
-    <Folder Include="wwwroot\Upload\News\VideoImg\" />
     <Folder Include="wwwroot\Upload\Organisation\" />
     <Folder Include="wwwroot\Upload\Papers\Downloads\" />
     <Folder Include="wwwroot\Upload\Papers\Images\" />

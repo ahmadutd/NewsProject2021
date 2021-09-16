@@ -84,14 +84,11 @@ namespace AllNewsCms.Web.Pages.News
                             var ext = Path.GetExtension(file.FileName);
                        
                             var fileName = Guid.NewGuid().ToString("N").Substring(0, 10) + ext;
-                        
-                            var folderPath = $"~/Upload/News/Images";
 
-                    if (!Directory.Exists(folderPath))
-                        Directory.CreateDirectory(folderPath);
+                    var filePath = $"{_environment.WebRootPath}\\Upload\\News\\Images\\{fileName}";
 
 
-                    var filePath = $"{Path.Combine(folderPath,fileName)}";
+
 
                     News.ImageCoverPath = fileName;
                                                   

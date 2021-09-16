@@ -679,7 +679,8 @@ a
 
 .smart-search-box .form-check-input
 {
-    border:none !important;
+    border:aliceblue !important;
+    background:aliceblue !important;
 }
 .smart-search-box .smart-search-tab .select-box option {
     font-family: 'Almarai', sans-serif;
@@ -772,9 +773,11 @@ a
     width:400px;
     height:30px;
     outline:none;
-    border:1px solid rgba(48, 48, 48, 0.3);
+    background:aliceblue;
+    border:1px solid #008ddd;
     border-radius:2px;
     padding:0 5px
+
 }
 .smart-search-box-rs .smart-search-btnres
 {

@@ -15,4 +15,3 @@ E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Debug\netcoreapp3.1\AllNews.
 E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Debug\netcoreapp3.1\AllNews.Domain.csproj.CoreCompileInputs.cache
 E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Debug\netcoreapp3.1\AllNews.Domain.dll
 E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Debug\netcoreapp3.1\AllNews.Domain.pdb
-E:\AllNewsBackUp\AllNews\Allnews\AllNews.Domain\obj\Debug\netcoreapp3.1\AllNews.Domain.csprojAssemblyReference.cache

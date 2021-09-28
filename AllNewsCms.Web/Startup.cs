@@ -38,7 +38,7 @@ namespace AllNewsCms.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.AddHttpContextAccessor();
-            services.AddTransient<IGoogleRecaptcha,GoogleRecaptcha>();
+            services.AddTransient<IGoogleRecaptcha, GoogleRecaptcha>();
             services.AddDbContext<AllNewsDbContext>(
 
                 options =>

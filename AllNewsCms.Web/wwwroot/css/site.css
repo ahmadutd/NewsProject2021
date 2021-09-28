@@ -446,7 +446,7 @@ body {
 }
 .hdd-list {
     position: absolute;
-    left: -7.3em;
+    left: -7.2em;
     top: 0;
     background: white;
     border-radius: 4px;
@@ -705,4 +705,12 @@ body {
     border-radius: 5px;
     font-family: 'Almarai', sans-serif;
     margin-top: 10px;
+}
+.calc-name
+{
+    font-family: 'Almarai', sans-serif;
+    color:rgba(0, 159, 28, 0.51);
+    margin:0 10px;
+    font-size:12px;
+    padding:7px 0 0 0 ;
 }

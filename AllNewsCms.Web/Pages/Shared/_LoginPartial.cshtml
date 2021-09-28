@@ -1,9 +1,28 @@
 ﻿@using Microsoft.AspNetCore.Identity
 @using AllNews.Domain;
+@using Microsoft.AspNetCore.Mvc.Localization;
+@using System.Globalization;
+@inject IViewLocalizer Localizer
 @inject SignInManager<AppUser> SignInManager
 @inject UserManager<AppUser> UserManager
 
     <div class="d-flex justify-content-end mt-4 ml-1">
+        @if (CultureInfo.CurrentCulture.Name == "fa-IR")
+        {
+
+            <div class="calc-name">فارسی</div>
+        }
+        @if (CultureInfo.CurrentCulture.Name == "ar-SA")
+        {
+            <div class="calc-name">العربیه</div>
+        }
+        @if (CultureInfo.CurrentCulture.Name == "en-UK")
+        {
+            <div class="calc-name">English</div>
+
+        }
+
+
 
         @if (SignInManager.IsSignedIn(User))
         {
@@ -14,21 +33,21 @@
                 <div class="dropdown-menu dropdown-menu-right">
 
 
-                    <a class="dropdown-item lng-btn"><span class="fas fa-globe-americas p-1"></span><span class="mr-2 ml-2">Languages</span><div id="Lang-class-Layout" class="hdd-list"></div></a>
-                    
+                    <a class="dropdown-item lng-btn"><span class="fas fa-language p-1"></span><span class="mr-2 ml-2">Languages</span><div id="Lang-class-Layout" class="hdd-list"></div></a>
+
                     <form class="form-inline" asp-area="Identity" asp-page="/Account/Logout" asp-route-returnUrl="@Url.Page("/", new { area = "" })" method="post">
                         <button type="submit" class="dropdown-item loguot-btn"><span class="fas fa-sign-out-alt mr-2 ml-2"></span><span>LogOut</span></button>
-                        
+
                     </form>
-                        
-                    
+
+
 
 
                 </div>
             </div>
 
-          
-            
+
+
 
         }
         else

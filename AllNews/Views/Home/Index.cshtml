@@ -9,7 +9,7 @@
 }
 
 @* Start Last News Section *@
-    <br />
+<br />
 <div class="row">
     <div class="col">
         <div class="top-title-line mt-1">
@@ -827,6 +827,7 @@
 
 @* End sports section *@
 
+
 @* Start Studie section *@
 <br />
 <div class="row">
@@ -843,135 +844,135 @@
 
 <div class="row">
 
-            @if (Model.GetLast4Studies != null)
-            {
+    @if (Model.GetLast4Studies != null)
+    {
 
-                <div class="col">
-                    <div class="Studies-Carusel owl-carousel owl-theme p-0">
+        <div class="col">
+            <div class="Studies-Carusel owl-carousel owl-theme p-0">
 
-
-                        @foreach (var item in Model.GetLast4Studies)
-                        {
-
-                            <div class="item p-2">
-
-
-                                <div class="studies-box">
-                                    <div class="image-relativ">
-
-                                        @if (item.Image != null || item.ImageCoverPath != null)
-                                        {
-                                            @if (item.Image != null)
-                                            {
-                                                <img src="@item.Image" alt="Alternate Text" />
-                                            }
-                                            @if (item.ImageCoverPath != null)
-                                            {
-                                                <img src="@ViewBag.AdminURL/Upload/Studies/Images/@item.ImageCoverPath" alt="Alternate Text" />
-                                            }
-                                        }
-                                        else
-                                        {
-                                            <img src="/img/Book.png" />
-                                        }
-
-
-                                    <div class="overlay d-flex flex-column align-items-center justify-content-center">
-
-                                        <button class="dl-link" data-toggle="modal" data-target="#exampleModalCenter_@item.Id">@Localizer["View"] <span class=" fas fa-eye mr-1"></span></button>
-                                        <br />
-                                        @if (item.DownloadLink != null)
-                                        {
-                                            <a class="dl-link" href="@ViewBag.AdminURL/Upload/Studies/Downloads/@item.DownloadLink">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
-                                            <br />
-                                        }
-
-                                        <div class="dropdown" id="share">
-                                            <button class="dl-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                                @Localizer["Share"] <span class=" fas fa-share-alt mr-1 ml-1"></span>
-                                            </button>
-                                            <div class="dropdown-menu share-colaps-book dropdown-menu-center" aria-labelledby="dropdownMenuButton">
-                                                <div class="d-flex">
-                                                    <a href="whatsapp://send?text=@item.Title-@ViewBag.AdminURL/Upload/Studies/Downloads/@item.DownloadLink" data-action="share/whatsapp/share"><span class="fab fa-whatsapp text-success"></span></a>
-                                                    <a href="https://telegram.me/share/url?url=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-telegram text-info"></span></a>
-                                                    <a href="mailto:?=&subject=@item.Title&body=@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fas fa-envelope text-secondary"></span></a>
-                                                    <a href="https://www.facebook.com/sharer/sharer.php?u=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-facebook text-primary"></span></a>
-                                                    <a href="https://twitter.com/intent/tweet?text=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-twitter text-info"></span></a>
-                                                </div>
-                                            </div>
-
-                                        </div>
-
-
-
-
-                                    </div>
-                                    </div>
-
-                                    <div class="studies-option d-flex justify-content-center">
-                                        <img src="/img/BookLogo.png" alt="Alternate Text" />
-                                    </div>
-                                </div>
-
-
-                            </div>
-
-
-                        }
-
-
-
-
-                    </div>
-
-                </div>
 
                 @foreach (var item in Model.GetLast4Studies)
                 {
-                    <div class="modal fade " id="exampleModalCenter_@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
-                        <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
-                            <div class="modal-content">
+
+                    <div class="item p-2">
 
 
-                                <div class="modal-header p-0">
-                                    <button type="button" class="close-windows-modal" data-dismiss="modal" aria-label="Close"><span class="fas fa-times"></span></button>
+                        <div class="studies-box">
+                            <div class="image-relativ">
 
-                                    <div class="img-header-object d-flex align-items-center">
+                                @if (item.Image != null || item.ImageCoverPath != null)
+                                {
+                                    @if (item.Image != null)
+                                    {
+                                        <img src="@item.Image" alt="Alternate Text" />
+                                    }
+                                    @if (item.ImageCoverPath != null)
+                                    {
+                                        <img src="@ViewBag.AdminURL/Upload/Studies/Images/@item.ImageCoverPath" alt="Alternate Text" />
+                                    }
+                                }
+                                else
+                                {
+                                    <img src="/img/Book.png" />
+                                }
 
 
-                                        @if (item.Image != null)
-                                        {
-                                            <img src="@item.Image" alt="Alternate Text" />
-                                        }
-                                        @if (item.ImageCoverPath != null)
-                                        {
-                                            <img src="@ViewBag.AdminURL/Upload/Studies/Images/@item.ImageCoverPath" alt="Alternate Text" />
-                                        }
+                                <div class="overlay d-flex flex-column align-items-center justify-content-center">
 
-                                        <p>@item.Title</p>
+                                    <button class="dl-link" data-toggle="modal" data-target="#exampleModalCenter_@item.Id">@Localizer["View"] <span class=" fas fa-eye mr-1"></span></button>
+                                    <br />
+                                    @if (item.DownloadLink != null)
+                                    {
+                                        <a class="dl-link" href="@ViewBag.AdminURL/Upload/Studies/Downloads/@item.DownloadLink">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
+                                        <br />
+                                    }
+
+                                    <div class="dropdown" id="share">
+                                        <button class="dl-link dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                            @Localizer["Share"] <span class=" fas fa-share-alt mr-1 ml-1"></span>
+                                        </button>
+                                        <div class="dropdown-menu share-colaps-book dropdown-menu-center" aria-labelledby="dropdownMenuButton">
+                                            <div class="d-flex">
+                                                <a href="whatsapp://send?text=@item.Title-@ViewBag.AdminURL/Upload/Studies/Downloads/@item.DownloadLink" data-action="share/whatsapp/share"><span class="fab fa-whatsapp text-success"></span></a>
+                                                <a href="https://telegram.me/share/url?url=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-telegram text-info"></span></a>
+                                                <a href="mailto:?=&subject=@item.Title&body=@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fas fa-envelope text-secondary"></span></a>
+                                                <a href="https://www.facebook.com/sharer/sharer.php?u=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-facebook text-primary"></span></a>
+                                                <a href="https://twitter.com/intent/tweet?text=@item.Title-@ViewBag.ShareURL/Library/Index/@item.Id"><span class="fab fa-twitter text-info"></span></a>
+                                            </div>
+                                        </div>
 
                                     </div>
 
 
-                                </div>
-                                <div class="modal-body studies-body-modal">
-                                    <div class="paper-desc-box">
-                                        <pre>
-                                         @item.Description
-                                    </pre>
-                                    </div>
-                                </div>
 
 
+                                </div>
+                            </div>
+
+                            <div class="studies-option d-flex justify-content-center">
+                                <img src="/img/BookLogo.png" alt="Alternate Text" />
                             </div>
                         </div>
+
+
                     </div>
 
-                }
-            }
 
+                }
+
+
+
+
+            </div>
 
         </div>
+
+        @foreach (var item in Model.GetLast4Studies)
+        {
+            <div class="modal fade " id="exampleModalCenter_@item.Id" tabindex="-1" role="dialog" aria-labelledby="exampleModalCenterTitle" aria-hidden="true">
+                <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+
+
+                        <div class="modal-header p-0">
+                            <button type="button" class="close-windows-modal" data-dismiss="modal" aria-label="Close"><span class="fas fa-times"></span></button>
+
+                            <div class="img-header-object d-flex align-items-center">
+
+
+                                @if (item.Image != null)
+                                {
+                                    <img src="@item.Image" alt="Alternate Text" />
+                                }
+                                @if (item.ImageCoverPath != null)
+                                {
+                                    <img src="@ViewBag.AdminURL/Upload/Studies/Images/@item.ImageCoverPath" alt="Alternate Text" />
+                                }
+
+                                <p>@item.Title</p>
+
+                            </div>
+
+
+                        </div>
+                        <div class="modal-body studies-body-modal">
+                            <div class="paper-desc-box">
+                                <pre>
+                                         @item.Description
+                                    </pre>
+                            </div>
+                        </div>
+
+
+                    </div>
+                </div>
+            </div>
+
+        }
+    }
+
+
+</div>
 
 
 <div class="row">
@@ -1072,7 +1073,7 @@
                                 <div class="modal-body studies-body-modal">
 
                                     <div class="paper-desc-box">
-                                            <pre>
+                                        <pre>
                                              @item.Description
                                             </pre>
                                     </div>
@@ -1080,7 +1081,7 @@
 
                                 <div class="modal-footer d-flex justify-content-center">
 
-                                    @if (item.Download !=null)
+                                    @if (item.Download != null)
                                     {
                                         <a href="@ViewBag.AdminURL/Upload/Papers/Downloads/@item.Download" class="dl-link">@Localizer["Download"] <span class=" fas fa-download mr-1"></span></a>
                                     }

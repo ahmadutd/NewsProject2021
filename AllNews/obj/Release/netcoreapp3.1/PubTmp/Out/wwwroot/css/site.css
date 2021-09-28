@@ -44,9 +44,8 @@
     position: absolute;
     height: 100%;
     width: 100%;
-    z-index:1999;
-    overflow:hidden !important;
-
+    z-index: 1999;
+    overflow: hidden !important;
 }
 .modal-header {
     position: relative;
@@ -679,7 +678,8 @@ a
 
 .smart-search-box .form-check-input
 {
-    border:none !important;
+    border:aliceblue !important;
+    background:aliceblue !important;
 }
 .smart-search-box .smart-search-tab .select-box option {
     font-family: 'Almarai', sans-serif;
@@ -769,12 +769,14 @@ a
 {
     font-family: 'Almarai', sans-serif;
     font-size: 12px;
-    width:400px;
+    width:300px;
     height:30px;
     outline:none;
-    border:1px solid rgba(48, 48, 48, 0.3);
+    background:aliceblue;
+    border:1px solid #008ddd;
     border-radius:2px;
     padding:0 5px
+
 }
 .smart-search-box-rs .smart-search-btnres
 {
@@ -782,7 +784,7 @@ a
     outline:none;
     border-radius:2px;
     text-align:center;
-    width:400px;
+    width:300px;
     height:30px;
     background:rgba(49, 49, 49, 0.61);
     color:aliceblue
@@ -1698,6 +1700,7 @@ hr.new1 {
     transform:scale(1);
     transition:transform .6s ease !important;
     background:aliceblue;
+    height:350px
     
 }
 .analyz-box-blackover {
@@ -1723,8 +1726,8 @@ hr.new1 {
 }
 
 .analyz-box .analyz-img img {
-    width: 120px;
-    height: 120px;
+    max-width: 120px;
+    max-height: 120px;
 }
 .analyz-box .analyz-info
 {
@@ -2138,17 +2141,19 @@ hr.new1 {
 {
     font-family: 'Almarai', sans-serif;
     font-weight:700;
-    font-size: 15px;
+    font-size: 16px;
     box-shadow: 1px 2px 6px 1px rgba(48, 48, 48, 0.3);
     padding: 10px;
     line-height: 2;
+    border:1px solid rgba(255, 0, 0, 0.43)
 }
 .news-desc pre
 {
     font-family: 'Almarai', sans-serif;
     font-weight:700;
     font-size: 14px !important;
-    color:rgb(47, 46, 46);
+
+    color:black;
     line-height:2;
     padding:5px;
     white-space:pre-line;

@@ -6,6 +6,7 @@ using System.Linq;
 using System.Threading.Tasks;
 using AllNews.Data.Interfaces;
 using AllNews.Domain;
+using AllNews.Helper;
 using AllNews.ViewModel;
 using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Http;
@@ -591,7 +592,9 @@ namespace WebApplication1.Controllers
 
         public ContentResult CurrentTime()
         {
-            return Content(DateTime.Now.ToString("dddd d MMMM yyyy"));
+            var datetime = DateTime.Now;
+            var europianTimeZone = datetime.ToEuropianDateTime();
+            return Content(europianTimeZone.ToString("dddd d MMMM yyyy - HH:mm"));
         }
        
         public PartialViewResult CategorySearch()

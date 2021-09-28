@@ -61,7 +61,7 @@ namespace AllNewsCms.Web.Pages
 
                 );
 
-            return Redirect(nameof(Index));
+            return Redirect(Request.Headers["referer"].ToString());
         }
 
 
